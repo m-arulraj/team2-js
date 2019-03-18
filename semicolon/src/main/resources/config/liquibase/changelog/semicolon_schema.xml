@@ -76,12 +76,33 @@
 			referencedColumnNames="USERNAME" referencedTableName="USERS" />
 
 	</changeSet>
-	<changeSet id="20190318180700" author="virtusa">
+	<changeSet id="20190318510700" author="virtusa">
 		<createTable tableName="COMPANY_DETAILS">
 			<column name="USERNAME" type="varchar(50)" />
 			<column name="COMPANY_NAME" type="varchar(50)" />
-
+			<column name="CONTACT_NUMBER" type="bigint"/>
+			<column name="ADDRESS" type="varchar(50)"/>
+			<column name="ESTABLISHED_ON" type="date"/>
 		</createTable>
+		
+		<addForeignKeyConstraint baseColumnNames="USERNAME"
+			baseTableName="COMPANY_DETAILS" constraintName="USER_COMPANY_DETAILS_FK"
+			referencedColumnNames="USERNAME" referencedTableName="USERS" />
+		
+		
+		<createTable tableName="POSTED_JOBS_LIST">
+			<column name="POSTED_BY" type="varchar(50)" />
+			<column name="JOB_TITLE" type="varchar(50)"/>
+			<column name="JOB_ID" type="varchar(20)"/>
+			<column name="NUMBER_OF_VACANCIES" type="bigint"/>
+			<column name="SALARY" type="double"/>
+			<column name="REQUIRED_SKILLS" type="varchar(100)"/>
+			<column name="JOB_DESCRIPTION" type="varchar(200)"/>
+		</createTable>
+		
+		<addForeignKeyConstraint baseColumnNames="POSTED_BY"
+			baseTableName="POSTED_JOBS_LIST" constraintName="USER_POSTED_JOBS_LIST_FK"
+			referencedColumnNames="USERNAME" referencedTableName="USERS" />
 	</changeSet>
 
 </databaseChangeLog>
