@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<property name="now" value="now()" dbms="mysql" />
+
+	<changeSet id="20190318171500" author="virtusa">
+
+		<createTable tableName="USERS">
+			<column name="USERNAME" type="varchar(50)">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="PASSWORD" type="varchar(50)" />
+			<column name="ENABLED" type="tinyint(1)"></column>
+		</createTable>
+
+		<createTable tableName="AUTHORITIES">
+			<column name="USERNAME" type="varchar(50)" />
+			<column name="AUTHORITIES" type="varchar(50)" />
+		</createTable>
+
+		<addForeignKeyConstraint baseColumnNames="USERNAME"
+			baseTableName="AUTHORITIES" constraintName="USER_AUTHORITY_FK"
+			referencedColumnNames="USERNAME" referencedTableName="USERS" />
+
+		<createTable tableName="PERSONAL_DETAILS">
+			<column name="USERNAME" type="varchar(50)" />
+			<column name="FIRST_NAME" type="varchar(50)" />
+			<column name="LAST_NAME" type="varchar(50)" />
+			<column name="GENDER" type="varchar(10)" />
+			<column name="CONTACT_NUMBER" type="bigint" />
+			<column name="DATE_OF_BIRTH" type="date" />
+			<column name="ADDRESS" type="varchar(50)" />
+			<column name="FATHER_NAME" type="varchar(50)" />
+			<column name="COUNTRY" type="varchar(30)" />
+			<column name="STATE" type="varchar(30)" />
+			<column name="PINCODE" type="bigint" />
+			<column name="PROFILE_PICTURE" type="BLOB" />
+		</createTable>
+
+		<addForeignKeyConstraint baseColumnNames="USERNAME"
+			baseTableName="PERSONAL_DETAILS" constraintName="USER_PERSONAL_DETAILS_FK"
+			referencedColumnNames="USERNAME" referencedTableName="USERS" />
+
+		<createTable tableName="EDUCATIONAL_DETAILS">
+			<column name="USERNAME" type="varchar(50)" />
+			<column name="HIGHEST_DEGREE" type="varchar(50)" />
+			<column name="COLLEGE" type="varchar(50)" />
+			<column name="SPECIALIZATION" type="varchar(50)" />
+			<column name="YEAR_OF_PASSOUT" type="bigint" />
+			<column name="PERCENTAGE" type="double" />
+			<column name="YEAR_GAP" type="bigint" />
+			<column name="NUMBER_OF_BACKLOGS" type="bigint" />
+			<column name="SKILLS" type="varchar(100)" />
+			<column name="RESUME" type="BLOB" />
+		</createTable>
+
+		<addForeignKeyConstraint baseColumnNames="USERNAME"
+			baseTableName="EDUCATIONAL_DETAILS" constraintName="USER_EDUCATIONAL_DETAILS_FK"
+			referencedColumnNames="USERNAME" referencedTableName="USERS" />
+
+		<createTable tableName="WORK_EXPERIANCE_DETAILS">
+			<column name="USERNAME" type="varchar(50)" />
+			<column name="COMPANY_NAME" type="varchar(50)" />
+			<column name="DESIGNATION" type="varchar(50)" />
+			<column name="ROLES_AND_RESPONSIBILITIES" type="varchar(100)" />
+			<column name="START_DATE" type="date" />
+			<column name="END_DATE" type="date" />
+			<column name="NUMBER_OF_YEARS" type="bigint" />
+			<column name="CURRENT_SALARY" type="double" />
+		</createTable>
+
+		<addForeignKeyConstraint baseColumnNames="USERNAME"
+			baseTableName="WORK_EXPERIANCE_DETAILS" constraintName="USER_WORK_EXPERIANCE_DETAILS_FK"
+			referencedColumnNames="USERNAME" referencedTableName="USERS" />
+
+	</changeSet>
+	<changeSet id="20190318510700" author="virtusa">
+		<createTable tableName="COMPANY_DETAILS">
+			<column name="USERNAME" type="varchar(50)" />
+			<column name="COMPANY_NAME" type="varchar(50)" />
+			<column name="CONTACT_NUMBER" type="bigint"/>
+			<column name="ADDRESS" type="varchar(50)"/>
+			<column name="ESTABLISHED_ON" type="date"/>
+		</createTable>
+		
+		<addForeignKeyConstraint baseColumnNames="USERNAME"
+			baseTableName="COMPANY_DETAILS" constraintName="USER_COMPANY_DETAILS_FK"
+			referencedColumnNames="USERNAME" referencedTableName="USERS" />
+		
+		
+		<createTable tableName="POSTED_JOBS_LIST">
+			<column name="POSTED_BY" type="varchar(50)" />
+			<column name="JOB_TITLE" type="varchar(50)"/>
+			<column name="JOB_ID" type="varchar(20)"/>
+			<column name="NUMBER_OF_VACANCIES" type="bigint"/>
+			<column name="SALARY" type="double"/>
+			<column name="REQUIRED_SKILLS" type="varchar(100)"/>
+			<column name="JOB_DESCRIPTION" type="varchar(200)"/>
+		</createTable>
+		
+		<addForeignKeyConstraint baseColumnNames="POSTED_BY"
+			baseTableName="POSTED_JOBS_LIST" constraintName="USER_POSTED_JOBS_LIST_FK"
+			referencedColumnNames="USERNAME" referencedTableName="USERS" />
+	</changeSet>
+
+</databaseChangeLog>
