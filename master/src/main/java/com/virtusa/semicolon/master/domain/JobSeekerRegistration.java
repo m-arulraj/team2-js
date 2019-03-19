@@ -1,6 +1,6 @@
 package com.virtusa.semicolon.master.domain;
 
-public class EmployerRegistration {
+public class JobSeekerRegistration {
 
 	private String userName;
 	
@@ -10,11 +10,11 @@ public class EmployerRegistration {
 	
 	private String authorities;
 
-	public String getUsername() {
+	public String getUserName() {
 		return userName;
 	}
 
-	public void setUsername(String userName) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
@@ -24,14 +24,6 @@ public class EmployerRegistration {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 
 	public Long getEnabled() {
