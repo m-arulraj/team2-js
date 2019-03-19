@@ -1,110 +1,250 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-<title>W3.CSS Template</title>
-<meta charset="UTF-8"/>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<title>Semicolon (;)</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet"
+	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css"/>
+<link rel='stylesheet'
+	href='https://fonts.googleapis.com/css?family=Open+Sans'/>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-</style>
-<body>
-
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
-  </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
-  </div>
-</div>
-
-<!-- Header -->
-<header class="w3-container w3-red w3-center" style="padding:128px 16px">
-  <h1 class="w3-margin w3-jumbo">Index Page</h1>
-  <p class="w3-xlarge">Template by w3.css</p>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
-</header>
-
-<!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-twothird">
-      <h1>Lorem Ipsum</h1>
-      <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
-
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-
-    <div class="w3-third w3-center">
-      <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
-    </div>
-  </div>
-</div>
-
-<!-- Second Grid -->
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-third w3-center">
-      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
-    </div>
-
-    <div class="w3-twothird">
-      <h1>Lorem Ipsum</h1>
-      <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
-
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-  </div>
-</div>
-
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
-</div>
-
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
-  <div class="w3-xlarge w3-padding-32">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
- </div>
- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
-
-<script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
+html, body, h1, h2, h3, h4, h5 {
+	font-family: "Open Sans", sans-serif
 }
-</script>
+</style>
+<body class="w3-theme-l5">
+
+	<!-- Navbar -->
+	<div class="w3-top">
+		<div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+			<a
+				class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2"
+				href="javascript:void(0);" onclick="openNav()"><i
+				class="fa fa-bars"></i></a> <a href="#"
+				class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i
+				class="fa fa-home w3-margin-right"></i>Semicolon (;)</a>
+			<!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>-->
+			<a href="#"
+				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+				title="Account Settings"><i class="fa fa-user"></i></a>
+			<!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>-->
+			<div class="w3-dropdown-hover w3-hide-small">
+				<button class="w3-button w3-padding-large" title="Notifications">
+					<i class="fa fa-bell"></i><span
+						class="w3-badge w3-right w3-small w3-green">3</span>
+				</button>
+				<div class="w3-dropdown-content w3-card-4 w3-bar-block"
+					style="width: 300px">
+					<a href="#" class="w3-bar-item w3-button">new jobs are
+						available</a> <a href="#" class="w3-bar-item w3-button">oracle
+						requires the java candidates</a> <a href="#"
+						class="w3-bar-item w3-button">job status changed</a>
+				</div>
+			</div>
+			<a href="#"
+				class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white"
+				title="My Account"> <img src="/w3images/avatar2.png"
+				class="w3-circle" style="height: 23px; width: 23px" alt="Avatar"/>
+			</a>
+		</div>
+	</div>
+	
+	
+
+	<!-- Navbar on small screens -->
+	<div id="navDemo"
+		class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">My
+			Profile</a>
+	</div>
+
+	<!-- Page Container -->
+	<div class="w3-container w3-content"
+		style="max-width: 1400px; margin-top: 80px">
+		<!-- The Grid -->
+		<div class="w3-row">
+			<!-- Left Column -->
+			<div class="w3-col m3">
+				<!-- Profile -->
+				<div class="w3-card w3-round w3-white">
+					<div class="w3-container">
+						<h4 class="w3-center">My Profile</h4>
+						<p class="w3-center">
+							<img
+								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKXahcKzJheYoAI9n-U3od3bfhj_LKhofGs-ONsU4GLVzwihkX"
+								class="w3-circle" style="height: 106px; width: 106px"
+								alt="Avatar"/>
+						</p>
+						<hr/>
+						<p>
+							<i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
+							java Developer
+						</p>
+						<p>
+							<i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
+							Chennai,India
+						</p>
+						<p>
+							<i
+								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
+							December 12, 1992
+						</p>
+					</div>
+				</div>
+				<br/>
+
+				<!-- Interests -->
+				<div class="w3-card w3-round w3-white w3-hide-small">
+					<div class="w3-container">
+						<p>Interests</p>
+						<p>
+							<span class="w3-tag w3-small w3-theme-d4">Java</span> <span
+								class="w3-tag w3-small w3-theme-d3">Spring</span> <span
+								class="w3-tag w3-small w3-theme-d2">Hibernate</span> <span
+								class="w3-tag w3-small w3-theme-d1">HTML</span> <span
+								class="w3-tag w3-small w3-theme">CSS</span> <span
+								class="w3-tag w3-small w3-theme-l1">Junit</span> <span
+								class="w3-tag w3-small w3-theme-l2">Oracle</span>
+						</p>
+					</div>
+				</div>
+				<br/>
+
+				<!-- Alert Box -->
+				<div
+					class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+					<span onclick="this.parentElement.style.display='none'"
+						class="w3-button w3-theme-l3 w3-display-topright"> <i
+						class="fa fa-remove"></i>
+					</span>
+					<p>
+						<strong>Hey!</strong>
+					</p>
+					<p>People are looking at your profile. Find out who.</p>
+				</div>
+
+				<!-- End Left Column -->
+			</div>
+
+			<!-- Middle Column -->
+			<div class="w3-col m7">
+
+
+				<div class="w3-container w3-card w3-white w3-round w3-margin">
+					<br/> <img
+						src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg4wOENMUhDdRz0pvuEktBQnRN4zBpADtSK6wV_pgE34Goca2Fbg"
+						alt="Avatar" class="w3-left w3-circle w3-margin-right"
+						style="width: 60px"/>
+
+					<h4>Lead Analyst - Java</h4>
+					<br/>
+					<hr class="w3-clear"/>
+					<p>
+						Job Description : <br/> BE / Btech Freshers Fresher out of
+						college <br/> Primary Location: IN-TN-Chennai <br/>
+						Schedule: Full Time <br/> Job Type: Experienced <br/> Job
+						Posting: 18/03/2019, 4:01:14 PM
+					</p>
+					<button type="button"
+						class="w3-button w3-theme-d1 w3-margin-bottom"
+						onclick="location.href='https://www.cgi.com/india/en/careers-search/J0818-2027';">
+						<!--<i class="fa fa-thumbs-up"></i>-->
+						 Apply
+					</button>
+					<button type="button"
+						class="w3-button w3-theme-d2 w3-margin-bottom"
+						onclick="location.href='https://www.cgi.com/india/en/careers-search/J0818-2027';">
+						<!--<i class="fa fa-comment"></i>-->
+						View
+					</button>
+				</div>
+
+
+				<!-- End Middle Column -->
+			</div>
+
+			<!-- Right Column -->
+			<div class="w3-col m2">
+				<div class="w3-card w3-round w3-white w3-center">
+					<div class="w3-container">
+						<p>Upcoming Jobs:</p>
+						<img
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg4wOENMUhDdRz0pvuEktBQnRN4zBpADtSK6wV_pgE34Goca2Fbg"
+							alt="Forest" style="width: 50%;"/>
+						<p>Java Developers</p>
+						<p>
+							<button class="w3-button w3-block w3-theme-l4"
+								onclick="location.href='https://www.cgi.com/india/en/careers';">Info</button>
+						</p>
+						<!--<input type="button" onclick="location.href='http://google.com';" value="Go to Google" />-->
+					</div>
+				</div>
+				<br/>
+				<div class="w3-card w3-round w3-white w3-center">
+					<div class="w3-container">
+						<p>Upcoming Jobs:</p>
+						<img
+							src="https://static1.squarespace.com/static/5897b8a9197aeaa034b4dfa5/t/5b061f86562fa74ebee48410/1549857433476/?format=1500w"
+							alt="Forest" style="width: 70%;"/>
+						<p>Front-end Developers</p>
+						<p>
+							<button class="w3-button w3-block w3-theme-l4"
+								onclick="location.href='https://www.nttdata.com/global/en/careers';"
+								value="Info">Info</button>
+						</p>
+						<!--<input type="button" onclick="location.href='http://google.com';" value="Go to Google" />-->
+					</div>
+				</div>
+
+				<!-- End Right Column -->
+			</div>
+
+			<!-- End Grid -->
+		</div>
+
+		<!-- End Page Container -->
+	</div>
+	<br/>
+
+	<!-- Footer -->
+
+	<footer class="w3-container w3-theme-d5">
+		<center>
+			<p>Powered by - Semicolon (;)</p>
+		</center>
+	</footer>
+
+	<script>
+		// Accordion
+		function myFunction(id) {
+			var x = document.getElementById(id);
+			if (x.className.indexOf("w3-show") == -1) {
+				x.className += " w3-show";
+				x.previousElementSibling.className += " w3-theme-d1";
+			} else {
+				x.className = x.className.replace("w3-show", "");
+				x.previousElementSibling.className = x.previousElementSibling.className
+						.replace(" w3-theme-d1", "");
+			}
+		}
+
+		// Used to toggle the menu on smaller screens when clicking on the menu button
+		function openNav() {
+			var x = document.getElementById("navDemo");
+			if (x.className.indexOf("w3-show") == -1) {
+				x.className += " w3-show";
+			} else {
+				x.className = x.className.replace(" w3-show", "");
+			}
+		}
+	</script>
 
 </body>
 </html>
