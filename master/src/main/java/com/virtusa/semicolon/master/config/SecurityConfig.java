@@ -44,10 +44,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		 * .logout().permitAll()
 		 * .and().exceptionHandling().accessDeniedPage("/access-denied");
 		 */
-		http.authorizeRequests().anyRequest().authenticated().antMatchers("/**").hasRole("USER")
-		.and().formLogin()/*.loginPage("/login-page")
-		.loginProcessingUrl("/authenticateUser")*/.permitAll()
+		
+		/*http.authorizeRequests().anyRequest().authenticated().antMatchers("/**").hasRole("USER")
+		.and().formLogin().loginPage("/login-page")
+		.loginProcessingUrl("/authenticateUser").permitAll()
 		.and().logout().permitAll();
-
+*/
 	}
 }
