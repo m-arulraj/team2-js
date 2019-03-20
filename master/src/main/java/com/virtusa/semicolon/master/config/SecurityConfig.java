@@ -5,7 +5,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
 
 @Configuration
 @EnableWebSecurity
@@ -45,10 +44,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		 * .and().exceptionHandling().accessDeniedPage("/access-denied");
 		 */
 		
-		/*http.authorizeRequests().anyRequest().authenticated().antMatchers("/**").hasRole("USER")
-		.and().formLogin().loginPage("/login-page")
+		http.authorizeRequests().anyRequest().authenticated()
+		.antMatchers("/").hasRole("USER")
+		.and().formLogin().loginPage("/login")
 		.loginProcessingUrl("/authenticateUser").permitAll()
 		.and().logout().permitAll();
-*/
+
 	}
 }

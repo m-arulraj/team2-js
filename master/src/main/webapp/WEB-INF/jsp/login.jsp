@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <title>Semicolon (;)</title>
@@ -65,14 +67,23 @@ html, body, h1, h2, h3, h4, h5 {
 	</div>
 
 	<!-- Page Container -->
-	<div class="w3-container w3-content w3-card "
-		style="margin-top: 80px">
-		
+	<div class="w3-container w3-content w3-card " style="margin-top: 80px">
+
 		<div class="w3-container w3-margin w3-blue">
-			<h2 class="w3-center"> Login</h2>
+			<h2 class="w3-center">Login</h2>
 		</div>
 
-		<form class="w3-container" method="post" action="#">
+		<form:form
+			action="${pageContext.request.contextPath}/authenticateTheUser"
+			method="post">
+
+			<c:if test="${param.error != null}">
+				<i>Wrong credentials</i>
+			</c:if>
+
+			<c:if test="${param.logout != null}">
+				<i>You have been logged out</i>
+			</c:if>
 			<p>
 				<label>Username</label> <input class="w3-input" type="text">
 			</p>
@@ -82,7 +93,7 @@ html, body, h1, h2, h3, h4, h5 {
 			<p class="w3-center w3-padding">
 				<input class="w3-button w3-center w3-green" type="submit">
 			</p>
-		</form>
+		</form:form>
 
 	</div>
 	<br />
