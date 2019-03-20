@@ -76,7 +76,7 @@ html, body, h1, h2, h3, h4, h5 {
 		</div>
 
 		<form:form
-			action="${pageContext.request.contextPath}/authenticateTheUser"
+			action="${pageContext.request.contextPath}/authenticateUser"
 			method="post">
 
 			<c:if test="${param.error != null}">
