@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 import com.virtusa.semicolon.employer_service.domain.PostedJobsList;
 
 @Repository
-public interface PostedJobsListRepository extends JpaRepository<PostedJobsList,String>{
+public interface PostedJobsListRepository extends JpaRepository<PostedJobsList,Long>{
 
-/*	@Query("SELECT pjs.jobId FROM PostedJobsList pjs WHERE pjs.jobTitle=:jobTitle")
-	List<PostedJobsList> findByJobname(@Param("jobTitle") String jobTitle);*/
+	@Query("SELECT p.jobId FROM PostedJobsList p WHERE p.jobTitle =: jobTitle")
+	List<PostedJobsList> findByJobname(@Param("jobTitle") String jobTitle);
 }

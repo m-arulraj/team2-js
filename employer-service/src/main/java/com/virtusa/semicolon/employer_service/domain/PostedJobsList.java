@@ -10,6 +10,18 @@ import javax.persistence.Table;
 @Table(name="POSTED_JOBS_LIST")
 public class PostedJobsList {
 	
+	public PostedJobsList(){}
+	
+	public PostedJobsList(String postedBy, String jobTitle, Long numberOfVacancies, Double salary, String jobId,
+			String requiredSkills, String jobDescription) {
+		this.postedBy = postedBy;
+		this.jobTitle = jobTitle;
+		this.numberOfVacancies = numberOfVacancies;
+		this.salary = salary;
+		this.jobId = jobId;
+		this.requiredSkills = requiredSkills;
+		this.jobDescription = jobDescription;
+	}
 	@Id
 	@GeneratedValue
 	@Column(name="ID")

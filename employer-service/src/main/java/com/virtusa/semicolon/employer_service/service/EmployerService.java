@@ -20,7 +20,7 @@ public class EmployerService {
 		return postedJobsListRepository.save(postedJobsList);
 	}
 	
-/*	@Transactional
+	@Transactional
 	public PostedJobsList managingJob(String name,PostedJobsList postedJobsList)
 	{
 
@@ -37,6 +37,6 @@ public class EmployerService {
 		}
 		return postedJobsListRepository.save(pjs);
 		
-	}*/
+	}
 	
 }

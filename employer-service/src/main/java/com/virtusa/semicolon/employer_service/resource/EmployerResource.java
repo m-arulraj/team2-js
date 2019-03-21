@@ -15,10 +15,10 @@ import com.virtusa.semicolon.employer_service.domain.PostedJobsList;
 import com.virtusa.semicolon.employer_service.service.EmployerService;
 
 @RestController
-@RequestMapping("/api/semicolonemployer")
+@RequestMapping("/api/employer")
 public class EmployerResource {
 
-	String api="/api/semicolonemployer";
+	String api="/api/employer";
 	
 	@Autowired
 	EmployerService employerService;
@@ -29,10 +29,11 @@ public class EmployerResource {
 		return ResponseEntity.created(new URI(api+employerService.postingJob(jobsList).getJobTitle())).build();	
 	}
 	
-/*	@RequestMapping(value="/{jobTitle}",method=RequestMethod.PUT)
+	@RequestMapping(value="/{jobTitle}",method=RequestMethod.POST)
 	public PostedJobsList managingJob(@PathVariable("jobTitle")String jobTitle,@RequestBody PostedJobsList postedJobsList)
 	{
+		System.out.println(employerService);
 		return employerService.managingJob(jobTitle, postedJobsList);
 		
-	}*/
+	}
 }
