@@ -12,7 +12,10 @@
 	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<link rel='stylesheet'
+	href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+	integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ'
+	crossorigin='anonymous'>
 <link rel='stylesheet'
 	href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet"
@@ -30,28 +33,22 @@ html, body, h1, h2, h3, h4, h5 {
 			<a
 				class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2"
 				href="javascript:void(0);" onclick="openNav()"><i
-				class="fa fa-bars"></i></a> <a href="/admin"
+				class="fa fa-bars"></i></a>
+				 <a href="/admin"
 				class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i
-				class="fa fa-home w3-margin-right"></i>Admin Home</a> <a href="#"
+				class="fa fa-home w3-margin-right"></i>Admin Home</a> 
+				<a href="#"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
-				title="News"><i class="fa fa-globe"></i></a> <a href="#"
+				title="News"><i class="fa fa-bell"></i>&nbsp;&nbsp;Approval Requests</a>
+				 <a href="#"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
-				title="Account Settings"><i class="fa fa-user"></i></a> <a href="#"
+				title="Account Settings"><i class="fa fa-user"></i></a>
+				 <a href="#"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
 				title="Messages"><i class="fa fa-envelope"></i></a>
-			<div class="w3-dropdown-hover w3-hide-small">
-				<button class="w3-button w3-padding-large" title="Notifications">
-					<i class="fa fa-bell"></i><span
-						class="w3-badge w3-right w3-small w3-green">3</span>
-				</button>
-				<div class="w3-dropdown-content w3-card-4 w3-bar-block"
-					style="width: 300px">
-					<a href="#" class="w3-bar-item w3-button">One new friend
-						request</a> <a href="#" class="w3-bar-item w3-button">John Doe
-						posted on your wall</a> <a href="#" class="w3-bar-item w3-button">Jane
-						likes your post</a>
-				</div>
-			</div>
+			
+				
+			
 			<a href="#"
 				class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white"
 				title="My Account"> <img src="/w3images/avatar2.png"
@@ -63,11 +60,12 @@ html, body, h1, h2, h3, h4, h5 {
 	<!-- Navbar on small screens -->
 	<div id="navDemo"
 		class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
-		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-		<a href="#" class="w3-bar-item w3-button w3-padding-large">My
-			Profile</a>
+		<a href="/requests" class="w3-bar-item w3-button w3-padding-large">Approval
+			Requests</a> <a href="/reports"
+			class="w3-bar-item w3-button w3-padding-large">Feedback / Reports</a>
+		<a href="/profile" class="w3-bar-item w3-button w3-padding-large">Update
+			Profile</a> <a href="/logout"
+			class="w3-bar-item w3-button w3-padding-large">Logout</a>
 	</div>
 
 	<!-- Page Container -->
@@ -176,25 +174,25 @@ html, body, h1, h2, h3, h4, h5 {
 					<hr class="w3-clear">
 					<br>
 					<div class="w3-center ">
-						<button type="button" style="width: 350px; font-size:20px"
+						<button type="button" style="width: 350px; font-size: 20px"
 							class="w3-button  w3-green  w3-margin-bottom w3-padding">
 							<i class="fa fa-thumbs-up"></i>  See Approval Requests
 						</button>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<button type="button" style="width: 350px; font-size:20px"
+						<button type="button" style="width: 350px; font-size: 20px"
 							class="w3-button  w3-blue w3-margin-bottom w3-padding">
-							<i class="fa fa-comment"></i>  See Reports Feedback
+							<i class="fa fa-comment"></i>  See Reports / Feedback
 						</button>
 					</div>
 
 
 					<div class="w3-center">
-						<button type="button" style="width: 350px; font-size:20px"
+						<button type="button" style="width: 350px; font-size: 20px"
 							class="w3-button  w3-theme-d1  w3-margin-bottom w3-padding">
 							<i class="material-icons">update</i>  Update Profile
 						</button>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<button type="button" style="width: 350px; font-size:20px"
+						<button type="button" style="width: 350px; font-size: 20px"
 							class="w3-button  w3-red w3-margin-bottom w3-padding">
 							<i class="material-icons">power_settings_new</i>  Logout
 						</button>
