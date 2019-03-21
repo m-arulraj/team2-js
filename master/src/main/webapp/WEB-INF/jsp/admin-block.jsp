@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<title>Admin Home</title>
+<title>Admin Block</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -25,7 +25,7 @@ html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
 }
 </style>
-<body class="w3-theme-l5" onload="startTime()">
+<body class="w3-theme-l5">
 
 	<!-- Navbar -->
 	<div class="w3-top">
@@ -36,20 +36,21 @@ html, body, h1, h2, h3, h4, h5 {
 				class="fa fa-bars"></i></a> <a href="/admin"
 				class="w3-bar-item w3-button w3-hover-black w3-padding-large "><i
 				class="fa fa-home w3-margin-right"></i>Admin Home</a> <a
-				href="admin/requests"
+				href="/admin/requests"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-green"
 				title="Approval Requests"><i class="fa fa-plus"></i>&nbsp;&nbsp;Approval
-				Requests</a> <a href="admin/reports"
+				Requests</a> <a href="/admin/reports"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-indigo"
 				title="Reports/Feedback"><i class="fa fa-comment"></i>&nbsp;&nbsp;Reports/Feedback</a>
-			<a href="admin/profile"
+
+			<a href="/admin/profile"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue"
 				title="Profile"><i class="fa fa-user"></i>&nbsp;&nbsp;Profile</a> <a
-				href="admin/users/block"
+				href="block"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-teal"
 				title="Profile"><i class="material-icons"
 				style="font-size: 22px">block</i>&nbsp;&nbsp;Block User</a> <a
-				href="/logout"
+				href="logout"
 				class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-red"
 				title="Logout"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Logout</a>
 
@@ -61,16 +62,16 @@ html, body, h1, h2, h3, h4, h5 {
 		class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
 
 
-		<a href="admin/requests"
+		<a href="/admin/requests"
 			class="w3-bar-item w3-button w3-padding-large">Approval Requests</a>
-		<a href="admin/requests"
+		<a href="/admin/requests"
 			class="w3-bar-item w3-button w3-padding-large">Approval Requests</a>
-		<a href="admin/reports" class="w3-bar-item w3-button w3-padding-large">Feedback
-			/ Reports</a> <a href="admin/profile"
+		<a href="/admin/reports"
+			class="w3-bar-item w3-button w3-padding-large">Feedback / Reports</a>
+		<a href="/admin/profile"
 			class="w3-bar-item w3-button w3-padding-large">Update Profile</a> <a
-			href="admin/users/block"
-			class="w3-bar-item w3-button w3-padding-large">block User</a> <a
-			href="/logout" class="w3-bar-item w3-button w3-padding-large">Logout</a>
+			href="block" class="w3-bar-item w3-button w3-padding-large">block
+			User</a> <a href="logout" class="w3-bar-item w3-button w3-padding-large">Logout</a>
 	</div>
 
 	<!-- Page Container -->
@@ -80,6 +81,7 @@ html, body, h1, h2, h3, h4, h5 {
 		<div class="w3-row">
 			<!-- Left Column -->
 			<div class="w3-col m3">
+				<!-- Profile -->
 				<!-- Profile -->
 				<div class="w3-card w3-round w3-white">
 					<div class="w3-container">
@@ -113,49 +115,43 @@ html, body, h1, h2, h3, h4, h5 {
 				</div>
 				<br>
 
-
-
-
-
-
 				<!-- End Left Column -->
 			</div>
 
 			<!-- Middle Column -->
-			<div class="w3-col m7">
+			<div class="w3-col m9">
 
 
 				<div class="w3-container w3-card w3-white w3-round w3-margin">
 					<br>
-					<h3 class="w3-center w3-xxlarge ">Admin Home</h3>
+					<h3 class="w3-center w3-xxlarge w3-teal">Blocked User</h3>
 					<hr class="w3-clear">
-					<br>
-					<div class="w3-center ">
-						<a href="/admin/requests"><button type="button"
-								style="width: 350px; font-size: 20px"
-								class="w3-button  w3-green  w3-margin-bottom w3-padding ">
-								<i class="fa fa-thumbs-up"></i>  See Approval Requests
-							</button></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/admin/reports"><button
-								type="button" style="width: 350px; font-size: 20px"
-								class="w3-button  w3-indigo w3-margin-bottom w3-padding">
-								<i class="fa fa-comment"></i>  See Reports / Feedback
-							</button></a>
-					</div>
+			
 
-
-					<div class="w3-center">
-						<a href="/admin/profile"><button type="button"
-								style="width: 350px; font-size: 20px"
-								class="w3-button  w3-blue w3-margin-bottom w3-padding">
-								<i class="fa fa-user"></i>  Update Profile
-							</button></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
-							href="/admin/users/block"><button type="button"
-								style="width: 350px; font-size: 20px"
-								class="w3-button  w3-teal w3-margin-bottom w3-padding">
-								<i class="material-icons" style="font-size: 22px">block</i>
-								 Block User
-							</button></a>
-					</div>
+					<ul class="w3-ul w3-border">
+						<li class="w3-bar">
+						<a href="#" class="w3-button w3-red w3-right w3-margin w3-hover-green">Unblock</a>
+							
+							<img
+							src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAM1BMVEUKME7///+El6bw8vQZPVlHZHpmfpHCy9Ojsbzg5ekpSmTR2N44V29XcYayvsd2i5yTpLFbvRYnAAAJcklEQVR4nO2d17arOgxFs+kkofz/154Qmg0uKsuQccddT/vhnOCJLclFMo+//4gedzcApf9B4srrusk+GsqPpj+ypq7zVE9LAdLWWVU+Hx69y2FMwAMGyfusLHwIpooyw9IAQfK+8naDp3OGHvZ0FMhrfPMgVnVjC2kABOQ1MLvi0DEIFj1ILu0LU2WjNRgtSF3pKb4qqtd9IHmjGlJHlc09IHlGcrQcPeUjTAySAGNSkQlRhCCJMGaUC0HSYUx6SmxFAtJDTdylsr4ApC1TY0yquKbCBkk7qnYVzPHFBHkBojhVJWviwgPJrsP4qBgTgbQXdsesjm4pDJDmIuswVZDdFx0ENTtkihoeqSDXD6tVxOFFBHndMKxWvUnzexpIcx/Gg2goJJDhVo6PCMGRAnKTmZuKm3wcJO/upphUqUHy29yVrRhJDORXOKIkEZDf4YiRhEF+iSNCEgb5KY4wSRDkB/yurUEG8nMcocgYABnvbrVL3nMIP0h/d5udKnwzSC/InfPdkJ6eWb0PJE++dyVVyQP5iQmWW27X5QG5druEKafBu0Hqu9saVOHa8HKC/K6BzHKZiRMEZCDF0Nd1/ZfXI/fcOibHOssFgokg9uFA20BhztHEAZIjIohrD/o1wljeFBDEwBo8YUt5Ir/rNLjOIACPFdy/AbEcPdcJBOCxytjeYAM4Kzp6rhOIPhRGNzwmFP3rOoTFI0irtnQKx6fj1Zt+h9njEUS9mKJxfFRrX5lt7wcQtaWTOfTHeIXVJQcQrRW+OYex2j0a66XZINoO8a7fPH2iHF2mC7ZBtB3Czb5QvjizSx7A3308mRzqAwujSywQbYfwc0iU8zqjS0yQ6ztEHX9332KCaGNIYB/Qq1z3yN0oDZBWyeFYJBCkm2sXLhDtpKFwNDMu5TnrZpYGiHbK4Nlwikg5DrYV1g6iPoJmzE5MKd/fOp53EPUaQZaLqH3u+vo2ELWp3wSyWuYGoj9EEIJoV3L9AUS/ZLsJpLNBXmqOu0CW6P5A/dx9IL0FAji/FYKot9EqE0Tvs6QBUe/2CxMEkZAlBNGPhdoAQWyTSmbxUwvUygwQyMmniAPgLt87CODXHuftWJIQgzrfQDC5AfwSgz9MmmG/gWCOqDgZ4JsQeTvZBoJJDhAFEsSDyxUEEUUekk0UEMhjBcEcGsoWVpBU3NcCgkkPkJWrKbdRZvULCMTWhYEdMrayBQRyqHcnSLmAIH7LcWJ8Hch7BsHEdWFpJsZjziCgFBpZ9TPm4e0XBJTTJKt9xjy8RoLI4gimPLP5goCSgWTrEcyzsy8IqmZVMo0H5bJiQToBCOjZ5RcElhjLN3dU7uQMAvoxwQkJZKI1CQzCthJYEigahHuDDi4rFwzCPQ7F1fiDQZgTR5iJwEGYRgIsiECD8BwwMAEfDcIaW8CRBQdhjS1kJQEchDEFhiRKr4KDFPS9FGQNVwEHoW83QjsEHdkfnuIOl6C1NjMItiaCaCWgbdpFJXQ9soh2uoB9aJcCxFdgZwlcrTmvENGlrITBBdpK25Qhd1F2RScq8CKu/gsCL8qN5THjy+Rr5E6joYgPxpdl518QrCf8Kpgjn6C8HLkbb+vt7ZM8wdVvy258khsRfHaS5DalDnlidZT7Erk+SXV5Bj1D3LS29XyhVJuoKHs9Q8S6reK11oUc7vPcr9uswP3SLiDINefXOF5rwCuGzVT6zVkVPfh2wWmHcz4wAwba2cgN1/Tsvleu7//i69CgVyt1GwjOs2+XK3rtbl151Tg3vOeioG40Mz2V+6pQ4xbJHOZj6g0EMxk93tV7fuedvVZpQSPhbwNBGInrymGrwNh1GXmL8F+lAaJ+NU/fzcmvJqvKj7177+1v1GY/GiBKI1Fdy/2XK6upXwaIJpI8B/399W0mH9zzafKaeCF9J0WF+jyCuFusTGzZKhFH8dVLZql2brxgcdVBKb7KG/7UZTmB3XJ6uL/QYT5ScRI74FcHEJ7feopyfGkaeaGlPoCw/BbjZmSBWIvINQNmTxdjWJqwUI8sztR4nYPuIPSTSUnOCZOE3ierqRoJfNSQxDjLEYs8i91eqgFCDSWiFHiuqAN9CwEGCPEISVjvwhS7Mfx6dtX8kC5aqvneGBOEFN2v6RBiYwr3DQOkLhEW6fHFbIwFQnkLiWYmZxE220z/aedPx99C+hiyKR4OzNFhg8S75CJTnxQ1dyugHTLaY10iu9dBpmhQtMz1ABLrkgtHVnRsPUO3OcU25i8cWdGxZbflCBKJqBdMs3aF/dYhNexU9RFcYEmLXYQKghyWdufyldBSU3KpjkKhZclxTXQGCTkL/HZDUIH5+Gkt4SgoCtj7pSYSNJLTK3VVRnmXZxebSMBIzmHABeIdXBebiN9eHYtUZ62ab3BdGkUm+SKJw1bdRXeewaX7qqdAnljg2sVxg3guAk3baofcg9yZ2eZpnHNvSFrEqhB9YPjesmt0pt6Xc8hl7W5L9Q4Xx09ctsrd5VhWeF6nF8SRrZdw49qns//0xTK/AZ8vGr3caTliuzeFNeCJTgafpKlhHd2WP1sy1LqDF798gjKJPLqDr9keoTd43+NyNzC1CI8Xy2lcPtOaVBI5IiAWyQ3e125AcKoXs2Djhy5eVc3KiBxREIPkhjBiLhIjU++4T91IbggjRiCJLSEIwWGddkEaxlVN5KCArPHk8mXVpHk8FHH7JL3n5dPA7C90q7XkeFJucacNmGXeRfswLE71HA79efaGiCN/Ofjmfmtcp8X10tIsqCacV5xfRWjNUiXGYbovWgyFYHcQLak15K9oM5zqmgaeKsHJetbSHfSPzXOiw/rxE9YH4CXaUpsZ0ztemFurP95Jpyvrd29YTpIZr7cEJHqfc7Wl0PFm2+yJR70udaokKFtGPTdm8WdQe24+HmVLlueboWQquBcYYVH2vEzfh8kCks1p90eWsLCyZ8qK7E86Oe+3XYFnBuiWdth20UqZR5SvMoyPg3WNauJipi0LMTQgVq5xUUlZcrPsopPHJ926z8pm7xyFLrH/PxpHSoXKdWgXsLn1scZn1ZDd/2vszN3lt254qkE+qu3yoqLM+ghN3Qz2qcVzUC/ZMFsK/alU6l0OWV/bQz6v6yYbyuN5BaZ4A7Y30vs/PPksS2+qzlvfF7OQmzzcL7W+xa7OIfRuVdtn/tdvdFLnL4OTKcm2W16PmWc4FWWXNSlWM2n3D+uPxuyrcfo74aP+Ac30a82+oLmfAAAAAElFTkSuQmCC"
+							class="w3-bar-item w3-circle w3-hide-small" style="width: 85px">
+							<div class="w3-bar-item">
+								<span class="w3-large">Mike</span><br> <span>Web
+									Designer</span>
+							</div></li>
+					</ul>
+					<ul class="w3-ul w3-border">
+						<li class="w3-bar">
+						<a href="#" class="w3-button w3-red w3-right w3-margin w3-hover-green">Unblock</a>
+							
+							<img
+							src="data:image/png;base64,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"
+							class="w3-bar-item w3-circle w3-hide-small" style="width: 85px">
+							<div class="w3-bar-item">
+								<span class="w3-large">Mike</span><br> <span>Web
+									Designer</span>
+							</div></li>
+					</ul>
 					<br>
 				</div>
 
@@ -163,20 +159,6 @@ html, body, h1, h2, h3, h4, h5 {
 				<!-- End Middle Column -->
 			</div>
 
-			<!-- Right Column -->
-			<div class="w3-col m2 w3-margin-top">
-				<div class="w3-card w3-round w3-white w3-center">
-					<div class="w3-container">
-						<p>Have A Good Day :)</p>
-
-						
-						<p id="txt" class="w3-black w3-container w3-padding">Time </p>
-						
-					</div>
-				</div>
-				<br>
-				<!-- End Right Column -->
-			</div>
 
 			<!-- End Grid -->
 		</div>
@@ -215,43 +197,6 @@ html, body, h1, h2, h3, h4, h5 {
 				x.className = x.className.replace(" w3-show", "");
 			}
 		}
-
-		//time
-		function startTime() {
-			var today = new Date();
-			var h = today.getHours();
-			var m = today.getMinutes();
-			var s = today.getSeconds();
-			m = checkTime(m);
-			s = checkTime(s);
-			document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
-			var t = setTimeout(startTime, 500);
-		}
-		function checkTime(i) {
-			if (i < 10) {
-				i = "0" + i
-			}
-			; // add zero in front of numbers < 10
-			return i;
-		}
-		
-		//analog clock
-		function timerTick() {
-        with (new Date()) {
-          var h, m, s;
-          
-          h = 30 * ((getHours() % 12) + getMinutes() / 60);
-          m = 6 * getMinutes();
-          s = 6 * getSeconds();
-
-          document.getElementById('h_pointer').setAttribute('transform', 'rotate(' + h + ', 50, 50)');
-          document.getElementById('m_pointer').setAttribute('transform', 'rotate(' + m + ', 50, 50)'); 
-          document.getElementById('s_pointer').setAttribute('transform', 'rotate(' + s + ', 50, 50)');
-          
-          setTimeout(timerTick, 1000);
-        }
-      }
-		
 	</script>
 
 </body>

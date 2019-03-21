@@ -4,7 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<title>Admin Home</title>
+<title>Admin Profile</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -25,7 +25,7 @@ html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
 }
 </style>
-<body class="w3-theme-l5" onload="startTime()">
+<body class="w3-theme-l5">
 
 	<!-- Navbar -->
 	<div class="w3-top">
@@ -35,21 +35,20 @@ html, body, h1, h2, h3, h4, h5 {
 				href="javascript:void(0);" onclick="openNav()"><i
 				class="fa fa-bars"></i></a> <a href="/admin"
 				class="w3-bar-item w3-button w3-hover-black w3-padding-large "><i
-				class="fa fa-home w3-margin-right"></i>Admin Home</a> <a
-				href="admin/requests"
+				class="fa fa-home w3-margin-right"></i>Admin Home</a> <a href="requests"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-green"
 				title="Approval Requests"><i class="fa fa-plus"></i>&nbsp;&nbsp;Approval
-				Requests</a> <a href="admin/reports"
+				Requests</a> <a href="reports"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-indigo"
 				title="Reports/Feedback"><i class="fa fa-comment"></i>&nbsp;&nbsp;Reports/Feedback</a>
-			<a href="admin/profile"
+			<a href="profile"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue"
 				title="Profile"><i class="fa fa-user"></i>&nbsp;&nbsp;Profile</a> <a
-				href="admin/users/block"
+				href="users/block"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-teal"
 				title="Profile"><i class="material-icons"
 				style="font-size: 22px">block</i>&nbsp;&nbsp;Block User</a> <a
-				href="/logout"
+				href="logout"
 				class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-red"
 				title="Logout"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Logout</a>
 
@@ -61,16 +60,14 @@ html, body, h1, h2, h3, h4, h5 {
 		class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
 
 
-		<a href="admin/requests"
+		<a href="requests" class="w3-bar-item w3-button w3-padding-large">Approval
+			Requests</a> <a href="requests"
 			class="w3-bar-item w3-button w3-padding-large">Approval Requests</a>
-		<a href="admin/requests"
-			class="w3-bar-item w3-button w3-padding-large">Approval Requests</a>
-		<a href="admin/reports" class="w3-bar-item w3-button w3-padding-large">Feedback
-			/ Reports</a> <a href="admin/profile"
+		<a href="reports" class="w3-bar-item w3-button w3-padding-large">Feedback
+			/ Reports</a> <a href="profile"
 			class="w3-bar-item w3-button w3-padding-large">Update Profile</a> <a
-			href="admin/users/block"
-			class="w3-bar-item w3-button w3-padding-large">block User</a> <a
-			href="/logout" class="w3-bar-item w3-button w3-padding-large">Logout</a>
+			href="users/block" class="w3-bar-item w3-button w3-padding-large">block
+			User</a> <a href="logout" class="w3-bar-item w3-button w3-padding-large">Logout</a>
 	</div>
 
 	<!-- Page Container -->
@@ -111,8 +108,6 @@ html, body, h1, h2, h3, h4, h5 {
 
 					</div>
 				</div>
-				<br>
-
 
 
 
@@ -122,60 +117,64 @@ html, body, h1, h2, h3, h4, h5 {
 			</div>
 
 			<!-- Middle Column -->
-			<div class="w3-col m7">
-
-
+			<div class="w3-col m9">
 				<div class="w3-container w3-card w3-white w3-round w3-margin">
 					<br>
-					<h3 class="w3-center w3-xxlarge ">Admin Home</h3>
+					<h3 class="w3-center w3-xxlarge w3-blue">Update Profile</h3>
 					<hr class="w3-clear">
-					<br>
-					<div class="w3-center ">
-						<a href="/admin/requests"><button type="button"
-								style="width: 350px; font-size: 20px"
-								class="w3-button  w3-green  w3-margin-bottom w3-padding ">
-								<i class="fa fa-thumbs-up"></i>  See Approval Requests
-							</button></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/admin/reports"><button
-								type="button" style="width: 350px; font-size: 20px"
-								class="w3-button  w3-indigo w3-margin-bottom w3-padding">
-								<i class="fa fa-comment"></i>  See Reports / Feedback
-							</button></a>
-					</div>
+					<div class="w3-container  w3-margin-top">
+						<!-- Change username -->
+						<h2 class="w3-black w3-container">Update Username</h2>
+						<form class="w3-container w3-card-4">
+								
+							<p>
+								<label>New Username</label>
+							</p>
+							<input class="w3-input w3-border" type="text" style="width: 90%" required>
+
+							<p>
+								<label>Password</label>
+							</p>
+							<input class="w3-input w3-border" type="password" style="width: 90%"
+								required>
+
+							<p>
+								<button class="w3-button w3-section w3-black w3-ripple">
+									Log in</button>
+							</p>
+
+						</form>
+						<hr class="w3-clear">
+							<!-- Change password -->
+						<h2 class="w3-teal w3-container">Change Password</h2>
+						<form class="w3-container w3-card-4" >
+								
+							<p>
+								<label>Current Password</label>
+							</p>
+							<input class="w3-input w3-border" type="password" style="width: 90%" required>
+
+							<p>
+								<label>New Password</label>
+							</p>
+							<input class="w3-input w3-border" type="password" style="width: 90%"
+								required>
 
 
-					<div class="w3-center">
-						<a href="/admin/profile"><button type="button"
-								style="width: 350px; font-size: 20px"
-								class="w3-button  w3-blue w3-margin-bottom w3-padding">
-								<i class="fa fa-user"></i>  Update Profile
-							</button></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
-							href="/admin/users/block"><button type="button"
-								style="width: 350px; font-size: 20px"
-								class="w3-button  w3-teal w3-margin-bottom w3-padding">
-								<i class="material-icons" style="font-size: 22px">block</i>
-								 Block User
-							</button></a>
+
+							<p>
+								<button class="w3-button w3-section w3-teal w3-ripple">
+									Log in</button>
+							</p>
+
+						</form>
+						<br><br>
+						
 					</div>
-					<br>
+					
 				</div>
-
 
 				<!-- End Middle Column -->
-			</div>
-
-			<!-- Right Column -->
-			<div class="w3-col m2 w3-margin-top">
-				<div class="w3-card w3-round w3-white w3-center">
-					<div class="w3-container">
-						<p>Have A Good Day :)</p>
-
-						
-						<p id="txt" class="w3-black w3-container w3-padding">Time </p>
-						
-					</div>
-				</div>
-				<br>
-				<!-- End Right Column -->
 			</div>
 
 			<!-- End Grid -->
@@ -183,8 +182,8 @@ html, body, h1, h2, h3, h4, h5 {
 
 		<!-- End Page Container -->
 	</div>
-	<br>
-
+	<br><br>
+<br><br>
 	<!-- Footer -->
 	<footer class="w3-container w3-theme-d3 w3-padding-16 w3-bottom">
 		<h5 class="w3-center">&copy Sem;colon</h5>
@@ -215,43 +214,6 @@ html, body, h1, h2, h3, h4, h5 {
 				x.className = x.className.replace(" w3-show", "");
 			}
 		}
-
-		//time
-		function startTime() {
-			var today = new Date();
-			var h = today.getHours();
-			var m = today.getMinutes();
-			var s = today.getSeconds();
-			m = checkTime(m);
-			s = checkTime(s);
-			document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
-			var t = setTimeout(startTime, 500);
-		}
-		function checkTime(i) {
-			if (i < 10) {
-				i = "0" + i
-			}
-			; // add zero in front of numbers < 10
-			return i;
-		}
-		
-		//analog clock
-		function timerTick() {
-        with (new Date()) {
-          var h, m, s;
-          
-          h = 30 * ((getHours() % 12) + getMinutes() / 60);
-          m = 6 * getMinutes();
-          s = 6 * getSeconds();
-
-          document.getElementById('h_pointer').setAttribute('transform', 'rotate(' + h + ', 50, 50)');
-          document.getElementById('m_pointer').setAttribute('transform', 'rotate(' + m + ', 50, 50)'); 
-          document.getElementById('s_pointer').setAttribute('transform', 'rotate(' + s + ', 50, 50)');
-          
-          setTimeout(timerTick, 1000);
-        }
-      }
-		
 	</script>
 
 </body>
