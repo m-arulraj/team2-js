@@ -3,6 +3,7 @@ package com.virtusa.semicolon.registration.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +19,8 @@ public class Registration {
 	
 	@Column(name="ENABLED")
 	private Long enabled;
+	
+	
 
 	public String getPassword() {
 		return password;
@@ -33,6 +36,11 @@ public class Registration {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	@Override
+	public String toString() {
+		return "Registration [userName=" + userName + ", password=" + password + ", enabled=" + enabled + "]";
 	}
 
 	public Long getEnabled() {

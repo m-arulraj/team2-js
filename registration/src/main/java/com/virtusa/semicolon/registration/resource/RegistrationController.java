@@ -1,16 +1,17 @@
 package com.virtusa.semicolon.registration.resource;
 
-import java.net.URI;
+import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
+import com.virtusa.semicolon.registration.domain.Authorities;
 import com.virtusa.semicolon.registration.domain.Registration;
 import com.virtusa.semicolon.registration.service.EmployeeServices;
 
@@ -20,13 +21,13 @@ public class RegistrationController {
 	@Autowired
 	EmployeeServices employerService;
 	
-	@RequestMapping( method= RequestMethod.POST)
-	public ResponseEntity<String> registerEmployee(@RequestParam("userName") String userName,@RequestParam("password") String password,@RequestParam("authorities") String authorities) throws Exception{
-		
-		/*Registration emp= employerService.registerEmployee(register,authorities);		
-		return new ResponseEntity<Registration>(emp,HttpStatus.CREATED);*/
-		
-		return ResponseEntity.created(new URI("/api/registration/employer/"+employerService.register(userName,password,authorities))).build();
+	@PostMapping(value="")
+	public ResponseEntity<Registration> registerEmployee(@ModelAttribute("auth") Authorities reg) throws URISyntaxException{	
+		System.out.println(reg);
+	/*	return ResponseEntity.created(new URI("/api/registration/employer/"+employerService.register(reg
+				userName,password,authorities))).build();*/
+		Registration emp= employerService.register(reg);		
+		return new ResponseEntity<Registration>(emp,HttpStatus.CREATED);
 		
 	}
 		
