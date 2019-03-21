@@ -17,17 +17,16 @@ import com.virtusa.semicolon.employer_service.service.EmployerService;
 @RequestMapping("/api/employer")
 public class EmployerResource {
 
-	String api="/api/employer";
-	
+	String api = "/api/employer";
+
 	@Autowired
 	EmployerService employerService;
-	
-	@RequestMapping(value="",method=RequestMethod.POST)
-	public ResponseEntity<String> postingJob(@RequestBody PostedJobsList jobsList) throws URISyntaxException
-	{
-		return ResponseEntity.created(new URI(api+employerService.postingJob(jobsList).getJobTitle())).build();	
+
+	@RequestMapping(value = "", method = RequestMethod.POST)
+	public ResponseEntity<String> postingJob(@RequestBody PostedJobsList jobsList) throws URISyntaxException {
+		return ResponseEntity.created(new URI(api + employerService.postingJob(jobsList).getJobTitle())).build();
 	}
-	
-	
+
+
 
 }

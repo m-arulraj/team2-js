@@ -9,5 +9,4 @@ import com.virtusa.semicolon.employer_service.domain.PostedJobsList;
 
 public interface PostedJobsListRepository extends JpaRepository<PostedJobsList,Long>{
 
-	
 }

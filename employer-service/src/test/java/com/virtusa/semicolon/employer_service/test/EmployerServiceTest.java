@@ -3,7 +3,6 @@ package com.virtusa.semicolon.employer_service.test;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -15,7 +14,6 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.google.gson.Gson;
 import com.virtusa.semicolon.employer_service.domain.PostedJobsList;
-import com.virtusa.semicolon.employer_service.repository.PostedJobsListRepository;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -26,28 +24,24 @@ public class EmployerServiceTest {
 	@Autowired
 	private WebApplicationContext ac;
 
-	@Autowired
-	PostedJobsListRepository rs;
-
-	@Autowired
-	TestEntityManager ts;
-
 	@org.junit.Before
 	public void setUp() {
 		mockmvc = MockMvcBuilders.webAppContextSetup(ac).build();
 	}
-
+	
 	@Test
-	public void employerServiceTest() throws Exception {
+	public void postingJobServiceTest() throws Exception {
 		PostedJobsList ps = new PostedJobsList("vamsi@gmail.com", "jobTitle", 20L, 5000D, "jobId", "requiredSkills",
 				"jobDescription");
 
 		System.out.println("------  starting of the employer Service test  ------");
+		
 		this.mockmvc.perform(MockMvcRequestBuilders.post("/api/employer").contentType(MediaType.APPLICATION_JSON_VALUE)
 				.content(new Gson().toJson(ps))).andExpect(MockMvcResultMatchers.status().isCreated());
 
-		System.out.println("------  endiing of the employer Service test  ------");
+		System.out.println("------  ending of the employer Service test  ------");
 
 	}
+	
 
 }
