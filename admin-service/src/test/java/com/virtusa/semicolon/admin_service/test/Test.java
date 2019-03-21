@@ -1,13 +1,13 @@
 package com.virtusa.semicolon.admin_service.test;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Arrays;
 import java.util.List;
 
-import org.hibernate.query.criteria.internal.expression.SearchedCaseExpression.WhenClause;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -20,10 +20,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.virtusa.semicolon.admin_service.controller.AdminApprovalController;
-import com.virtusa.semicolon.admin_service.domain.Employer;
+import com.virtusa.semicolon.admin_service.controller.AdminController;
 import com.virtusa.semicolon.admin_service.domain.User;
-import com.virtusa.semicolon.admin_service.service.AdminApprovalService;
+import com.virtusa.semicolon.admin_service.service.AdminService;
 
 @WebAppConfiguration
 @SpringBootTest
@@ -33,10 +32,10 @@ public class Test {
 	private MockMvc mvc;
 	
 	@InjectMocks
-	AdminApprovalController adminController;
+	AdminController adminController;
 	
 	@Mock
-	AdminApprovalService adminApprovalService;
+	AdminService adminService;
 	
 	@Autowired
 	WebApplicationContext wac;
@@ -67,7 +66,6 @@ public class Test {
 	
 	@org.junit.Test
 	public void approvalAcceptTest() throws Exception {
-		
 		this.mvc.perform(put("/api/admin/approval/requests/accept/himasri@gmail.com"))
 		 .andExpect(status().isOk());
 	}
