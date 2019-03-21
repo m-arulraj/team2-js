@@ -3,6 +3,7 @@ package com.virtusa.semicolon.admin_service.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -10,19 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.virtusa.semicolon.admin_service.domain.User;
-import com.virtusa.semicolon.admin_service.service.AdminApprovalService;
+import com.virtusa.semicolon.admin_service.service.AdminService;
 
 @RestController
 @RequestMapping(value = "/api/admin")
-public class AdminApprovalController {
+public class AdminController {
 
 	@Autowired
-	AdminApprovalService adminApprovalService;
+	AdminService adminService;
 
 	@GetMapping("/approval/requests")
 	public List<User> showApprovalRequests() {
 
-		List<User> list = adminApprovalService.showApprovalRequests();
+		List<User> list = adminService.showApprovalRequests();
 
 		return list;
 	}
@@ -30,14 +31,16 @@ public class AdminApprovalController {
 	@PutMapping("/approval/requests/accept/{username}")
 	public Integer acceptApprovalRequests(@PathVariable("username") String username) {
 		System.out.println(username);
-		return adminApprovalService.approveEmployerRequest(username);
+		return adminService.approveEmployerRequest(username);
 	}
 
-	/*
-	 * @PostMapping("/approval/requests/reject/{username}") public Integer
-	 * acceptRejectRequests(@PathVariable("username") String username) {
-	 * System.out.println(username); return
-	 * adminApprovalService.approveEmployerRequest(username); }
-	 */
-
+	@DeleteMapping("/approval/requests/delete/{username}")
+	public void deleteUser(@PathVariable("username") String username) {
+		adminService.deleteUserByUsername(username);
+	}
+	
+	@PutMapping("/user/block/{username}")
+	public Integer disableAccount(@PathVariable("username") String username) {
+		return adminService.blockUserByUsername(username);
+	}
 }
