@@ -29,10 +29,4 @@ spring:
         properties:
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
-<<<<<<< HEAD
-            hibernate.generate_statistics: false
-            
-            
-=======
-            hibernate.generate_statistics: false
->>>>>>> 7c8fcfa84151358ae19f5ab3bd10fea252c18073
+            hibernate.generate_statistics: false    
