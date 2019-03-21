@@ -1,7 +1,5 @@
 package com.virtusa.semicolon.employer_service.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,23 +18,6 @@ public class EmployerService {
 		return postedJobsListRepository.save(postedJobsList);
 	}
 	
-	@Transactional
-	public PostedJobsList managingJob(String name,PostedJobsList postedJobsList)
-	{
 
-		PostedJobsList pjs=new PostedJobsList();
-		List<PostedJobsList> jobsList=postedJobsListRepository.findByJobname(name);
-		if(jobsList !=null)
-		{
-			pjs.setJobDescription(postedJobsList.getJobDescription());
-			pjs.setJobTitle(postedJobsList.getJobTitle());
-			pjs.setNumberOfVacancies(postedJobsList.getNumberOfVacancies());
-			pjs.setPostedBy(postedJobsList.getPostedBy());
-			pjs.setRequiredSkills(postedJobsList.getRequiredSkills());
-			pjs.setSalary(postedJobsList.getSalary());
-		}
-		return postedJobsListRepository.save(pjs);
-		
-	}
 	
 }
