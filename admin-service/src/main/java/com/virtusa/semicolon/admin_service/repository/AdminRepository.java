@@ -13,7 +13,7 @@ import com.virtusa.semicolon.admin_service.domain.User;
 
 public interface AdminRepository extends JpaRepository<User, String> {
 
-	/* as u where u.enabled = 0 */
+	
 	@Query("select u from User u where u.enabled = 0 ")
 	List<User> showApprovalRequests();
 
