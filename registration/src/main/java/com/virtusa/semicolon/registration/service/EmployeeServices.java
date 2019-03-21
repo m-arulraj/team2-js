@@ -31,7 +31,7 @@ public class EmployeeServices {
 			reg.setEnabled((long) 1);
 		}
 		Registration emp1 =employerRepository.save(reg);
-		aut.setUserName(reg.getUserName());
+		aut.setUser(reg);
 		aut.setAuthorities(authorities);
 		registerAuthorities(aut);
 		return emp1;	
@@ -39,6 +39,20 @@ public class EmployeeServices {
 	
 	public Authorities registerAuthorities(Authorities auth){
 		return authoritiesRepository.save(auth);
+	}
+
+	public Registration register(Authorities aut) {
+		
+		Registration reg1 = aut.getUser();
+		if(aut.getAuthorities().equals("ROLE_EMPLOYER")){
+			reg1.setEnabled((long) 0);
+		}else if(aut.getAuthorities().equals("ROLE_JOBSEEKER")){
+			reg1.setEnabled((long) 1);
+		}
+		Registration reg =employerRepository.save(reg1);
+		registerAuthorities(aut);
+		return reg;	
+		
 	}
 
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.virtusa.semicolon.registration.domain.Authorities;
 import com.virtusa.semicolon.registration.domain.Registration;
 
 
@@ -16,9 +17,13 @@ public class HomeController {
 		System.out.println("registration");
 		return "Registration";
 	}
-	@ModelAttribute("employer")
-	public Registration createStaffModel(){
+	@ModelAttribute("user")
+	public Registration createRegistrationModel(){
 		return new Registration();
+	}
+	@ModelAttribute("auth")
+	public Authorities createauthoritiesModel(){
+		return new Authorities();
 	}
 
 }

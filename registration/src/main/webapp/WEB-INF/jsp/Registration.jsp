@@ -6,8 +6,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <title>Semicolon (;)</title>
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ --><meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
@@ -35,8 +35,8 @@ body {
 	background-color: white;
 }
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
+/* Full-width form:input fields */
+form:input[type=text], form:input[type=password] {
 	padding: 15px;
 	margin: 5px 0 22px 0;
 	display: inline-block;
@@ -126,17 +126,17 @@ a {
 					</div>
 					<div id="employer" class="w3-container registration">
 						<h6>Employer Registration Form</h6>
-						<form action="/api/registration/employer" method="post">
-							<div class="container">
+						<form:form action="/api/registration/employer" method="post" modelAttribute ="auth">
+							<div class="container" >
 
 								<label for="User Name"><b>User Name</b></label><br>
-								<input type="text" placeholder="EnterUser Name"
-									name="userName" />
+								<form:input type="text" placeholder="EnterUser Name"
+									name="userName" path="user.userName"/>
 								<br> <label for="psw"><b>Password</b></label><br>
-								<input type="password" placeholder="Enter Password"
-									name="password" />
+								<form:input type="password" placeholder="Enter Password"
+									name="password" path="user.password"/>
 								<br>
-								<input type="hidden" name="authorities"
+								<form:hidden path="authorities"
 									value="ROLE_EMPLOYER" />
 
 								<p>
@@ -153,21 +153,21 @@ a {
 									Already have an account? <a href="#">Sign in</a>.
 								</p>
 							</div>
-						</form>
+						</form:form>
 
 					</div>
 
 					<div id="jobSeeker" class="w3-container registration"
 						style="display: none">
 						<h6>Job-Seeker Registration Form</h6>
-						<form action="/api/registration/employer" method="post">
+						<form:form action="/api/registration/employer" method="post" modelAttribute="auth">
 							<div class="container">
-								<label for="User Name"><b>User Name</b></label><br> <input
-									type="text" placeholder="EnterUser Name" name="userName"
-									required><br> <label for="psw"><b>Password</b></label><br>
-								<input type="password" placeholder="Enter Password"
-									name="password" required><br> <input type="hidden"
-									name="authorities" value="ROLE_JOBSEEKER" />
+								<label for="User Name"><b>User Name</b></label><br> 
+								<form:input type="text" placeholder="EnterUser Name" name="userName" path="user.userName"/><br> 
+								<label for="psw"><b>Password</b></label><br>
+								<form:input type="password" placeholder="Enter Password"
+									name="password" path="user.password"/><br> 
+									<form:hidden path="authorities" value="ROLE_JOBSEEKER" />
 
 								<p>
 									By creating an account you agree to our <a href="#">Terms &
@@ -183,7 +183,7 @@ a {
 									Already have an account? <a href="#">Sign in</a>.
 								</p>
 							</div>
-						</form>
+						</form:form>
 					</div>
 
 				</div>
