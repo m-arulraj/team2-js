@@ -27,7 +27,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		auth.inMemoryAuthentication().withUser("user").password("123").roles("USER")
 		.and().withUser("emp").password("123").roles("EMPLOYER")
-				.and().withUser("seek").password("123").roles("SEEKER");
+		.and().withUser("admin").password("123").roles("ADMIN")		
+		.and().withUser("seek").password("123").roles("SEEKER");
 
 	}
 
@@ -43,9 +44,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		 * .logout().permitAll()
 		 * .and().exceptionHandling().accessDeniedPage("/access-denied");
 		 */
-		
-	/*	http.authorizeRequests().anyRequest().authenticated()
-		.antMatchers("/index").hasRole("USER")
+		/*
+		http.authorizeRequests().anyRequest().authenticated()
+		.antMatchers("/index").hasRole("USER").
+		antMatchers("/admin/**").hasRole("ADMIN").
+		and().formLogin()
 		.and().formLogin().loginPage("/login")
 		.loginProcessingUrl("/authenticateUser").permitAll()
 		.and().logout().permitAll();*/
