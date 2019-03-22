@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,7 @@ public class RegistrationController {
 	EmployeeServices employerService;
 	
 	@PostMapping(value="")
-	public ResponseEntity<Registration> registerEmployee(@ModelAttribute("auth") Authorities reg) throws URISyntaxException{	
+	public ResponseEntity<Registration> registerEmployee(/*@ModelAttribute("auth")*/ @RequestBody Authorities reg) throws URISyntaxException{	
 		System.out.println(reg);
 	/*	return ResponseEntity.created(new URI("/api/registration/employer/"+employerService.register(reg
 				userName,password,authorities))).build();*/
