@@ -4,11 +4,18 @@ import java.sql.Blob;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="EDUCATIONAL_DETAILS")
 public class EducationDetails {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="ID")
+	private Long id;
 	
 	@Column(name="USERNAME")
 	private String userName;
@@ -39,6 +46,14 @@ public class EducationDetails {
 	
 	@Column(name="RESUME")
 	private Blob resume;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getUserName() {
 		return userName;

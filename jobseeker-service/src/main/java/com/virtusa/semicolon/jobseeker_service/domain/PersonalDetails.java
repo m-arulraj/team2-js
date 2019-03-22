@@ -1,18 +1,23 @@
 package com.virtusa.semicolon.jobseeker_service.domain;
 
-import java.sql.Blob;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="PERSONAL_DETAILS")
 public class PersonalDetails {
 
+	@Id
+	@GeneratedValue
+	@Column(name="ID")
+	private Long id;
+	
 	@Column(name="USERNAME")
 	private String userName;
-	
+
 	@Column(name="FIRST_NAME")
 	private String firstName;
 	
@@ -42,9 +47,6 @@ public class PersonalDetails {
 	
 	@Column(name="PINCODE")
 	private Long pincode;
-	
-	@Column(name="PROFILE_PICTURE")
-	private Blob profilePicture;
 
 	public String getUserName() {
 		return userName;
@@ -133,13 +135,12 @@ public class PersonalDetails {
 	public void setPincode(Long pincode) {
 		this.pincode = pincode;
 	}
-
-	public Blob getProfilePicture() {
-		return profilePicture;
+	public Long getId() {
+		return id;
 	}
 
-	public void setProfilePicture(Blob profilePicture) {
-		this.profilePicture = profilePicture;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 }
