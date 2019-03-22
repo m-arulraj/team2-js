@@ -82,7 +82,6 @@ html, body, h1, h2, h3, h4, h5 {
 			<!-- Left Column -->
 			<div class="w3-col m3">
 				<!-- Profile -->
-				<!-- Profile -->
 				<div class="w3-card w3-round w3-white">
 					<div class="w3-container">
 						<h4 class="w3-center">My Profile</h4>
