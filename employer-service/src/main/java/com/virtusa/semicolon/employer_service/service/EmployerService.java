@@ -25,10 +25,10 @@ public class EmployerService {
 		return postedJobsListRepository.save(postedJobsList);
 	}
 	
-	public PostedJobsList managingJobsList(String jobTitle,PostedJobsList postedJobsList)
+	public PostedJobsList managingJobsList(String jobId,PostedJobsList postedJobsList)
 	{
 		PostedJobsList jobsList=new PostedJobsList();
-		List<String> list= postedJobsListRepository.getJobsIdList(jobTitle);
+		List<String> list= postedJobsListRepository.getJobsIdList(jobId);
 		if(list != null)
 		{
 			jobsList.setJobId(postedJobsList.getJobId());
@@ -44,11 +44,5 @@ public class EmployerService {
 		return postedJobsListRepository.save(jobsList);
 	
 	}
-	
-	public List<String> matchingJobsList(String jobTitle)
-	{
-		return postedJobsListRepository.getJobsTitleList(jobTitle);
-	}
-	
 }
 

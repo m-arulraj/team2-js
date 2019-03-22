@@ -14,11 +14,6 @@ import com.virtusa.semicolon.employer_service.domain.PostedJobsList;
 
 public interface PostedJobsListRepository extends JpaRepository<PostedJobsList,Long>{
 
-@Query("SELECT p.jobId from PostedJobsList p WHERE p.jobTitle=:jobTitle")
-List<String> getJobsIdList(@Param("jobTitle") String jobTitle);
-
-@Query("SELECT p.jobTitle from PostedJobsList p WHERE p.jobTitle=:jobTitle")
-List<String> getJobsTitleList(@Param("jobTitle") String jobTitle);
-
-
+@Query("SELECT p.jobId from PostedJobsList p WHERE p.jobId=:jobId")
+List<String> getJobsIdList(@Param("jobId") String jobId);
 }

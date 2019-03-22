@@ -13,7 +13,7 @@ public class PostedJobsList {
 	public PostedJobsList(){}
 	
 	public PostedJobsList(String postedBy, String jobTitle, Long numberOfVacancies, Double salary, String jobId,
-			String requiredSkills, String jobDescription) {
+			String requiredSkills, String jobDescription,String jobType) {
 		this.postedBy = postedBy;
 		this.jobTitle = jobTitle;
 		this.numberOfVacancies = numberOfVacancies;
@@ -21,6 +21,7 @@ public class PostedJobsList {
 		this.jobId = jobId;
 		this.requiredSkills = requiredSkills;
 		this.jobDescription = jobDescription;
+		this.jobType=jobTitle;
 	}
 	@Id
 	@GeneratedValue
@@ -48,6 +49,16 @@ public class PostedJobsList {
 	@Column(name="JOB_ID")
 	private String jobId;
 	
+	@Column(name="JOB_TYPE")
+	private String jobType;
+	
+	public String getJobType() {
+		return jobType;
+	}
+
+	public void setJobType(String jobType) {
+		this.jobType = jobType;
+	}
 	@Column(name="REQUIRED_SKILLS")
 	private String requiredSkills;
 	

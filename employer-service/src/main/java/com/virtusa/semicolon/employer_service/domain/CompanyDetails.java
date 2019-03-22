@@ -7,14 +7,38 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="COMPANY_DETAILS")
+@Table(name = "COMPANY_DETAILS")
 public class CompanyDetails {
-	
 	@Id
 	@GeneratedValue
-	@Column(name="ID")
+	@Column(name = "ID")
 	private Long id;
-	
+	@Column(name = "USERNAME")
+	private String userName;
+
+	@Column(name = "COMPANY_NAME")
+	private String companyName;
+
+	@Column(name = "CONTACT_NUMBER")
+	private Long contactNumber;
+
+	@Column(name = "ADDRESS")
+	private String address;
+
+	@Column(name = "ESTABLISHED_ON")
+	private String establishedOn;
+
+	public CompanyDetails() {
+	}
+
+	public CompanyDetails(String companyName, Long contactNumber, String address, String establishedOn) {
+
+		this.companyName = companyName;
+		this.contactNumber = contactNumber;
+		this.address = address;
+		this.establishedOn = establishedOn;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -22,21 +46,6 @@ public class CompanyDetails {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	@Column(name="USERNAME")
-	private String userName;
-	
-	@Column(name="COMPANY_NAME")
-	private String companyName;
-	
-	@Column(name="CONTACT_NUMBER")
-	private Long contactNumber;
-	
-	@Column(name="ADDRESS")
-	private String address;	
-	
-	@Column(name="ESTABLISHED_ON")
-	private String establishedOn;
 
 	public String getUserName() {
 		return userName;
@@ -77,6 +86,5 @@ public class CompanyDetails {
 	public void setEstablishedOn(String establishedOn) {
 		this.establishedOn = establishedOn;
 	}
-	
-	
+
 }
