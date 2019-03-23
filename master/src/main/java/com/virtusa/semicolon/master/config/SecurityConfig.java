@@ -5,6 +5,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 
 @Configuration
 @EnableWebSecurity
@@ -15,8 +17,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		/* auth.jdbcAuthentication().dataSource(dataSource); */
 
+		
 		/*
-		 * UserBuilder users = User.withDefaultPasswordEncoder();
+		 * @SuppressWarnings("deprecation") UserBuilder users =
+		 * User.withDefaultPasswordEncoder();
 		 * auth.inMemoryAuthentication().withUser(users.username("shubham").
 		 * password("123").roles("EMPLOYEE"))
 		 * .withUser(users.username("nagar").password("123").roles("EMPLOYEE",
@@ -24,11 +28,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		 * .withUser(users.username("Sahil").password("123").roles("EMPLOYEE",
 		 * "ADMIN"));
 		 */
+		 
 
-		auth.inMemoryAuthentication().withUser("user").password("123").roles("USER")
-		.and().withUser("emp").password("123").roles("EMPLOYER")
-		.and().withUser("admin").password("123").roles("ADMIN")		
-		.and().withUser("seek").password("123").roles("SEEKER");
+		auth.inMemoryAuthentication().withUser("user").password("{noop}123").roles("USER")
+		.and().withUser("emp").password("{noop}123").roles("EMPLOYER")
+		.and().withUser("admin").password("{noop}123").roles("ADMIN")		
+		.and().withUser("seek").password("{noop}123").roles("SEEKER");
 
 	}
 
@@ -44,13 +49,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		 * .logout().permitAll()
 		 * .and().exceptionHandling().accessDeniedPage("/access-denied");
 		 */
-		/*
-		http.authorizeRequests().anyRequest().authenticated()
-		.antMatchers("/index").hasRole("USER").
-		antMatchers("/admin/**").hasRole("ADMIN").
-		and().formLogin()
-		.and().formLogin().loginPage("/login")
-		.loginProcessingUrl("/authenticateUser").permitAll()
-		.and().logout().permitAll();*/
+		
+		http
+        .authorizeRequests()
+           .antMatchers("/").permitAll()
+           .antMatchers("/admin/**").hasRole("ADMIN")
+           .antMatchers("/employer/**").hasRole("EMPLOYER")
+           .antMatchers("/seeker/**").hasRole("SEEKER")
+           .anyRequest().authenticated()
+           .and().formLogin().permitAll()
+           .and().exceptionHandling().accessDeniedPage("/access-denied");
+		
+		
 	}
 }
