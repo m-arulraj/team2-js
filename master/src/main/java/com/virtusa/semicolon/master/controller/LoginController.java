@@ -15,4 +15,12 @@ public class LoginController {
 	public String signup() {
 		return "signup";
 	}
+	
+
+	@RequestMapping("/about")
+	public String about() {
+		return "about";
+	}
+	
+	
 }
