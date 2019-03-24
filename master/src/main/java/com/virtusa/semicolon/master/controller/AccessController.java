@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class AccessController {
 
-	@GetMapping("/")
+	@GetMapping("/access-denied")
 	public String accessDenied()
 	{
 		return "forbidden";
