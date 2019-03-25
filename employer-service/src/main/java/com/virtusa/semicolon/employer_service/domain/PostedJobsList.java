@@ -47,14 +47,6 @@ public class PostedJobsList {
 		this.id = id;
 	}
 
-	public String getJobType() {
-		return jobType;
-	}
-
-	public void setJobType(String jobType) {
-		this.jobType = jobType;
-	}
-
 	public String getPostedBy() {
 		return postedBy;
 	}
@@ -93,6 +85,14 @@ public class PostedJobsList {
 
 	public void setJobId(String jobId) {
 		this.jobId = jobId;
+	}
+
+	public String getJobType() {
+		return jobType;
+	}
+
+	public void setJobType(String jobType) {
+		this.jobType = jobType;
 	}
 
 	public String getRequiredSkills() {
