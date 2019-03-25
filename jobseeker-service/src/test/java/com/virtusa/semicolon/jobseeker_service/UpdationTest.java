@@ -36,6 +36,7 @@ public class UpdationTest {
 	public void testPersonalDetailsUpdation() throws Exception {
 		PersonalDetails personalDetails = new PersonalDetails();
 		personalDetails.setGender("M");
+		personalDetails.setDateOfBirth("2019-12-12");
 		mock.perform(MockMvcRequestBuilders.put("/api/jobseeker/updatepersonaldetails?userName=srini@gmail.com")
 				.contentType(MediaType.APPLICATION_JSON).content(new Gson().toJson(personalDetails)))
 				.andExpect(MockMvcResultMatchers.status().isOk());

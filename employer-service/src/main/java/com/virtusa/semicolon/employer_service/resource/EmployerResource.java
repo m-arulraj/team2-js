@@ -3,47 +3,60 @@ package com.virtusa.semicolon.employer_service.resource;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.virtusa.semicolon.employer_service.domain.CompanyDetails;
 import com.virtusa.semicolon.employer_service.domain.PostedJobsList;
 import com.virtusa.semicolon.employer_service.service.CompanyDetailsService;
-import com.virtusa.semicolon.employer_service.service.EmployerService;
+import com.virtusa.semicolon.employer_service.service.GetPostedJobsService;
+import com.virtusa.semicolon.employer_service.service.PostingJobService;
+import com.virtusa.semicolon.employer_service.service.RemovingJobService;
 
 @RestController
-@RequestMapping("/api/employer")
+@RequestMapping("/api/employer/")
 public class EmployerResource {
-
-	String api = "/api/employer";
 
 	@Autowired
 	CompanyDetailsService companyDetailsService;
 
 	@Autowired
-	EmployerService employerService;
+	PostingJobService postingJobService;
 
-	@RequestMapping(value = "", method = RequestMethod.POST)
-	public ResponseEntity<String> postingJob(@RequestBody PostedJobsList jobsList) throws URISyntaxException {
-		return ResponseEntity.created(new URI(api + employerService.postingJob(jobsList).getJobTitle())).build();
+	@Autowired
+	RemovingJobService removingJobService;
+	
+	@Autowired
+	GetPostedJobsService getPostedJobsService;
+
+	@RequestMapping(value = "/updatecompanydetails", method = RequestMethod.PUT)
+	public CompanyDetails updateCompanyDetails(@RequestParam("userName") String userName,
+			@RequestBody CompanyDetails companyDetails) {
+		return companyDetailsService.updateCompanyDetails(userName, companyDetails);
 	}
 
-	@PutMapping("/managingJobs/{jobId}")
-	public PostedJobsList managingJobsList(@PathVariable("jobId") String jobId, @RequestBody PostedJobsList jobsList) {
-		return employerService.managingJobsList(jobId, jobsList);
+	@RequestMapping(value = "/postjobs", method = RequestMethod.POST)
+	public ResponseEntity<String> postJobs(@RequestParam("userName") String userName,
+			@RequestBody PostedJobsList jobsList) throws URISyntaxException {
+		return ResponseEntity
+				.created(new URI("/api/employer/" + postingJobService.postJobs(userName, jobsList).getId())).build();
+	}
 
+	@RequestMapping(value = "/removejob", method = RequestMethod.DELETE)
+	public void removeJob(@RequestParam("id") Long id) {
+		removingJobService.removeJob(id);
 	}
-	@PutMapping("/companyDetails/{userName}")
-	public int updateEmployerDetails(@PathVariable("userName") String userName,@RequestBody CompanyDetails companyDetails)
-	{
-		return companyDetailsService.updateEmployerDetails(userName, companyDetails);
-		
+	
+	@RequestMapping(value = "/getpostedjobs", method = RequestMethod.GET)
+	public List<PostedJobsList> getPostedJobs(@RequestParam("userName") String userName){
+		return getPostedJobsService.getPostedJobs(userName);
 	}
+
 }

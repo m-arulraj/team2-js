@@ -92,8 +92,8 @@ public class PersonalDetails {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setDateOfBirth(String dateOfBirth2) {
+		this.dateOfBirth = dateOfBirth2;
 	}
 
 	public String getAddress() {
