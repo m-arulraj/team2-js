@@ -84,17 +84,23 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-    <groupId>org.aspectj</groupId>
-    <artifactId>aspectjweaver</artifactId>
-    <version>1.9.2</version>
-</dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.2</version>
+		</dependency>
 		<dependency>
-    <groupId>org.aspectj</groupId>
-    <artifactId>aspectjtools</artifactId>
-    <version>1.9.2</version>
-</dependency>
-		
-		
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>1.9.2</version>
+
+
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jasper</artifactId>
+			<version>9.0.17</version>
+		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

@@ -20,7 +20,8 @@ spring:
       - id: admin-service
         uri: lb://admin-service
         predicates:
-        - Path=/api/admin/**
+        - Path=/api/admin/**,/api/admin/approval/requests/**,/api/admin/approval/requests/accept/{username}/**,
+               /api/admin/approval/requests/delete/{username}/**,/api/admin/user/block/{username}/**
          
       - id: jobseeker-service
         uri: lb://jobseeker-service
