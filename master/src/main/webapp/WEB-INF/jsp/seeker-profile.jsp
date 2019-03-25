@@ -176,7 +176,7 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class=" w3-half ">
 									<label>Date of Birth</label> <input
 										class="w3-input w3-border w3-round-large" name="dob"
-										type="date" required>
+										type="text" id="from-datepicker" placeholder = "YYYY-MM-DD">
 
 
 								</div>
@@ -490,6 +490,15 @@ html, body, h1, h2, h3, h4, h5 {
 			document.getElementById(formName).style.display = "block";
 			evt.currentTarget.className += " w3-green";
 		}
+		$(function(){
+		    $("#from-datepicker").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change",function(){
+		    	var mindate = "1970-01-01";
+		        var minValue = $(this).val();
+		        minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
+		        minValue.setDate(minValue.getDate()+1);
+		        $("#from-datepicker").datepicker( "option", "minDate", minValue );
+		    })
+		});
 	</script>
 
 </body>
