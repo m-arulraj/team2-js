@@ -27,15 +27,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Venkatesh/Repository/repo/collegeManagementWithJDBC/WebContent/WEB-INF/lib/spring-test-5.1.4.RELEASE.jar"/>
-	<classpathentry kind="lib" path="C:/Users/varikutihs/.m2/repository/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="com.google.code.gson"/>
-			<attribute name="maven.artifactId" value="gson"/>
-			<attribute name="maven.version" value="2.6.2"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
