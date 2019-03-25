@@ -13,11 +13,11 @@ import org.springframework.web.client.RestTemplate;
 @EnableAutoConfiguration
 @EnableEurekaClient
 @EnableFeignClients
-public class App 
+public class AdminApplication 
 {
     public static void main( String[] args )
     {
-       SpringApplication.run(App.class, args);
+       SpringApplication.run(AdminApplication.class, args);
     }
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {

@@ -1,0 +1,42 @@
+server:
+  port: 7070
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8071/eureka/
+
+logging:
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+              
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: admin-service
+        uri: lb://admin-service
+        predicates:
+        - Path=/api/admin/**,/api/admin/approval/requests/**,/api/admin/approval/requests/accept/{username}/**,
+               /api/admin/approval/requests/delete/{username}/**,/api/admin/user/block/{username}/**
+         
+      - id: jobseeker-service
+        uri: lb://jobseeker-service
+        predicates:
+        - Path= /api/jobseeker/**
+        
+      - id: employer-service
+        uri: lb://employer-service
+        predicates:
+        - Path= /api/employer/**
+        
+      - id: registration-service
+        uri: lb://registration-service
+        predicates:
+        - Path= /api/registration/employer/**
+        
+        
+      

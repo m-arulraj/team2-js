@@ -1,24 +1,41 @@
 package com.virtusa.semicolon.master.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.virtusa.semicolon.master.domain.EmployerRegistration;
+import com.virtusa.semicolon.master.service.AdminService;
 
 @Controller
 
 @RequestMapping("/admin")
 public class AdminController {
 
+	@Autowired
+	AdminService adminService;
+	
 	// homepage
 	@GetMapping("")
-	public String adminHomePage() {
-		return "admin-home";
+	public ModelAndView adminHomePage() {
+		ModelAndView model = new ModelAndView("admin-home");
+		return model;
 	}
 
 	// request approval
 	@GetMapping("/requests")
-	public String adminApprovalRequest() {
-		return "admin-approval-request";
+	public ModelAndView adminApprovalRequest() {
+		ModelAndView model = new ModelAndView("admin-approval-request");
+		List<EmployerRegistration> requestList =adminService.getListOfRequests();
+		model.addObject("reqList",requestList);
+		for (EmployerRegistration employerRegistration : requestList) {
+			System.out.println(employerRegistration);
+		}
+		return model;
 	}
 
 	// reports

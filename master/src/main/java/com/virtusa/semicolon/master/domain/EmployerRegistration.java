@@ -49,4 +49,10 @@ public class EmployerRegistration {
 	public void setAuthorities(String authorities) {
 		this.authorities = authorities;
 	}
+
+	@Override
+	public String toString() {
+		return "EmployerRegistration [userName=" + userName + ", password=" + password + ", enabled=" + enabled
+				+ ", authorities=" + authorities + "]";
+	}
 }
