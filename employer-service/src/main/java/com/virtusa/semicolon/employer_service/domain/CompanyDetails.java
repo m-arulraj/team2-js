@@ -13,6 +13,7 @@ public class CompanyDetails {
 	@GeneratedValue
 	@Column(name = "ID")
 	private Long id;
+	
 	@Column(name = "USERNAME")
 	private String userName;
 
@@ -29,14 +30,6 @@ public class CompanyDetails {
 	private String establishedOn;
 
 	public CompanyDetails() {
-	}
-
-	public CompanyDetails(String companyName, Long contactNumber, String address, String establishedOn) {
-
-		this.companyName = companyName;
-		this.contactNumber = contactNumber;
-		this.address = address;
-		this.establishedOn = establishedOn;
 	}
 
 	public Long getId() {

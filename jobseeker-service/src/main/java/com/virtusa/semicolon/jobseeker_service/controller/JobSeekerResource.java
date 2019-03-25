@@ -2,6 +2,7 @@ package com.virtusa.semicolon.jobseeker_service.controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +49,7 @@ public class JobSeekerResource {
 
 	@RequestMapping(value = "/updatepersonaldetails", method = RequestMethod.PUT)
 	public PersonalDetails updatePersonalDetails(@RequestParam("userName") String userName,
-			@RequestBody PersonalDetails personalDetails) {
+			@RequestBody PersonalDetails personalDetails) throws ParseException {
 
 		return updationService.updatePersonalDetails(userName, personalDetails);
 	}
