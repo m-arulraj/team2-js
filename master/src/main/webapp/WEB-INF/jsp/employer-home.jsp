@@ -43,10 +43,12 @@ html, body, h1, h2, h3, h4, h5 {
 				<a href="employer/jobs"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-indigo"
 				title="Posted jobs"><i class='fab fa-black-tie' style='font-size: 20px'></i>
-				&nbsp;&nbsp;Posted Jobs</a> <a href="employer/report"
+				&nbsp;&nbsp;Posted Jobs</a> 
+				<!-- <a href="employer/report"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue"
 				title="Report"><i class="	fas fa-thumbs-down"></i>&nbsp;&nbsp;Report
-				Something</a> <a href="/logout"
+				Something</a> --> 
+				<a href="/logout"
 				class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-red"
 				title="Logout"> <i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Logout
 			</a>
