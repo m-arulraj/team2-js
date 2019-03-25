@@ -1,28 +1,35 @@
 package com.virtusa.semicolon.registration.resource;
 
 import java.net.URISyntaxException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.virtusa.semicolon.registration.domain.Authorities;
+import com.virtusa.semicolon.registration.domain.PersonalDetails;
 import com.virtusa.semicolon.registration.domain.Registration;
 import com.virtusa.semicolon.registration.service.EmployeeServices;
 
 @RestController
-@RequestMapping("/api/registration/employer")
+@RequestMapping("/api")
 public class RegistrationController {
 	@Autowired
 	EmployeeServices employerService;
+	@Autowired
+	AdminServiceProxy adminproxy;
+	@Autowired
+	jobseekerServiceProxy jobproxy;
 	
-	@PostMapping(value="")
+	@PostMapping(value="/registration/employer")
 	public ResponseEntity<Registration> registerEmployee(/*@ModelAttribute("auth")*/ @RequestBody Authorities reg) throws URISyntaxException{	
 		System.out.println(reg);
 	/*	return ResponseEntity.created(new URI("/api/registration/employer/"+employerService.register(reg
@@ -30,6 +37,17 @@ public class RegistrationController {
 		Registration emp= employerService.register(reg);		
 		return new ResponseEntity<Registration>(emp,HttpStatus.CREATED);
 		
+	}
+	@RequestMapping("/admin/requests")
+	public List<Registration> findall(){
+		return adminproxy.findall();
+		
+	}
+	@PutMapping("/jobseeker/updatepersonaldetails")
+	public PersonalDetails updatePersonalDetails(@RequestParam("userName") String userName,
+			@RequestBody PersonalDetails personalDetails){
+		System.out.println("regcontroller" +userName);
+		return jobproxy.updatePersonalDetails(userName, personalDetails);
 	}
 		
 	
