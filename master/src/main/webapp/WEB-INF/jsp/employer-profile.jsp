@@ -41,11 +41,7 @@ html, body, h1, h2, h3, h4, h5 {
 				Profile</a> <a href="jobs"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-indigo"
 				title="Posted Jobs"><i class='fab fa-black-tie'
-				style='font-size: 20px'></i> &nbsp;&nbsp;Posted Jobs</a> <a
-				href="report"
-				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue"
-				title="Report"><i class="	fas fa-thumbs-down"></i>&nbsp;&nbsp;Reports
-				Something</a> <a href="/logout"
+				style='font-size: 20px'></i> &nbsp;&nbsp;Posted Jobs</a> <a href="/logout"
 				class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-red"
 				title="Logout"> <i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Logout
 			</a>
@@ -59,8 +55,7 @@ html, body, h1, h2, h3, h4, h5 {
 			Profile</a> <a href="profile"
 			class="w3-bar-item w3-button w3-padding-large">Update Profile</a> <a
 			href="jobs" class="w3-bar-item w3-button w3-padding-large">Posted
-			Jobs</a> <a href="report" class="w3-bsar-item w3-button w3-padding-large">Report
-			Something</a> <a href="/logout"
+			Jobs</a>  <a href="/logout"
 			class="w3-bar-item w3-button w3-padding-large">Logout</a>
 	</div>
 
@@ -123,289 +118,47 @@ html, body, h1, h2, h3, h4, h5 {
 					<hr class="w3-clear">
 					<div class="w3-bar w3-black ">
 						<button class="w3-bar-item w3-button tablink w3-green"
-							onclick="oepnForm(event,'personal')">Personal Details</button>
-						<button class="w3-bar-item w3-button tablink"
-							onclick="oepnForm(event,'education')">Educational
-							Details</button>
-						<button class="w3-bar-item w3-button tablink"
-							onclick="oepnForm(event,'work')">Work Experience</button>
-						<button class="w3-bar-item w3-button tablink"
-							onclick="oepnForm(event,'account')">Account</button>
+							onclick="oepnForm(event,'personal')">CompanyDetails</button>
 					</div>
 
 					<div id="personal" class="w3-container  w3-border tab">
-						<form action="#" method="post">
-							<br>
-							<div class="w3-row ">
-								<div class=" w3-half">
-									<label>First Name</label> <input
-										class="w3-input w3-border w3-round-large" name="firstName"
-										type="text" required>
-
-								</div>
-
-								<div class="w3-container w3-half">
-									<label>Last Name</label> <input
-										class="w3-input w3-border w3-round-large" name="lastName"
-										type="text" required>
-									<p>
-								</div>
-							</div>
-
-							<div class="w3-row ">
-								<div class=" w3-half ">
-									<label>Gender</label> <select
-										class="w3-select w3-border w3-round-large" name="gender">
-										<option value="" disabled selected>Not Specified</option>
-										<option value="Male">Male</option>
-										<option value="Female">Female</option>
-										<option value="Other">Other</option>
-									</select>
-
-								</div>
-
-								<div class="w3-container w3-half">
-									<label>Contact</label> <input
-										class="w3-input w3-border w3-round-large" name="contact"
-										type="text" required>
-									<p>
-								</div>
-							</div>
-
-							<div class="w3-row ">
-								<div class=" w3-half ">
-									<label>Date of Birth</label> <input
-										class="w3-input w3-border w3-round-large" name="dob"
-										type="date" required>
-
-
-								</div>
-
-								<div class="w3-container w3-half">
-									<label>Father Name</label> <input
-										class="w3-input w3-border w3-round-large" name="fatherName"
-										type="text" required>
-									<p>
-								</div>
-							</div>
-
-							<div class="w3-row-padding">
-								<div class="w3-third">
-									<label>Country Name</label> <input class="w3-input w3-border"
-										name="countryName" type="text" placeholder="country name"
-										required="required">
-								</div>
-								<div class="w3-third">
-									<label>State</label> <input class="w3-input w3-border"
-										name="state" type="text" placeholder="country state"
-										required="required">
-								</div>
-								<div class="w3-third">
-									<label>Pincode</label> <input class="w3-input w3-border"
-										name="pincode" type="text" placeholder="Pincode"
-										required="required">
-								</div>
-								<p>
-							</div>
-
-							<p>
-							<div class="w3-row">
-								<label>Adderss</label>
-								<textarea rows="" cols="100" name="adderss"
-									class="w3-input w3-border w3-round" style="height: 100px;"
-									required></textarea>
-							</div>
-							<p>
-							<div class="w3-center">
-								<button type="submit" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-blue w3-margin-bottom w3-padding">
-									 Update Profile</button>
-								</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-								<button type="reset" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</button>
-							</div>
-
-
-							<br>
-						</form>
-
-					</div>
-
-
-					<!-- educational details form -->
-
-
-					<div id="education" class="w3-container w3-border tab"
-						style="display: none">
-						<form action="#" method="post">
-							<br>
-							<div class="w3-row ">
-								<div class=" w3-half">
-									<label>Highest Degree</label> <input
-										class="w3-input w3-border w3-round-large" name="highestDegree"
-										type="text" required>
-
-								</div>
-
-								<div class="w3-container w3-half">
-									<label>College Name</label> <input
-										class="w3-input w3-border w3-round-large" name="collegeName"
-										type="text" required>
-									<p>
-								</div>
-							</div>
-
-							<div class="w3-row ">
-								<div class=" w3-half">
-									<label>Specialization</label> <input
-										class="w3-input w3-border w3-round-large"
-										name="specialization" type="text" required>
-
-								</div>
-
-								<div class="w3-container w3-half">
-									<label>Percent</label> <input
-										class="w3-input w3-border w3-round-large" name="percent"
-										type="text" required>
-									<p>
-								</div>
-							</div>
-
-
-
-
-							<div class="w3-row-padding">
-								<div class="w3-third">
-									<label>Year of Passout</label> <input
-										class="w3-input w3-border" name="yop" type="date"
-										required="required">
-								</div>
-								<div class="w3-third">
-									<label>Year Gap</label> <input class="w3-input w3-border"
-										name="yearGap" type="text" required="required">
-								</div>
-								<div class="w3-third">
-									<label>Backlogs</label> <input class="w3-input w3-border"
-										name="backlogs" type="text" required="required">
-								</div>
-								<p>
-							</div>
-
-							<p>
-							<div class="w3-row">
-								<label>Skills</label>
-								<textarea rows="" cols="100" name="adderss"
-									class="w3-input w3-border w3-round" style="height: 100px;"
-									required></textarea>
-								<p>
-							</div>
-
-							<div class="w3-row">
-								<label>Upload Resume</label> <input type="file" name="file"
-									class="w3-input w3-border">
-							</div>
-
-
-							<p>
-							<div class="w3-center">
-								<button type="submit" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-blue w3-margin-bottom w3-padding">
-									 Update Profile</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-								<button type="reset" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</button>
-							</div>
-
-
-							<br>
-						</form>
-					</div>
-					
-					
-					<!-- work experience  -->
-
-					<div id="work" class="w3-container w3-border tab"
-						style="display: none">
-						<form action="#" method="post">
-							<br>
-							<div class="w3-row ">
-								<div class=" w3-half">
-									<label>Company Name</label> <input
+						<form:form action="postjob" method="post"
+								modelAttribute="companydetails">
+								
+								<div class="container">
+								<div class="w3-row ">
+								
+									<label>CompanyName:</label> <form:input
 										class="w3-input w3-border w3-round-large" name="companyName"
-										type="text" required>
-
+										type="text"  path="companyName"/>
 								</div>
-
-								<div class="w3-container w3-half">
-									<label>Desigination</label> <input
-										class="w3-input w3-border w3-round-large" name="desigination"
-										type="text" required>
-									<p>
-								</div>
-							</div>
-
-							<div class="w3-row ">
-								<div class=" w3-half">
-									<label>Roles & Responsibility</label> <input
-										class="w3-input w3-border w3-round-large"
-										name="roles" type="text" required>
-
-								</div>
-
-								<div class="w3-container w3-half">
-									<label>Current Salary</label> <input
-										class="w3-input w3-border w3-round-large" name="salary"
-										type="text" required>
-									<p>
-								</div>
-							</div>
-
-
-
-
-							<div class="w3-row-padding">
-								<div class="w3-third">
-									<label>Start Date</label> <input
-										class="w3-input w3-border" name="startDate" type="date"
-										required="required">
-								</div>
-								<div class="w3-third">
-									<label>End Date</label> 
-									<input
-										class="w3-input w3-border" name="endDate" type="date"
-										required="required">
-								</div>
-								<div class="w3-third">
-									<label>Experience</label> <input class="w3-input w3-border"
-										name="experience" type="text" required="required">
-								</div>
-								<p>
-							</div>
 								<br>
-
-							
-							<p>
-							<div class="w3-center">
-								<button type="submit" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-blue w3-margin-bottom w3-padding">
-									 Update Profile</button>
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-								<button type="reset" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</button>
-							</div>
-
-
+								<div class=" w3-row">
+									<label>Address:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="address"
+										type="text"  path="address"/>
+								</div>
 							<br>
-						</form>
-					</div>
-
-					<div id="account" class="w3-container w3-border tab"
-						style="display: none">
-						<h2>Account</h2>
-						<p>Tokyo is the capital of Japan.</p>
+								<div class="w3-row ">
+								
+									<label>EstablishedOn:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="establishedOn"
+										type="text"  path="establishedOn"/>
+								</div>
+								<br>
+								
+								<div class=" w3-row">
+									<label>contactNumber:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="contactNumber"
+										type="text"  path="contactNumber"/>
+								</div>
+								
+								<br>
+								<div class="w3-center">
+									<button type="submit" class="Update Profile">Post Job</button>
+									</div>
+								</div>
+							</form:form>
 					</div>
 					<br>
 				</div>

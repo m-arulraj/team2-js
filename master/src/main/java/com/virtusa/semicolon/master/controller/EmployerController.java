@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,8 +18,15 @@ public class EmployerController {
 
 	//employer homepage
 	@GetMapping("")
-	public String seekerHomePage() {
-		return "employer-home";
+	public ModelAndView seekerHomePage() {
+		List<String> postedjobList = new ArrayList<>();
+		postedjobList.add("javaDeveloper");
+		postedjobList.add("dot net developer");
+		postedjobList.add("UI developer");
+		ModelAndView model = new ModelAndView("employer-home");
+		model.addObject("postedjobList", postedjobList);
+		return model;
+	
 	}
 	
 	//seeker profile
@@ -44,7 +52,7 @@ public class EmployerController {
 		}
 	
 		//seeker report
-		@GetMapping("/postjob")
+		@PostMapping("/postjob")
 		public String report() {
 			return "employer-home";
 		}
