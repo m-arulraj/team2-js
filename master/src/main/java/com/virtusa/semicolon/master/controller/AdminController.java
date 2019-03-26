@@ -30,7 +30,8 @@ public class AdminController {
 	@GetMapping("/requests")
 	public ModelAndView adminApprovalRequest() {
 		ModelAndView model = new ModelAndView("admin-approval-request");
-		List<EmployerRegistration> requestList =adminService.getListOfRequests();
+		String uri="/approval/requests";
+		List<EmployerRegistration> requestList =adminService.getListOfRequests(uri);
 		model.addObject("reqList",requestList);
 		for (EmployerRegistration employerRegistration : requestList) {
 			System.out.println(employerRegistration);

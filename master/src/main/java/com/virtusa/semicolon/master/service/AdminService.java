@@ -16,8 +16,8 @@ public class AdminService {
 
 	
 
-	public List<EmployerRegistration> getListOfRequests() {
-		ResponseEntity<List<EmployerRegistration>> response = template.exchange(EndPointConstant.ADMIN_REQUESTS_APPROVAL_URI,
+	public List<EmployerRegistration> getListOfRequests(String uri) {
+		ResponseEntity<List<EmployerRegistration>> response = template.exchange(EndPointConstant.ADMIN_URI+uri,
 				HttpMethod.GET, null, new ParameterizedTypeReference<List<EmployerRegistration>>() {
 				});
 		return response.getBody();
