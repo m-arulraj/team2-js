@@ -68,7 +68,7 @@ html, body, h1, h2, h3, h4, h5 {
 			<div class="w3-col m3">
 				<!-- Profile -->
 				<div class="w3-card w3-round w3-white">
-					<div class="w3-container">
+				<div class="w3-container">
 						<h4 class="w3-center">My Profile</h4>
 						<p class="w3-center">
 							<img
@@ -78,26 +78,24 @@ html, body, h1, h2, h3, h4, h5 {
 						</p>
 						<hr>
 						<p>
-							<i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i>
-							Admin
+							<%-- <security:authentication property="principal.username" />  --%>
+							<%-- <h6>${uname}</h6> --%>
+							${companyDetails.userName}
 						</p>
 						<p>
 							<i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
-							Designer, UI
+							${companyDetails.companyName}
 						</p>
 						<p>
 							<i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
-							London, UK
+							${companyDetails.address}
 						</p>
 						<p>
 							<i
 								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
-							April 1, 1988
+							${companyDetails.establishedOn}
 						</p>
-
-						<a href="seeker/profile" style="width: 90%"
-							class="w3-bar-item w3-button w3-green  w3-margin ">Update
-							Profile</a>
+							
 					</div>
 				</div>
 				<br><br>
@@ -122,7 +120,7 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 
 					<div id="personal" class="w3-container  w3-border tab">
-						<form:form action="postjob" method="post"
+						<form:form action="updateprofile" method="post"
 								modelAttribute="companydetails">
 								
 								<div class="container">
@@ -153,9 +151,15 @@ html, body, h1, h2, h3, h4, h5 {
 										type="text"  path="contactNumber"/>
 								</div>
 								
+								
 								<br>
-								<div class="w3-center">
-									<button type="submit" class="Update Profile">Post Job</button>
+								<div class=" w3-row">
+									<%-- <form:hidden path="userName"
+									value="${username}" /> --%>
+								</div>
+								<br>
+								<div class="w3-center ">
+									<button type="submit" class="Update Profile">update profiles</button>
 									</div>
 								</div>
 							</form:form>

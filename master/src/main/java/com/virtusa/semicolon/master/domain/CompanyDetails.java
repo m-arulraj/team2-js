@@ -9,6 +9,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "COMPANY_DETAILS")
 public class CompanyDetails {
+	
+
 	@Id
 	@GeneratedValue
 	@Column(name = "ID")
@@ -78,6 +80,12 @@ public class CompanyDetails {
 
 	public void setEstablishedOn(String establishedOn) {
 		this.establishedOn = establishedOn;
+	}
+	@Override
+	public String toString() {
+		return "CompanyDetails [id=" + id + ", userName=" + userName + ", companyName=" + companyName
+				+ ", contactNumber=" + contactNumber + ", address=" + address + ", establishedOn=" + establishedOn
+				+ "]";
 	}
 
 }

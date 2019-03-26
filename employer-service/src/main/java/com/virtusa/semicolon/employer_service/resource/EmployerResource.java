@@ -36,9 +36,12 @@ public class EmployerResource {
 	@Autowired
 	GetPostedJobsService getPostedJobsService;
 
-	@RequestMapping(value = "/updatecompanydetails", method = RequestMethod.PUT)
+	@RequestMapping(value = "/updatecompanydetails", method = RequestMethod.POST)
 	public CompanyDetails updateCompanyDetails(@RequestParam("userName") String userName,
 			@RequestBody CompanyDetails companyDetails) {
+		System.out.println("ermpserv" +userName);
+		System.out.println("ermpserv" +companyDetails);
+
 		return companyDetailsService.updateCompanyDetails(userName, companyDetails);
 	}
 
@@ -57,6 +60,10 @@ public class EmployerResource {
 	@RequestMapping(value = "/getpostedjobs", method = RequestMethod.GET)
 	public List<PostedJobsList> getPostedJobs(@RequestParam("userName") String userName){
 		return getPostedJobsService.getPostedJobs(userName);
+	}
+	@RequestMapping(value = "/getcompanydetails", method = RequestMethod.GET)
+	public CompanyDetails getCompanyDetails(@RequestParam("userName") String userName){
+		return companyDetailsService.getComapnyDetails(userName);
 	}
 
 }

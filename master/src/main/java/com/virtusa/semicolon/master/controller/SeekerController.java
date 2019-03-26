@@ -1,6 +1,9 @@
 package com.virtusa.semicolon.master.controller;
 
+import java.security.Principal;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,7 +13,9 @@ public class SeekerController {
 
 	//seeker homepage
 	@GetMapping("")
-	public String seekerHomePage() {
+	public String seekerHomePage(Principal principal, Model model) {
+		String uName= principal.getName();
+		model.addAttribute(uName);
 		return "seeker-home";
 	}
 	
