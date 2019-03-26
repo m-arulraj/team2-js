@@ -5,21 +5,21 @@
 <!DOCTYPE html>
 <html>
 <title>Seeker Home</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 <link rel="stylesheet"
-	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
+	rel="stylesheet"/>
 <link rel='stylesheet'
 	href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
 	integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ'
-	crossorigin='anonymous'>
+	crossorigin='anonymous'/>
 <link rel='stylesheet'
-	href='https://fonts.googleapis.com/css?family=Open+Sans'>
+	href='https://fonts.googleapis.com/css?family=Open+Sans'/>
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <style>
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
@@ -102,8 +102,9 @@ html, body, h1, h2, h3, h4, h5 {
 						</p>
 
 						<a href="seeker/profile" style="width: 90%"
-							class="w3-bar-item w3-button w3-green  w3-margin ">Update Profile</a>
-							
+							class="w3-bar-item w3-button w3-green  w3-margin ">Update
+							Profile</a>
+
 					</div>
 				</div>
 				<br>
@@ -129,6 +130,7 @@ html, body, h1, h2, h3, h4, h5 {
 				<!-- End Middle Column -->
 			</div>
 
+
 			<!-- Right Column -->
 			<div class="w3-col m2 w3-margin-top">
 				<div class="w3-card w3-round w3-white w3-center">
@@ -143,64 +145,129 @@ html, body, h1, h2, h3, h4, h5 {
 				<br>
 				<!-- End Right Column -->
 			</div>
+			<c:forEach items="${postedJobsList}" var='job'>
+			<div class="w3-col m7">
+					<div class="w3-container w3-card w3-white w3-round w3-margin">
+						<br> <span class="w3-right w3-opacity">JobId:${job.getJobId()}</span>
+						<h4>
+							Title
+							${job.getJobTitle()}
+						</h4>
+						<hr class="w3-clear">
+						<p>
+							Job Type : ${job.getJobType()}<br> Primary Location :
+							${job.getJobLocation()}<br> Required Skills :
+							${job.getRequiredSkills()} <br> Number Of Vacancies :
+							${job.getNumberOfVacancies()} <br> Salary :
+							${job.getSalary()} <br> Job Description :
+							${job.getJobDescription()}
+						</p>
+						<div class="w3-row-padding" style="margin: 0 -10px"></div>
+						<button type="button"
+							class="w3-button w3-theme-d1 w3-margin-bottom"
+							onclick="location.href=' https://mycareer.virtusa.com/jobs/job-detail/?jid=100681';">
+							<!-- <i class="fa fa-thumbs-up"></i> -->
+							Apply
+						</button>
+						&emsp;
+						<button type="button"
+							class="w3-button w3-theme-d2 w3-margin-bottom"
+							onclick="location.href=' https://mycareer.virtusa.com/jobs/job-detail/?jid=100681';">
+							<!--<i class="fa fa-comment"></i> -->
+							Report
+						</button>
+					</div>
 
-			<!-- End Grid -->
+				<!-- End Grid -->
+			</div>
+			</c:forEach>	
+			<div class="w3-col m7">
+					<div class="w3-container w3-card w3-white w3-round w3-margin">
+						<br> <span class="w3-right w3-opacity">JobId:${job.getJobId()}</span>
+						<h4>
+							Title
+							${job.getJobTitle()}
+						</h4>
+						<hr class="w3-clear">
+						<p>
+							Job Type : ${job.getJobType()}<br> Primary Location :
+							${job.getJobLocation()}<br> Required Skills :
+							${job.getRequiredSkills()} <br> Number Of Vacancies :
+							${job.getNumberOfVacancies()} <br> Salary :
+							${job.getSalary()} <br> Job Description :
+							${job.getJobDescription()}
+						</p>
+						<div class="w3-row-padding" style="margin: 0 -10px"></div>
+						<button type="button"
+							class="w3-button w3-theme-d1 w3-margin-bottom"
+							onclick="location.href=' https://mycareer.virtusa.com/jobs/job-detail/?jid=100681';">
+							<!-- <i class="fa fa-thumbs-up"></i> -->
+							Apply
+						</button>
+						&emsp;
+						<button type="button"
+							class="w3-button w3-theme-d2 w3-margin-bottom"
+							onclick="location.href=' https://mycareer.virtusa.com/jobs/job-detail/?jid=100681';">
+							<!--<i class="fa fa-comment"></i> -->
+							Report
+						</button>
+					</div>
+
+				<!-- End Grid -->
+			</div>
+			<!-- End Page Container -->
 		</div>
+		</div>
+		<br>
 
-		<!-- End Page Container -->
-	</div>
-	<br>
+		<!-- Footer -->
+		<footer class="w3-container w3-theme-d3 w3-padding-16 w3-bottom">
+			<h5 class="w3-center">&copy Sem;colon</h5>
+		</footer>
 
-	<!-- Footer -->
-	<footer class="w3-container w3-theme-d3 w3-padding-16 w3-bottom">
-		<h5 class="w3-center">&copy Sem;colon</h5>
-	</footer>
-
-
-
-	<script>
-		// Accordion
-		function myFunction(id) {
-			var x = document.getElementById(id);
-			if (x.className.indexOf("w3-show") == -1) {
-				x.className += " w3-show";
-				x.previousElementSibling.className += " w3-theme-d1";
-			} else {
-				x.className = x.className.replace("w3-show", "");
-				x.previousElementSibling.className = x.previousElementSibling.className
-						.replace(" w3-theme-d1", "");
+		<script>
+			// Accordion
+			function myFunction(id) {
+				var x = document.getElementById(id);
+				if (x.className.indexOf("w3-show") == -1) {
+					x.className += " w3-show";
+					x.previousElementSibling.className += " w3-theme-d1";
+				} else {
+					x.className = x.className.replace("w3-show", "");
+					x.previousElementSibling.className = x.previousElementSibling.className
+							.replace(" w3-theme-d1", "");
+				}
 			}
-		}
 
-		// Used to toggle the menu on smaller screens when clicking on the menu button
-		function openNav() {
-			var x = document.getElementById("navDemo");
-			if (x.className.indexOf("w3-show") == -1) {
-				x.className += " w3-show";
-			} else {
-				x.className = x.className.replace(" w3-show", "");
+			// Used to toggle the menu on smaller screens when clicking on the menu button
+			function openNav() {
+				var x = document.getElementById("navDemo");
+				if (x.className.indexOf("w3-show") == -1) {
+					x.className += " w3-show";
+				} else {
+					x.className = x.className.replace(" w3-show", "");
+				}
 			}
-		}
 
-		//time
-		function startTime() {
-			var today = new Date();
-			var h = today.getHours();
-			var m = today.getMinutes();
-			var s = today.getSeconds();
-			m = checkTime(m);
-			s = checkTime(s);
-			document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
-			var t = setTimeout(startTime, 500);
-		}
-		function checkTime(i) {
-			if (i < 10) {
-				i = "0" + i
+			//time
+			function startTime() {
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById('txt').innerHTML = h + ":" + m + ":"
+						+ s;
+				var t = setTimeout(startTime, 500);
 			}
-			; // add zero in front of numbers < 10
-			return i;
-		}
-	</script>
-
+			function checkTime(i) {
+				if (i < 10) {
+					i = "0" + i
+				}
+				; // add zero in front of numbers < 10
+				return i;
+			}
+		</script>
 </body>
 </html>

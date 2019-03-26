@@ -8,8 +8,7 @@ public class EmployerRegistration {
 	
 	private Long enabled;
 	
-	private String authorities;
-
+	
 	public String getUsername() {
 		return userName;
 	}
@@ -42,17 +41,10 @@ public class EmployerRegistration {
 		this.enabled = enabled;
 	}
 
-	public String getAuthorities() {
-		return authorities;
-	}
-
-	public void setAuthorities(String authorities) {
-		this.authorities = authorities;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "EmployerRegistration [userName=" + userName + ", password=" + password + ", enabled=" + enabled
-				+ ", authorities=" + authorities + "]";
+				+"]";
 	}
 }

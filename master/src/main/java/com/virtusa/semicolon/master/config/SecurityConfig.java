@@ -6,7 +6,9 @@ import java.util.Collection;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,10 +25,16 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 public class SecurityConfig extends WebSecurityConfigurerAdapter implements AuthenticationSuccessHandler {
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
+	@Autowired
+	DataSource dataSource;
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		/* auth.jdbcAuthentication().dataSource(dataSource); */
+		/* auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery(
+					"select USERNAME,PASSWORD, ENABLED from users where USERNAME=?")
+			.authoritiesByUsernameQuery(
+				"select USERNAME, AUTHORITY from authorities where USERNAME=?"); */
 
 		auth.inMemoryAuthentication().withUser("emp")	.password("{noop}123").roles("EMPLOYER")
 		.and().withUser("emp1")	.password("{noop}123").roles("EMPLOYER")
