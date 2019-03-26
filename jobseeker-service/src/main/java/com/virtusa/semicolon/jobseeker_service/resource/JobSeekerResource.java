@@ -1,4 +1,4 @@
-package com.virtusa.semicolon.jobseeker_service.controller;
+package com.virtusa.semicolon.jobseeker_service.resource;
 
 import java.net.URI;
 import java.net.URISyntaxException;
