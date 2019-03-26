@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.virtusa.semicolon.admin_service.domain.User;
 
-public interface AdminRepository extends JpaRepository<User, String> {
+public interface UserRepository extends JpaRepository<User, String> {
 
 	
 	@Query("select u from User u where u.enabled = 0 ")
@@ -30,6 +30,8 @@ public interface AdminRepository extends JpaRepository<User, String> {
 	@Transactional
 	@Modifying
 	@Query("UPDATE User SET enabled = 0 WHERE userName = :username")
-	public Integer blockUserByUsername(@Param("username") String username);
+	public User blockUserByUsername(@Param("username") String username);
+
+	
 
 }
