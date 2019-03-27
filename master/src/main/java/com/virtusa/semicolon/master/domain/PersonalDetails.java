@@ -1,51 +1,41 @@
 package com.virtusa.semicolon.master.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="PERSONAL_DETAILS")
 public class PersonalDetails {
 
-	@Id
-	@GeneratedValue
-	@Column(name="ID")
+	
 	private Long id;
 	
-	@Column(name="USERNAME")
+
 	private String userName;
 
-	@Column(name="FIRST_NAME")
+
 	private String firstName;
 	
-	@Column(name="LAST_NAME")
+
 	private String lastName;
 	
-	@Column(name="GENDER")
+
 	private String gender;
 	
-	@Column(name="CONTACT_NUMBER")
+
 	private Long contactNumber;
 	
-	@Column(name="DATE_OF_BIRTH")
+
 	private String dateOfBirth;
 	
-	@Column(name="ADDRESS")
+
 	private String address;
 	
-	@Column(name="FATHER_NAME")
+
 	private String fatherName;
 	
-	@Column(name="COUNTRY")
+
 	private String country;
 	
-	@Column(name="STATE")
+
 	private String state;
 	
-	@Column(name="PINCODE")
+
 	private Long pincode;
 
 	public String getUserName() {

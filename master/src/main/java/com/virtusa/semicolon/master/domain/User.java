@@ -1,13 +1,5 @@
 package com.virtusa.semicolon.master.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-
-@Table(name="users")
 public class User {
 	
 	public User()
@@ -22,21 +14,38 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	@Id
-	@Column(name="USERNAME")
-	String userName;
 	
-	@Override
+	String userName;
+	String newUserName;
+	
+	
+	public String getNewUserName() {
+		return newUserName;
+	}
+
+	public void setNewUserName(String newUserName) {
+		this.newUserName = newUserName;
+	}
+
 	public String toString() {
 		return "User [userName=" + userName + ", password=" + password + ", enabled=" + enabled + "]";
 	}
 
-	@Column(name="PASSWORD")
+
 	String password;
 	
-	@Column(name="ENABLED")
+	String newPassword;
+	
 	Long enabled;
 	
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
 
 	public Long getEnabled() {
 		return enabled;

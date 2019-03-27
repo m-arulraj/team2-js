@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.virtusa.semicolon.admin_service.domain.FeedBack;
+import com.virtusa.semicolon.admin_service.domain.UpdateUser;
 import com.virtusa.semicolon.admin_service.domain.User;
 import com.virtusa.semicolon.admin_service.repository.UserRepository;
 import com.virtusa.semicolon.admin_service.repository.FeedBackRepository;
@@ -34,19 +35,32 @@ public class AdminService {
 
 	}
 
-	//reject delete
-	public void rejectRequest(User user) {
-		System.out.println("i am the admin service");
-		if (userRepository.findById(user.getUserName()) != null)
-				userRepository.delete(user);
-	}	
+	// unblock
+	public void unblockUser(User user) {
 
-	//block user
+		if (userRepository.findById(user.getUserName()) != null) {
+			userRepository.approveEmployerRequest(user.getUserName());
+		}
+
+	}
+
+	// reject delete
+	public void rejectRequest(String userName) {
+		User user = null;
+
+		Optional<User> optUser = userRepository.findById(userName);
+		if (optUser.isPresent()) {
+			user = optUser.get();
+			userRepository.delete(user);
+		}
+	}
+
+	// block user
 	public User blockUserByUsername(String username) {
 		return userRepository.blockUserByUsername(username);
 	}
 
-	//list of feedback
+	// list of feedback
 	public List<FeedBack> showReport() {
 		List<FeedBack> list = feedback.findAll();
 		return list;
@@ -56,6 +70,16 @@ public class AdminService {
 	public List<User> getAllUser() {
 
 		return userRepository.findAll();
+	}
+
+	public List<User> getAllBlockedUser() {
+		return userRepository.showBlockedUser();
+	}
+
+	public void updateUsername(UpdateUser user) {
+		
+		userRepository.updateUsername(user.getUserName(), user.getNewUserName());
+	
 	}
 
 }

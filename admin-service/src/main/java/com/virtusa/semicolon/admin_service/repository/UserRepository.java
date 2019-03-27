@@ -32,6 +32,12 @@ public interface UserRepository extends JpaRepository<User, String> {
 	@Query("UPDATE User SET enabled = 0 WHERE userName = :username")
 	public User blockUserByUsername(@Param("username") String username);
 
-	
+	@Query("select u from User u where u.enabled = 0 ")
+	List<User> showBlockedUser();
+
+	@Transactional
+	@Modifying
+	@Query("UPDATE User SET userName =:newUserName WHERE userName = :username")
+	void updateUsername(@Param("username") String username,@Param("newUserName") String newUserName);
 
 }

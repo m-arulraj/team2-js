@@ -1,14 +1,17 @@
 package com.virtusa.semicolon.master.controller;
 
 import java.util.List;
+
+import org.omg.CORBA.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.w3c.dom.ls.LSInput;
 
 import com.virtusa.semicolon.master.domain.EmployerRegistration;
 import com.virtusa.semicolon.master.domain.FeedBack;
@@ -37,9 +40,6 @@ public class AdminController {
 		String uri = "/approval/requests";
 		List<EmployerRegistration> requestList = adminService.getListOfRequests(uri);
 		model.addObject("reqList", requestList);
-		for (EmployerRegistration employerRegistration : requestList) {
-			System.out.println(employerRegistration);
-		}
 		return model;
 	}
 
@@ -57,7 +57,6 @@ public class AdminController {
 	@GetMapping("/reject")
 	public ModelAndView rejectRequest(@RequestParam("username") String userName) {
 		String uri = "/approval/requests/reject";
-		System.out.println(uri);
 		adminService.rejectRequest(uri, userName);
 		return adminApprovalRequest();
 		
@@ -81,12 +80,33 @@ public class AdminController {
 
 	// block
 	@GetMapping("/users/block")
-	public String blockUser() {
-		ModelAndView model = new ModelAndView("admin-reports");
-		String uri = "/users";
-		List<User> users = adminService.getAllUsers(uri);
+	public ModelAndView blockedUser() {
+		ModelAndView model = new ModelAndView("admin-block");
+		String uri = "/users/blocked";
+		List<User> users = adminService.getAllblockedUsers(uri);
 		model.addObject("users", users);
-		return "admin-block";
+		return model;
 	}
-
+	
+	//unblock
+	@GetMapping("/users/unblock")
+	public ModelAndView unblockUser(@RequestParam("userName") String userName) {
+		String uri = "/user/unblock";
+		adminService.unblockUser(uri, userName);
+		return blockedUser();
+	}
+	
+	@PostMapping(value="/profile/username")
+	public ModelAndView updateUserName(@ModelAttribute("user") User user)
+	{
+		System.out.println(user.getUserName()+" "+user.getPassword());
+		ModelAndView model = new ModelAndView("admin-profile");
+		String uri="/profile/username";
+		Authentication auth = null ;
+		
+		user.setUserName(auth.getName());
+		adminService.updateUserName(user,uri);
+		return model;
+	}
+	
 }

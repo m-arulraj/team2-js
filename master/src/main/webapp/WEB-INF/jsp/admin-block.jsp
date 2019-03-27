@@ -129,14 +129,12 @@ html, body, h1, h2, h3, h4, h5 {
 
 					<ul class="w3-ul w3-border">
 
-						<c:forEach var="user" items="users">
-							<li class="w3-bar"><a href="block"
-								class="w3-button w3-red w3-right w3-margin w3-hover-green">Block</a>
-
-
+						<c:forEach var="user" items="${users}">
+							<li class="w3-bar"><a href="unblock?userName=${user.getUserName() }"
+								class="w3-button w3-red w3-right w3-margin w3-hover-green">Unblock</a>
 								<div class="w3-bar-item">
-									<span class="w3-large">Mike</span><br> <span>Web
-										Designer</span>
+									<span class="w3-large">${user.getUserName()}</span><br>
+									 <span>Web	Designer</span>
 								</div></li>
 						</c:forEach>
 					</ul>
