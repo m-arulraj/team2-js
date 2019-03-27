@@ -38,6 +38,9 @@ public class PostedJobsList {
 
 	@Column(name = "JOB_DESCRIPTION")
 	private String jobDescription;
+	
+	@Column(name = "JOB_LOCATION")
+	private String jobLocation;
 
 	public String getJobType() {
 		return jobType;
@@ -109,6 +112,14 @@ public class PostedJobsList {
 
 	public void setJobDescription(String jobDescription) {
 		this.jobDescription = jobDescription;
+	}
+
+	public String getJobLocation() {
+		return jobLocation;
+	}
+
+	public void setJobLocation(String jobLocation) {
+		this.jobLocation = jobLocation;
 	}
 
 }

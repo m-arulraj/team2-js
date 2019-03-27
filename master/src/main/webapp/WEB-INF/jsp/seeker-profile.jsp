@@ -140,14 +140,14 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class=" w3-half">
 									<label>First Name</label> <input
 										class="w3-input w3-border w3-round-large" name="firstName"
-										type="text" required>
+										type="text" placeholder="${personalDetails.getFirstName()}">
 
 								</div>
 
 								<div class="w3-container w3-half">
 									<label>Last Name</label> <input
 										class="w3-input w3-border w3-round-large" name="lastName"
-										type="text" required>
+										type="text" placeholder="${personalDetails.getLastName()}">
 									<p>
 								</div>
 							</div>
@@ -156,7 +156,6 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class=" w3-half ">
 									<label>Gender</label> <select
 										class="w3-select w3-border w3-round-large" name="gender">
-										<option value="" disabled selected>Not Specified</option>
 										<option value="Male">Male</option>
 										<option value="Female">Female</option>
 										<option value="Other">Other</option>
@@ -167,7 +166,7 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class="w3-container w3-half">
 									<label>Contact</label> <input
 										class="w3-input w3-border w3-round-large" name="contact"
-										type="text" required>
+										type="text" placeholder="${personalDetails.getContactNumber()}">
 									<p>
 								</div>
 							</div>
@@ -176,7 +175,7 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class=" w3-half ">
 									<label>Date of Birth</label> <input
 										class="w3-input w3-border w3-round-large" name="dateOfBirth"
-										type="date" placeholder = "YYYY-MM-DD">
+										type="date" placeholder = "${personalDetails.getDateOfBirth()}">
 
 
 								</div>
@@ -184,7 +183,7 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class="w3-container w3-half">
 									<label>Father Name</label> <input
 										class="w3-input w3-border w3-round-large" name="fatherName"
-										type="text" required>
+										type="text" placeholder="${personalDetails.getFatherName()}">
 									<p>
 								</div>
 							</div>
@@ -192,18 +191,18 @@ html, body, h1, h2, h3, h4, h5 {
 							<div class="w3-row-padding">
 								<div class="w3-third">
 									<label>Country Name</label> <input class="w3-input w3-border"
-										name="countryName" type="text" placeholder="country name"
-										required="required">
+										name="countryName" type="text"
+										placeholder="${personalDetails.getCountry()}">
 								</div>
 								<div class="w3-third">
 									<label>State</label> <input class="w3-input w3-border"
-										name="state" type="text" placeholder="country state"
-										required="required">
+										name="state" type="text"
+										placeholder="${personalDetails.getState()}">
 								</div>
 								<div class="w3-third">
 									<label>Pincode</label> <input class="w3-input w3-border"
-										name="pincode" type="text" placeholder="Pincode"
-										required="required">
+										name="pincode" type="text"
+										placeholder="${personalDetails.getPincode()}">
 								</div>
 								<p>
 							</div>
@@ -213,7 +212,7 @@ html, body, h1, h2, h3, h4, h5 {
 								<label>Adderss</label>
 								<textarea rows="" cols="100" name="adderss"
 									class="w3-input w3-border w3-round" style="height: 100px;"
-									required></textarea>
+									placeholder="${personalDetails.getAddress()}"></textarea>
 							</div>
 							<p>
 							<div class="w3-center">
@@ -244,14 +243,14 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class=" w3-half">
 									<label>Highest Degree</label> <input
 										class="w3-input w3-border w3-round-large" name="highestDegree"
-										type="text" required>
+										type="text" placeholder = "${educationDetails.getHighestDegree()}">
 
 								</div>
 
 								<div class="w3-container w3-half">
 									<label>College Name</label> <input
 										class="w3-input w3-border w3-round-large" name="collegeName"
-										type="text" required>
+										type="text" placeholder = "${educationDetails.getCollegeName()}">
 									<p>
 								</div>
 							</div>
@@ -260,14 +259,14 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class=" w3-half">
 									<label>Specialization</label> <input
 										class="w3-input w3-border w3-round-large"
-										name="specialization" type="text" required>
+										name="specialization" type="text" placeholder = "${educationDetails.getSpecialization()}">
 
 								</div>
 
 								<div class="w3-container w3-half">
-									<label>Percent</label> <input
+									<label>Percentage</label> <input
 										class="w3-input w3-border w3-round-large" name="percent"
-										type="text" required>
+										type="text" placeholder = "${educationDetails.getPercentage()}">
 									<p>
 								</div>
 							</div>
@@ -279,15 +278,15 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class="w3-third">
 									<label>Year of Passout</label> <input
 										class="w3-input w3-border" name="yearOfPassout" type="text"
-										required="required" placeholder = "YYYY-MM-DD">
+										required="required" placeholder = "${educationDetails.getYearOfPassout()}">
 								</div>
 								<div class="w3-third">
 									<label>Year Gap</label> <input class="w3-input w3-border"
-										name="yearGap" type="text" required="required">
+										name="yearGap" type="text" placeholder = "${educationDetails.getYearGap()}">
 								</div>
 								<div class="w3-third">
 									<label>Backlogs</label> <input class="w3-input w3-border"
-										name="backlogs" type="text" required="required">
+										name="backlogs" type="text" placeholder = "${educationDetails.getBacklogs()}">
 								</div>
 								<p>
 							</div>
@@ -297,7 +296,7 @@ html, body, h1, h2, h3, h4, h5 {
 								<label>Skills</label>
 								<textarea rows="" cols="100" name="adderss"
 									class="w3-input w3-border w3-round" style="height: 100px;"
-									required></textarea>
+									placeholder = "${educationDetails.getSkills()}"></textarea>
 								<p>
 							</div>
 
@@ -334,14 +333,14 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class=" w3-half">
 									<label>Company Name</label> <input
 										class="w3-input w3-border w3-round-large" name="companyName"
-										type="text" required>
+										type="text" placeholder="${workExperianceDetails.getCompanyName()}">
 
 								</div>
 
 								<div class="w3-container w3-half">
 									<label>Desigination</label> <input
 										class="w3-input w3-border w3-round-large" name="desigination"
-										type="text" required>
+										type="text" placeholder="${workExperianceDetails.getDesignation()}">
 									<p>
 								</div>
 							</div>
@@ -350,7 +349,7 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class=" w3-half">
 									<label>Roles & Responsibility</label> <input
 										class="w3-input w3-border w3-round-large"
-										name="roles" type="text" required>
+										name="roles" type="text" placeholder="${workExperianceDetails.getRolesAndResponsibilities()}">
 
 								</div>
 
@@ -428,7 +427,7 @@ html, body, h1, h2, h3, h4, h5 {
 	<br>
 
 	<!-- Footer -->
-	<footer class="w3-container w3-theme-d3 w3-padding-16 w3-bottom">
+	<footer class="w3-container w3-theme-d3 w3-padding-10 w3-bottom">
 		<h5 class="w3-center">&copy Sem;colon</h5>
 	</footer>
 
