@@ -39,9 +39,10 @@ public class AdminService {
 		EmployerRegistration emp = new EmployerRegistration();
 		emp.setUserName(userName);
 		System.out.println(EndPointConstant.ADMIN_URI+uri);
-		template.delete(EndPointConstant.ADMIN_URI+uri,emp);
+		//template.delete(EndPointConstant.ADMIN_URI+uri,emp);
 	}
 	
+	//feedback list reports
 	public List<FeedBack> getReports(String uri)
 	{
 		ResponseEntity<List<FeedBack>> response = template.exchange(EndPointConstant.ADMIN_URI+uri,
@@ -50,6 +51,7 @@ public class AdminService {
 		return response.getBody();
 	}
 
+	//get all users
 	public List<User> getAllUsers(String uri) {
 		System.out.println(EndPointConstant.ADMIN_URI+uri);
 		ResponseEntity<List<User>> response = template.exchange(EndPointConstant.ADMIN_URI+uri,

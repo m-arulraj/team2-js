@@ -28,7 +28,6 @@ public class AdminController {
 	public List<User> showApprovalRequests() {
 
 		List<User> list = adminService.showApprovalRequests();
-
 		return list;
 	}
 	

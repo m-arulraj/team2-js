@@ -57,7 +57,6 @@ public class AdminController {
 	@GetMapping("/reject")
 	public ModelAndView rejectRequest(@RequestParam("username") String userName) {
 		String uri = "/approval/requests/reject";
-		System.out.println(uri);
 		adminService.rejectRequest(uri, userName);
 		return adminApprovalRequest();
 		
