@@ -1,42 +1,33 @@
 package com.virtusa.semicolon.master.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "POSTED_JOBS_LIST")
 public class PostedJobsList {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "ID")
+	
+	
 	private Long id;
 
-	@Column(name = "POSTED_BY")
+	
 	private String postedBy;
 
-	@Column(name = "JOB_TITLE")
+	
 	private String jobTitle;
 
-	@Column(name = "NUMBER_OF_VACANCIES")
+	
 	private Long numberOfVacancies;
 
-	@Column(name = "SALARY")
+	
 	private Double salary;
 
-	@Column(name = "JOB_ID")
+	
 	private String jobId;
 
-	@Column(name = "JOB_TYPE")
+	
 	private String jobType;
 
-	@Column(name = "REQUIRED_SKILLS")
+	
 	private String requiredSkills;
 
-	@Column(name = "JOB_DESCRIPTION")
+	
 	private String jobDescription;
 
 	public Long getId() {

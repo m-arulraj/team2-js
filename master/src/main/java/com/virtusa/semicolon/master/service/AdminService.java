@@ -26,20 +26,27 @@ public class AdminService {
 	}
 
 
-
+	//Accept
 	public void acceptRequest(String uri, String userName) {	
 		EmployerRegistration emp = new EmployerRegistration();
 		emp.setUserName(userName);
 		template.put(EndPointConstant.ADMIN_URI+uri, emp);
 	}
 	
+	//unblock
+	public void unblockUser(String uri, String userName) {	
+		User user = new User();
+		user.setUserName(userName);
+		template.put(EndPointConstant.ADMIN_URI+uri, user);
+	}
 	
-	//delete
+	//delete or reject 
 	public void rejectRequest(String uri, String userName) {	
 		EmployerRegistration emp = new EmployerRegistration();
 		emp.setUserName(userName);
-		System.out.println(EndPointConstant.ADMIN_URI+uri);
-		//template.delete(EndPointConstant.ADMIN_URI+uri,emp);
+		template.delete(EndPointConstant.ADMIN_URI+uri+"?userName="+userName);
+		/*template.exchange(EndPointConstant.ADMIN_URI+uri+"?userName="+userName,
+				HttpMethod.DELETE, null, void);*/
 	}
 	
 	//feedback list reports
@@ -59,5 +66,20 @@ public class AdminService {
 				});
 		return response.getBody();
 	}
+	
+	//get all blocked users
+		public List<User> getAllblockedUsers(String uri) {
+			ResponseEntity<List<User>> response = template.exchange(EndPointConstant.ADMIN_URI+uri,
+					HttpMethod.GET, null, new ParameterizedTypeReference<List<User>>() {
+					});
+			return response.getBody();
+		}
+
+
+		//update username
+		public void updateUserName(User user, String uri) {
+			template.put(EndPointConstant.ADMIN_URI+uri, user);
+		}
+	
 
 }

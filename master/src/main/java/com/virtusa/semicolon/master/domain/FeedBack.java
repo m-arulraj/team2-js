@@ -1,27 +1,17 @@
 package com.virtusa.semicolon.master.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "FEED_BACK")
 public class FeedBack {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "ID")
+	
 	private Long id;
 
-	@Column(name = "USERNAME")
+	
 	private String userName;
 
-	@Column(name = "JOB_ID")
+
 	private Long jobId;
 
-	@Column(name = "MESSAGE")
+	
 	private String message;
 
 	public Long getId() {

@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.virtusa.semicolon.admin_service.domain.FeedBack;
+import com.virtusa.semicolon.admin_service.domain.UpdateUser;
 import com.virtusa.semicolon.admin_service.domain.User;
 import com.virtusa.semicolon.admin_service.service.AdminService;
 
@@ -42,28 +44,42 @@ public class AdminController {
 		System.out.println(user.getUserName());
 		adminService.approveEmployerRequest(user);
 	}
+	
+	//unblock
+	@PutMapping("/user/unblock")
+	public void unblockUser(@RequestBody User user) {
+		System.out.println(user.getUserName());
+		adminService.approveEmployerRequest(user);
+	}
 
 	@DeleteMapping("/approval/requests/reject")
-	public void rejectRequests(@RequestBody User user) {
-		System.out.println(user.getUserName());
-		adminService.rejectRequest(user);
+	public void rejectRequests(@RequestParam("userName") String userName) {
+		System.out.println("i am here in admin controller "+userName );
+		adminService.rejectRequest(userName);
 	}
 
 	
-	
-/*	@DeleteMapping("/approval/requests/delete/")
-	public void deleteUser(@PathVariable("username") String username,@RequestBody User user) {
-		adminService.deleteUserByUsername(username);
-	}
-*/	
 	@GetMapping("/users")
 	public List<User> getAllUser() {
 		List<User> list = adminService.getAllUser();
 		return list;
 	}
 	
+
+	@GetMapping("/users/blocked")
+	public List<User> getAllBlockedUser() {
+		List<User> list = adminService.getAllBlockedUser();
+		return list;
+	}
+	
 	@PutMapping("/user/block")
 	public void disableAccount(@PathVariable("username") String username,@RequestBody User user) {
 		 adminService.blockUserByUsername(username);
+	}
+	
+	@PutMapping("/profile/username")
+	public void updateUsername(@RequestBody UpdateUser user)
+	{
+		adminService.updateUsername(user);
 	}
 }
