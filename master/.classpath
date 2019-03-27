@@ -6,15 +6,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
 			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="test" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
-		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -28,17 +27,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-<<<<<<< HEAD
-=======
-	<classpathentry kind="lib" path="C:/Users/SHSHUBHAM/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="javax.persistence"/>
-			<attribute name="maven.artifactId" value="javax.persistence-api"/>
-			<attribute name="maven.version" value="2.2"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
->>>>>>> c54d03ed89f23cdf1b280a7a0032870a1c7d6f81
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
