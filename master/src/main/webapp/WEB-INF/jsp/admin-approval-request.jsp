@@ -137,16 +137,16 @@ html, body, h1, h2, h3, h4, h5 {
 								</div>
 								<div class="w3-row ">
 									<div class="w3-half">
-										<button class="w3-button w3-block w3-green w3-section"
-											title="Accept">
+										<a class="w3-button w3-block w3-green w3-section"
+											title="Accept" href="accept?username=${req.userName }">
 											<i class="fa fa-check"></i>&nbsp;&nbsp;Accept
-										</button>
+										</a>
 									</div>
 									<div class="w3-half">
-										<button class="w3-button w3-block w3-red w3-section"
-											title="Decline">
+										<a class="w3-button w3-block w3-red w3-section"
+											title="Reject" href="reject?username=${req.userName }">
 											<i class="fa fa-remove"></i>&nbsp;&nbsp;Reject
-										</button>
+										</a>
 									</div>
 								</div>
 							</div>

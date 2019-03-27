@@ -13,7 +13,10 @@ public class CompanyDetailsService {
 	CompanyDetailsRepository companyDetailsRepository;
 	
 	public CompanyDetails updateCompanyDetails(String userName,CompanyDetails companyDetails){
+		System.out.println("empservice" +userName);
 		CompanyDetails companyDetails2 = companyDetailsRepository.findByUserName(userName);
+		System.out.println("empservice" +companyDetails2);
+		System.out.println("empservice" +companyDetails);
 		
 		if(companyDetails2!=null){
 			if(companyDetails.getCompanyName()!=null){
@@ -30,8 +33,12 @@ public class CompanyDetailsService {
 			}
 			return companyDetailsRepository.save(companyDetails2);
 		}else{
+			System.out.println("im saving");
 			return companyDetailsRepository.save(companyDetails);
 		}
+	}
+	public CompanyDetails getComapnyDetails(String userName){
+		return companyDetailsRepository.findByUserName(userName);
 	}
 
 }

@@ -1,12 +1,17 @@
 package com.virtusa.semicolon.master.controller;
 
 import java.security.Principal;
+<<<<<<< HEAD
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+
+>>>>>>> c54d03ed89f23cdf1b280a7a0032870a1c7d6f81
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +30,7 @@ public class SeekerController {
 
 	//seeker homepage
 	@GetMapping("")
+<<<<<<< HEAD
 	public ModelAndView getDetails(HttpSession session,Principal principal) {
 		String userName = principal.getName();
 		session.setAttribute("userName", userName);
@@ -35,6 +41,12 @@ public class SeekerController {
 		System.out.println(personalDetails);
 		model.addObject("personalDetails",personalDetails);
 		return model;
+=======
+	public String seekerHomePage(Principal principal, Model model) {
+		String uName= principal.getName();
+		model.addAttribute(uName);
+		return "seeker-home";
+>>>>>>> c54d03ed89f23cdf1b280a7a0032870a1c7d6f81
 	}
 	
 	//seeker profile

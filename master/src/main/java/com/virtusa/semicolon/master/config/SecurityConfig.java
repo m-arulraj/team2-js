@@ -37,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Auth
 				"select USERNAME, AUTHORITY from authorities where USERNAME=?"); */
 
 		auth.inMemoryAuthentication().withUser("emp")	.password("{noop}123").roles("EMPLOYER")
+		.and().withUser("emp1")	.password("{noop}123").roles("EMPLOYER")
 			.and().withUser("admin").password("{noop}123").roles("ADMIN")
 				.and().withUser("srini@gmail.com").password("{noop}123").roles("SEEKER");
 

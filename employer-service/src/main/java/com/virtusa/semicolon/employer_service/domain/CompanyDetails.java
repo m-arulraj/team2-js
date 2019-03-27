@@ -80,4 +80,12 @@ public class CompanyDetails {
 		this.establishedOn = establishedOn;
 	}
 
+	@Override
+	public String toString() {
+		return "CompanyDetails [id=" + id + ", userName=" + userName + ", companyName=" + companyName
+				+ ", contactNumber=" + contactNumber + ", address=" + address + ", establishedOn=" + establishedOn
+				+ "]";
+	}
+
+	
 }
