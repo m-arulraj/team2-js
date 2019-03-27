@@ -29,6 +29,9 @@ public class PostedJobsList {
 
 	
 	private String jobDescription;
+	
+	@Column(name = "JOB_LOCATION")
+	private String jobLocation;
 
 	public Long getId() {
 		return id;
@@ -100,6 +103,14 @@ public class PostedJobsList {
 
 	public void setJobDescription(String jobDescription) {
 		this.jobDescription = jobDescription;
+	}
+
+	public String getJobLocation() {
+		return jobLocation;
+	}
+
+	public void setJobLocation(String jobLocation) {
+		this.jobLocation = jobLocation;
 	}
 
 }

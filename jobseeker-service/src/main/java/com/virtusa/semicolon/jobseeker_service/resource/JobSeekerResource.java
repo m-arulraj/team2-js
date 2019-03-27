@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.virtusa.semicolon.jobseeker_service.domain.AppliedJobs;
 import com.virtusa.semicolon.jobseeker_service.domain.EducationDetails;
 import com.virtusa.semicolon.jobseeker_service.domain.FeedBack;
 import com.virtusa.semicolon.jobseeker_service.domain.PersonalDetails;
@@ -24,8 +25,8 @@ import com.virtusa.semicolon.jobseeker_service.service.EducationDetailsService;
 import com.virtusa.semicolon.jobseeker_service.service.FeedBackService;
 import com.virtusa.semicolon.jobseeker_service.service.JobApplyingService;
 import com.virtusa.semicolon.jobseeker_service.service.PersonalDetailsService;
+import com.virtusa.semicolon.jobseeker_service.service.PostedJobsService;
 import com.virtusa.semicolon.jobseeker_service.service.ProfileViewService;
-import com.virtusa.semicolon.jobseeker_service.service.SearchingService;
 import com.virtusa.semicolon.jobseeker_service.service.WorkExperianceDetailsService;
 
 @RestController
@@ -51,7 +52,7 @@ public class JobSeekerResource {
 	ProfileViewService profileViewService;
 	
 	@Autowired
-	SearchingService searchingService;
+	PostedJobsService postedJobsService;
 
 	@RequestMapping(value = "/personaldetails", method = RequestMethod.PUT)
 	public PersonalDetails updatePersonalDetails(@RequestParam("userName") String userName,
@@ -103,7 +104,18 @@ public class JobSeekerResource {
 	
 	@RequestMapping(value = "/searchedjobs", method = RequestMethod.GET)
 	public List<PostedJobsList> getSearchedJobs(@RequestParam("jobTitle") String jobTitle) {
-		return searchingService.getSearchedJobs(jobTitle);
+		return postedJobsService.getSearchedJobs(jobTitle);
+	}
+	
+	@RequestMapping(value = "/alljobs", method = RequestMethod.GET)
+	public List<PostedJobsList> getAllJobs() {
+		return postedJobsService.getAllJobs();
+	}
+	
+	@RequestMapping(value = "/appliedjobs", method = RequestMethod.GET)
+	public List<PostedJobsList> getAppliedJobs(@RequestParam("userName") String userName){
+		return postedJobsService.getAppliedJobs(userName);
+		
 	}
 
 }

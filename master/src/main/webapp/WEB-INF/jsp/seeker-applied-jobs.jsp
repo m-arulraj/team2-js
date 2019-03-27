@@ -114,10 +114,10 @@ html, body, h1, h2, h3, h4, h5 {
 			<!-- Middle Column -->
 			<div class="w3-col m7">
 				<div class="w3-container w3-round w3-margin">
-					<br>
+					<!-- <br> -->
 					<h3 class="w3-center w3-indigo w3-xxlarge ">Applied Jobs</h3>
 					<hr class="w3-clear">
-					<br>
+					<!-- <br> -->
 					<!-- <ul class="w3-ul w3-border">
 						<li class="w3-bar"><span
 							onclick="this.parentElement.style.display='none'"
@@ -152,7 +152,7 @@ html, body, h1, h2, h3, h4, h5 {
 									Designer</span>
 							</div></li>
 					</ul> -->
-					<br>
+					<!-- <br> -->
 				</div>
 
 
@@ -173,11 +173,12 @@ html, body, h1, h2, h3, h4, h5 {
 				<br>
 				<!-- End Right Column -->
 			</div>
-			<c:forEach items="${postedJobsList}" var='job'>
+			
 				<div class="w3-col m7">
+				<c:forEach items="${postedJobsList}" var='job'>
 					<div class="w3-container w3-card w3-white w3-round w3-margin">
 						<br> <span class="w3-right w3-opacity">JobId:${job.getJobId()}</span>
-						<h4>Title ${job.getJobTitle()}</h4>
+						<h4>${job.getJobTitle()}</h4>
 						<hr class="w3-clear">
 						<p>
 							Job Type : ${job.getJobType()}<br> Primary Location :
@@ -197,9 +198,10 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 
 					<!-- End Grid -->
+					</c:forEach>
 				</div>
-			</c:forEach>
-			<div class="w3-col m7">
+			
+		<%-- 	<div class="w3-col m7">
 				<div class="w3-container w3-card w3-white w3-round w3-margin">
 					<br> <span class="w3-right w3-opacity">JobId:${job.getJobId()}</span>
 					<h4>Title ${job.getJobTitle()}</h4>
@@ -229,7 +231,7 @@ html, body, h1, h2, h3, h4, h5 {
 				</div>
 
 				<!-- End Grid -->
-			</div>
+			</div> --%>
 			<!-- End Grid -->
 		</div>
 
@@ -238,7 +240,7 @@ html, body, h1, h2, h3, h4, h5 {
 	<br>
 
 	<!-- Footer -->
-	<footer class="w3-container w3-theme-d3 w3-padding-16 w3-bottom">
+	<footer class="w3-container w3-theme-d3 w3-padding-10 w3-bottom">
 		<h5 class="w3-center">&copy Sem;colon</h5>
 	</footer>
 
