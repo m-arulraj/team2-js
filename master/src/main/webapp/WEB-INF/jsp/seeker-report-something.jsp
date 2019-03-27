@@ -84,20 +84,20 @@ html, body, h1, h2, h3, h4, h5 {
 						<hr>
 						<p>
 							<i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i>
-							Admin
+							${personalDetails.getFirstName()} ${personalDetails.getLastName()}
 						</p>
 						<p>
-							<i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
-							Designer, UI
+							<i class="fa fa-phone fa-fw w3-margin-right w3-text-theme"></i>
+							${personalDetails.getContactNumber()}
 						</p>
 						<p>
 							<i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
-							London, UK
+							${personalDetails.getAddress()}
 						</p>
 						<p>
 							<i
 								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
-							April 1, 1988
+							${personalDetails.getDateOfBirth()}
 						</p>
 
 						<a href="seeker/profile" style="width: 90%"
