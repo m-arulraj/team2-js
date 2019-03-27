@@ -27,8 +27,13 @@ public class User {
 		this.newUserName = newUserName;
 	}
 
+	
+
+
+	@Override
 	public String toString() {
-		return "User [userName=" + userName + ", password=" + password + ", enabled=" + enabled + "]";
+		return "User [userName=" + userName + ", newUserName=" + newUserName + ", password=" + password
+				+ ", newPassword=" + newPassword + ", enabled=" + enabled + "]";
 	}
 
 

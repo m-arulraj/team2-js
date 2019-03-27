@@ -78,6 +78,7 @@ public class AdminService {
 
 		//update username
 		public void updateUserName(User user, String uri) {
+			System.out.println(user);
 			template.put(EndPointConstant.ADMIN_URI+uri, user);
 		}
 	

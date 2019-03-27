@@ -5,6 +5,7 @@ import java.util.List;
 import org.omg.CORBA.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -99,12 +100,12 @@ public class AdminController {
 	@PostMapping(value="/profile/username")
 	public ModelAndView updateUserName(@ModelAttribute("user") User user)
 	{
-		System.out.println(user.getUserName()+" "+user.getPassword());
 		ModelAndView model = new ModelAndView("admin-profile");
 		String uri="/profile/username";
-		Authentication auth = null ;
-		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		System.out.println(user);
 		user.setUserName(auth.getName());
+		System.out.println(user.getUserName());
 		adminService.updateUserName(user,uri);
 		return model;
 	}
