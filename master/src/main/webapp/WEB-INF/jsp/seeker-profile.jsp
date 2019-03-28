@@ -235,7 +235,7 @@ html, body, h1, h2, h3, h4, h5 {
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 								<form:button type="reset" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</form:button>
+									class="w3-button  w3-grey w3-margin-bottom w3-padding ">Cancel</form:button>
 							</div>
 
 
@@ -263,17 +263,10 @@ html, body, h1, h2, h3, h4, h5 {
 								</div>
 
 								<div class="w3-container w3-half">
-<<<<<<< HEAD
 									<label>College Name</label>
 									<form:input class="w3-input w3-border w3-round-large"
 										name="college" path="college" type="text"
 										placeholder="${educationDetails.getCollege()}" />
-=======
-									<label>College Name</label> <input
-										class="w3-input w3-border w3-round-large" name="collegeName"
-										type="text" placeholder = "${educationDetails.getCollege()}">
->>>>>>> 8d6cb362835d5afb65c9d5a5e4fd0748bd39f7fb
-									<p>
 								</div>
 							</div>
 
@@ -344,7 +337,7 @@ html, body, h1, h2, h3, h4, h5 {
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 								<form:button type="reset" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</form:button>
+									class="w3-button  w3-grey w3-margin-bottom w3-padding ">Cancel</form:button>
 							</div>
 
 
@@ -432,7 +425,7 @@ html, body, h1, h2, h3, h4, h5 {
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 								<form:button type="reset" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</form:button>
+									class="w3-button  w3-grey w3-margin-bottom w3-padding ">Cancel</form:button>
 							</div>
 
 
