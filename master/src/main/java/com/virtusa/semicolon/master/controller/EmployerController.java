@@ -85,14 +85,6 @@ EmployerService employerService;
 			model.addObject("companyDetails",companyDetails);
 
 			return model;
-			
-			/*List<String> postedjobList = new ArrayList<>();
-			postedjobList.add("javaDeveloper");
-			postedjobList.add("dot net developer");
-			postedjobList.add("UI developer");
-			ModelAndView model = new ModelAndView("employer-posted-jobs");
-			model.addObject("postedjobList", postedjobList);
-			return model;*/
 		}
 		@ModelAttribute("postedjobs")
 		public PostedJobsList postjob(){

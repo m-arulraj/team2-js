@@ -28,7 +28,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/SHSHUBHAM/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar">
+	<classpathentry kind="lib" path="C:/Users/varikutihs/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="maven.groupId" value="javax.persistence"/>

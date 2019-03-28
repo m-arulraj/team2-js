@@ -1,10 +1,13 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%--  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> --%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <title>Semicolon (;)</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ --><meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
@@ -32,8 +35,8 @@ body {
 	background-color: white;
 }
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
+/* Full-width form:input fields */
+form:input[type=text], form:input[type=password] {
 	padding: 15px;
 	margin: 5px 0 22px 0;
 	display: inline-block;
@@ -92,10 +95,11 @@ a {
 	<!-- Navbar on small screens -->
 	<div id="navDemo"
 		class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
-		<a href="#" class="w3-bar-item w3-button w3-padding-large" />Link 1</a> <a
-			href="#" class="w3-bar-item w3-button w3-padding-large" />Link 2</a> <a
-			href="#" class="w3-bar-item w3-button w3-padding-large" />Link 3</a> <a
-			href="#" class="w3-bar-item w3-button w3-padding-large" />My Profile</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">My
+			Profile</a>
 	</div>
 
 	<!-- Page Container -->
@@ -122,7 +126,7 @@ a {
 					</div>
 					<div id="employer" class="w3-container registration">
 						<h6>Employer Registration Form</h6>
-						<form:form action="/api/registration/employer" method="post" modelAttribute ="auth">
+						<form:form action="register" method="post" modelAttribute ="auth">
 							<div class="container" >
 
 								<label for="User Name"><b>User Name</b></label><br>
@@ -152,10 +156,11 @@ a {
 						</form:form>
 
 					</div>
-						<div id="jobSeeker" class="w3-container registration"
+
+					<div id="jobSeeker" class="w3-container registration"
 						style="display: none">
 						<h6>Job-Seeker Registration Form</h6>
-						<form:form action="/api/registration/employer" method="post" modelAttribute="auth">
+						<form:form action="register" method="post" modelAttribute="auth">
 							<div class="container">
 								<label for="User Name"><b>User Name</b></label><br> 
 								<form:input type="text" placeholder="EnterUser Name" name="userName" path="user.userName"/><br> 
@@ -180,7 +185,6 @@ a {
 							</div>
 						</form:form>
 					</div>
-					
 
 				</div>
 			</div>
@@ -201,9 +205,9 @@ a {
 	<!-- Footer -->
 
 	<footer class="w3-container w3-theme-d5">
-		<center>
-			<p>Powered by - Semicolon (;)</p>
-		</center>
+	<center>
+		<p>Powered by - Semicolon (;)</p>
+	</center>
 	</footer>
 
 	<script>
