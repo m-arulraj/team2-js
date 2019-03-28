@@ -250,7 +250,7 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class="w3-container w3-half">
 									<label>College Name</label> <input
 										class="w3-input w3-border w3-round-large" name="collegeName"
-										type="text" placeholder = "${educationDetails.getCollegeName()}">
+										type="text" placeholder = "${educationDetails.getCollege()}">
 									<p>
 								</div>
 							</div>

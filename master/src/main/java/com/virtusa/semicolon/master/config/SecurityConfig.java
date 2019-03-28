@@ -58,9 +58,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Auth
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/", "/signup", "/about").permitAll().antMatchers("/admin/**")
+		http.authorizeRequests().antMatchers("/", "/signup", "/about","/register").permitAll().antMatchers("/admin/**")
 				.hasRole("ADMIN").antMatchers("/employer/**").hasRole("EMPLOYER").antMatchers("/seeker/**")
-				.hasRole("SEEKER").anyRequest().authenticated().and().formLogin().permitAll().and().exceptionHandling()
+				.hasRole("JOBSEEKER").anyRequest().authenticated().and().formLogin().permitAll().and().exceptionHandling()
 				.accessDeniedPage("/access-denied").and().logout().permitAll().and().csrf().disable();
 	}
 

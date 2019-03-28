@@ -3,6 +3,7 @@ package com.virtusa.semicolon.registration.service;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.virtusa.semicolon.registration.domain.Authorities;
@@ -29,6 +30,7 @@ public class RegistrationServices {
 	@Autowired
 	EducationDetailsRepository educationDetailsRepository;
 	
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 	@Autowired
 	CompanyDetailsRepository companyDetailsRepository;	
@@ -62,6 +64,8 @@ public class RegistrationServices {
 	public Authorities register(Authorities aut) {
 		
 		Registration regstration = aut.getUser();
+		regstration.setPassword(encoder.encode(regstration.getPassword()));
+		System.out.println("encoded password : " + regstration.getPassword());
 		PersonalDetails personalDetails = new PersonalDetails();
 		EducationDetails educationDetails= new EducationDetails();
 		CompanyDetails  companyDetails = new CompanyDetails();
