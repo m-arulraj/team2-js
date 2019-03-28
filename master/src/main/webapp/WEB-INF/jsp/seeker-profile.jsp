@@ -135,7 +135,7 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 
 					<div id="personal" class="w3-container  w3-border tab">
-						<form:form action="personaldetails" method="post"
+						<form:form action="/seeker/personaldetails" method="post"
 							modelAttribute="personalDetails">
 							<br>
 							<div class="w3-row ">
@@ -263,17 +263,12 @@ html, body, h1, h2, h3, h4, h5 {
 								</div>
 
 								<div class="w3-container w3-half">
-<<<<<<< HEAD
+
 									<label>College Name</label>
 									<form:input class="w3-input w3-border w3-round-large"
 										name="college" path="college" type="text"
 										placeholder="${educationDetails.getCollege()}" />
-=======
-									<label>College Name</label> <input
-										class="w3-input w3-border w3-round-large" name="collegeName"
-										type="text" placeholder = "${educationDetails.getCollege()}">
->>>>>>> 8d6cb362835d5afb65c9d5a5e4fd0748bd39f7fb
-									<p>
+
 								</div>
 							</div>
 

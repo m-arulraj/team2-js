@@ -1,29 +1,11 @@
 package com.virtusa.semicolon.master.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "AUTHORITIES")
 public class Authorities {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "ID")
 	private Long id;
-	
-	@OneToOne
-	@JoinColumn(name="USERNAME")
+
 	private Registration user;
-	/*@Column(name="USERNAME")
-	private String userName;
-*/	
-	@Column(name = "AUTHORITY")
+
 	private String authorities;
 	
 	public String getAuthorities() {

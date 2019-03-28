@@ -116,9 +116,9 @@ public class SeekerController {
 		PersonalDetails personalDetails2 = jobSeekerService.getPersonalDetails(uri3);
 		String uri4 = "/educationdetails?userName=" + session.getAttribute("userName");
 		EducationDetails educationDetails2 = jobSeekerService.getEducationDetails(uri4);
-		model.addObject("educationDetails", educationDetails2);
-		model.addObject("personalDetails", personalDetails2);
-		model.addObject("workExperianceDetails", workExperianceDetails2);
+		model.addObject("educationDetails", educationDetails2==null?new EducationDetails():educationDetails2);
+		model.addObject("personalDetails", personalDetails2==null?new PersonalDetails():personalDetails2);
+		model.addObject("workExperianceDetails", workExperianceDetails2==null?new WorkExperianceDetails():workExperianceDetails2);
 		return model;
 
 	}
@@ -135,9 +135,9 @@ public class SeekerController {
 		WorkExperianceDetails workExperianceDetails2 = jobSeekerService.getWorkExperianceDetails(uri3);
 		String uri4 = "/educationdetails?userName=" + session.getAttribute("userName");
 		EducationDetails educationDetails2 = jobSeekerService.getEducationDetails(uri4);
-		model.addObject("educationDetails", educationDetails2);
-		model.addObject("workExperianceDetails", workExperianceDetails2);
-		model.addObject("personalDetails", personalDetails2);
+		model.addObject("educationDetails", educationDetails2==null?new EducationDetails():educationDetails2);
+		model.addObject("personalDetails", personalDetails2==null?new PersonalDetails():personalDetails2);
+		model.addObject("workExperianceDetails", workExperianceDetails2==null?new WorkExperianceDetails():workExperianceDetails2);
 		return model;
 
 	}
@@ -154,9 +154,9 @@ public class SeekerController {
 		WorkExperianceDetails workExperianceDetails2 = jobSeekerService.getWorkExperianceDetails(uri3);
 		String uri4 = "/personaldetails?userName=" + session.getAttribute("userName");
 		PersonalDetails personalDetails2 = jobSeekerService.getPersonalDetails(uri4);
-		model.addObject("personalDetails", personalDetails2);
-		model.addObject("workExperianceDetails", workExperianceDetails2);
-		model.addObject("educationDetails", educationDetails2);
+		model.addObject("educationDetails", educationDetails2==null?new EducationDetails():educationDetails2);
+		model.addObject("personalDetails", personalDetails2==null?new PersonalDetails():personalDetails2);
+		model.addObject("workExperianceDetails", workExperianceDetails2==null?new WorkExperianceDetails():workExperianceDetails2);
 		return model;
 
 	}

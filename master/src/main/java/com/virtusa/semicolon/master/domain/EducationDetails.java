@@ -9,43 +9,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="EDUCATIONAL_DETAILS")
 public class EducationDetails {
 	
-	@Id
-	@GeneratedValue
-	@Column(name="ID")
+
 	private Long id;
-	
-	@Column(name="USERNAME")
+
 	private String userName;
-	
-	@Column(name="HIGHEST_DEGREE")
+
 	private String highestDegree;
-	
-	@Column(name="COLLEGE")
+
 	private String college;
-	
-	@Column(name="SPECIALIZATION")
+
 	private String specialization;
-	
-	@Column(name="YEAR_OF_PASSOUT")
+
 	private Long yearOfPassout;
-	
-	@Column(name="PERCENTAGE")
+
 	private Double percentage;
-	
-	@Column(name="YEAR_GAP")
+
 	private Long yearGap;
-	
-	@Column(name="NUMBER_OF_BACKLOGS")
+
 	private Long numberOfBacklogs;
-	
-	@Column(name="SKILLS")
+
 	private String skills;
-	
-	@Column(name="RESUME")
+
 	private Blob resume;
 
 	public Long getId() {

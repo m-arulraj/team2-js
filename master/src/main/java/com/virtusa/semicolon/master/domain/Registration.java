@@ -1,23 +1,11 @@
 package com.virtusa.semicolon.master.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="USERS")
 public class Registration {
-	
-	@Id
-	@Column(name="USERNAME")
+
 	private String userName;
-	
-	@Column(name="PASSWORD")
+
 	private String password;
-	
-	@Column(name="ENABLED")
+
 	private Long enabled;
 	
 	

@@ -28,12 +28,11 @@ public class RegistrationServices {
 	PersonalDetailsRepository personalDetailRepository;
 	@Autowired
 	EducationDetailsRepository educationDetailsRepository;
-<<<<<<< HEAD
-=======
+
 	
 	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
->>>>>>> 4dee1bafc3ab9fce7d89c04ec8a2a341decdc0ab
+
 	@Autowired
 	CompanyDetailsRepository companyDetailsRepository;	
 	
