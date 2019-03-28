@@ -130,7 +130,7 @@ html, body, h1, h2, h3, h4, h5 {
 							<p>
 								<label>New Username</label>
 							</p>
-							<input class="w3-input w3-border" name="userName" type="text" style="width: 90%" required>
+							<input class="w3-input w3-border" name="newUserName" type="text" style="width: 90%" required>
 
 							<p>
 								<label>Password</label>

@@ -10,19 +10,19 @@ import javax.persistence.Table;
 public class Employer {
 
 	@Id
-	@Column
+	@Column(name="USERNAME")
 	String userName;
 
-	@Column
+	@Column(name="COMPANY_NAME")
 	String companyName;
 
-	@Column
+	@Column(name="CONTACT_NUMBER")
 	int contactNumber;
 
-	@Column
+	@Column(name="ADDRESS")
 	String address;
 
-	@Column
+	@Column(name="ESTABLISHED_ON")
 	String establishedOn;
 
 	public String getUserName() {

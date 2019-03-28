@@ -1,5 +1,6 @@
 package com.virtusa.semicolon.registration.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,15 +15,17 @@ public class Authorities {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "ID")
 	private Long id;
 	
-	@OneToOne
+	@OneToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name="USERNAME")
 	private Registration user;
+	
 	/*@Column(name="USERNAME")
 	private String userName;
 */	
-	@Column(name = "AUTHORITIES")
+	@Column(name = "AUTHORITY")
 	private String authorities;
 	
 	public String getAuthorities() {

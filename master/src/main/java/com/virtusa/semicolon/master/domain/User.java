@@ -1,24 +1,24 @@
 package com.virtusa.semicolon.master.domain;
 
 public class User {
-	
-	public User()
-	{
+
+	public User() {
 		super();
 	}
-	
+
 	public User(String userName, String password, Long enabled) {
-	
+
 		this.userName = userName;
 		this.password = password;
 		this.enabled = enabled;
 	}
 
-	
 	String userName;
 	String newUserName;
-	
-	
+	String password;
+	String newPassword;
+	Long enabled;
+
 	public String getNewUserName() {
 		return newUserName;
 	}
@@ -27,17 +27,11 @@ public class User {
 		this.newUserName = newUserName;
 	}
 
+	@Override
 	public String toString() {
-		return "User [userName=" + userName + ", password=" + password + ", enabled=" + enabled + "]";
+		return "User [userName=" + userName + ", newUserName=" + newUserName + ", password=" + password
+				+ ", newPassword=" + newPassword + ", enabled=" + enabled + "]";
 	}
-
-
-	String password;
-	
-	String newPassword;
-	
-	Long enabled;
-	
 
 	public String getNewPassword() {
 		return newPassword;
@@ -71,5 +65,4 @@ public class User {
 		this.password = password;
 	}
 
-	
 }

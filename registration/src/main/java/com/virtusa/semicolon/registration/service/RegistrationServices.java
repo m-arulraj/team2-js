@@ -3,6 +3,7 @@ package com.virtusa.semicolon.registration.service;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.virtusa.semicolon.registration.domain.Authorities;
@@ -17,69 +18,59 @@ import com.virtusa.semicolon.registration.repository.EmployerRepository;
 import com.virtusa.semicolon.registration.repository.PersonalDetailsRepository;
 
 @Service
-public class EmployeeServices {
+public class RegistrationServices {
 	
 	@Autowired
-	EmployerRepository employerRepository;
-	
+	EmployerRepository employerRepository;	
 	@Autowired
 	Authoritiesrepositories authoritiesRepository;
 	@Autowired
 	PersonalDetailsRepository personalDetailRepository;
 	@Autowired
 	EducationDetailsRepository educationDetailsRepository;
+<<<<<<< HEAD
+=======
 	
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+>>>>>>> 4dee1bafc3ab9fce7d89c04ec8a2a341decdc0ab
 	@Autowired
 	CompanyDetailsRepository companyDetailsRepository;	
-
-	/*
-	@Transactional
-	public Registration register(String userName, String password,String authorities){
-		Authorities aut = new Authorities();
-		Registration reg = new Registration();
-		reg.setUserName(userName);
-		reg.setPassword(password);
-		if(authorities.equals("ROLE_EMPLOYER")){
-			reg.setEnabled((long) 0);
-		}else if(authorities.equals("ROLE_JOBSEEKER")){
-			reg.setEnabled((long) 1);
-		}
-		Registration emp1 =employerRepository.save(reg);
-		aut.setUser(reg);
-		aut.setAuthorities(authorities);
-		registerAuthorities(aut);
-		return emp1;	
-	}*/
 	
 	public Authorities registerAuthorities(Authorities auth){
-		return authoritiesRepository.save(auth);
+		Authorities temp = authoritiesRepository.save(auth);
+		System.out.println(temp);
+		return temp;
 	}
 	
-	@Transactional
-	public Registration register(Authorities aut) {
+@Transactional
+	public Authorities register(Authorities aut) {
 		
 		Registration regstration = aut.getUser();
+		regstration.setPassword(encoder.encode(regstration.getPassword()));
+		System.out.println("encoded password : " + regstration.getPassword());
 		PersonalDetails personalDetails = new PersonalDetails();
 		EducationDetails educationDetails= new EducationDetails();
 		CompanyDetails  companyDetails = new CompanyDetails();
 	
 		if(aut.getAuthorities().equals("ROLE_EMPLOYER")){
 			regstration.setEnabled((long) 0);
+			companyDetails.setUserName(regstration.getUserName());
+
 		}else if(aut.getAuthorities().equals("ROLE_JOBSEEKER")){
 			regstration.setEnabled((long) 1);
+			personalDetails.setUserName(regstration.getUserName());
+			educationDetails.setUserName(regstration.getUserName());
 		}
-		personalDetails.setUserName(regstration.getUserName());
-		educationDetails.setUserName(regstration.getUserName());
-	
-		companyDetails.setUserName(regstration.getUserName());
-		
-		Registration reg =employerRepository.save(regstration);
-		registerAuthorities(aut);
+		Authorities auth =registerAuthorities(aut);
+			
 		personalDetailRepository.save(personalDetails);
+		
 		educationDetailsRepository.save(educationDetails);
+		
 		companyDetailsRepository.save(companyDetails);
-		return reg;	
+		
+		return auth;	
 		
 	}
 

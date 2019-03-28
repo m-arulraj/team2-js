@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -27,31 +29,39 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Auth
 
 	@Autowired
 	DataSource dataSource;
-	
+
+	@Bean
+	public BCryptPasswordEncoder getPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		/* auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery(
-					"select USERNAME,PASSWORD, ENABLED from users where USERNAME=?")
-			.authoritiesByUsernameQuery(
-				"select USERNAME, AUTHORITY from authorities where USERNAME=?"); */
+		auth.jdbcAuthentication().dataSource(dataSource);
 
-		auth.inMemoryAuthentication().withUser("emp")	.password("{noop}123").roles("EMPLOYER")
-		.and().withUser("emp1")	.password("{noop}123").roles("EMPLOYER")
-		.and().withUser("abcdefg")	.password("{noop}123").roles("ADMIN")
-			.and().withUser("admin").password("{noop}123").roles("ADMIN")
-				.and().withUser("srini@gmail.com").password("{noop}123").roles("SEEKER");
+		
+	/*	  auth.jdbcAuthentication().dataSource(dataSource).
+		  usersByUsernameQuery(
+		  "select USERNAME,PASSWORD, ENABLED from users where USERNAME=?")
+		  .authoritiesByUsernameQuery(
+		  "select USERNAME, AUTHORITY from authorities where USERNAME=?")
+		 ;*/
+
+		/*auth.inMemoryAuthentication().withUser("emp").password("{noop}123").roles("EMPLOYER").and().withUser("emp1")
+				.password("{noop}123").roles("EMPLOYER").and().withUser("avenger@gmail.com").password("123")
+				.roles("ADMIN").and().withUser("admin").password("{noop}123").roles("ADMIN").and().withUser("seek")
+				.password("{noop}123").roles("SEEKER");*/
 
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.authorizeRequests().antMatchers("/", "/signup", "/about").permitAll().antMatchers("/admin/**")
+		http.authorizeRequests().antMatchers("/", "/signup", "/about","/register").permitAll().antMatchers("/admin/**")
 				.hasRole("ADMIN").antMatchers("/employer/**").hasRole("EMPLOYER").antMatchers("/seeker/**")
-				.hasRole("SEEKER").anyRequest().authenticated().and().formLogin().permitAll().and().exceptionHandling()
-				.accessDeniedPage("/access-denied").and().logout().permitAll();
-
+				.hasRole("JOBSEEKER").anyRequest().authenticated().and().formLogin().permitAll().and().exceptionHandling()
+				.accessDeniedPage("/access-denied").and().logout().permitAll().and().csrf().disable();
 	}
 
 	@Override
