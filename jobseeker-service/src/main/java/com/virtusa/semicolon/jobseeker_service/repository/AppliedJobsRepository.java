@@ -1,5 +1,7 @@
 package com.virtusa.semicolon.jobseeker_service.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,4 +14,7 @@ public interface AppliedJobsRepository extends JpaRepository<AppliedJobs, Long> 
 
 	@Query("select a from AppliedJobs a where a.userName=:userName and a.jobId=:jobId")
 	AppliedJobs findByUserNameAndJobId(@Param("userName") String userName, @Param("jobId") Long jobId);
+
+	@Query("select a from AppliedJobs a where a.userName=:userName")
+	List<AppliedJobs> findByUserName(@Param("userName")String userName);
 }

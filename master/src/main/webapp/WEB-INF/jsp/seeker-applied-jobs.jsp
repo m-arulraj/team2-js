@@ -84,20 +84,21 @@ html, body, h1, h2, h3, h4, h5 {
 						<hr>
 						<p>
 							<i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i>
-							Admin
+							${personalDetails.getFirstName()}
+							${personalDetails.getLastName()}
 						</p>
 						<p>
-							<i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
-							Designer, UI
+							<i class="fa fa-phone fa-fw w3-margin-right w3-text-theme"></i>
+							${personalDetails.getContactNumber()}
 						</p>
 						<p>
 							<i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i>
-							London, UK
+							${personalDetails.getAddress()}
 						</p>
 						<p>
 							<i
 								class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
-							April 1, 1988
+							${personalDetails.getDateOfBirth()}
 						</p>
 
 						<a href="seeker/profile" style="width: 90%"
@@ -112,12 +113,12 @@ html, body, h1, h2, h3, h4, h5 {
 
 			<!-- Middle Column -->
 			<div class="w3-col m7">
-				<div class="w3-container w3-card w3-white w3-round w3-margin">
-					<br>
+				<div class="w3-container w3-round w3-margin">
+					<!-- <br> -->
 					<h3 class="w3-center w3-indigo w3-xxlarge ">Applied Jobs</h3>
 					<hr class="w3-clear">
-					<br>
-					<ul class="w3-ul w3-border">
+					<!-- <br> -->
+					<!-- <ul class="w3-ul w3-border">
 						<li class="w3-bar"><span
 							onclick="this.parentElement.style.display='none'"
 							class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
@@ -150,8 +151,8 @@ html, body, h1, h2, h3, h4, h5 {
 								<span class="w3-large">Robert</span><br> <span>Web
 									Designer</span>
 							</div></li>
-					</ul>
-					<br>
+					</ul> -->
+					<!-- <br> -->
 				</div>
 
 
@@ -172,7 +173,65 @@ html, body, h1, h2, h3, h4, h5 {
 				<br>
 				<!-- End Right Column -->
 			</div>
+			
+				<div class="w3-col m7">
+				<c:forEach items="${postedJobsList}" var='job'>
+					<div class="w3-container w3-card w3-white w3-round w3-margin">
+						<br> <span class="w3-right w3-opacity">JobId:${job.getJobId()}</span>
+						<h4>${job.getJobTitle()}</h4>
+						<hr class="w3-clear">
+						<p>
+							Job Type : ${job.getJobType()}<br> Primary Location :
+							${job.getJobLocation()}<br> Required Skills :
+							${job.getRequiredSkills()} <br> Number Of Vacancies :
+							${job.getNumberOfVacancies()} <br> Salary :
+							${job.getSalary()} <br> Job Description :
+							${job.getJobDescription()}
+						</p>
+						<div class="w3-row-padding" style="margin: 0 -10px"></div>
+						<!-- <button type="button"
+							class="w3-button w3-theme-d1 w3-margin-bottom"
+							onclick="location.href=' https://mycareer.virtusa.com/jobs/job-detail/?jid=100681';">
+							<i class="fa fa-thumbs-up"></i>
+							View
+						</button> -->
+					</div>
 
+					<!-- End Grid -->
+					</c:forEach>
+				</div>
+			
+		<%-- 	<div class="w3-col m7">
+				<div class="w3-container w3-card w3-white w3-round w3-margin">
+					<br> <span class="w3-right w3-opacity">JobId:${job.getJobId()}</span>
+					<h4>Title ${job.getJobTitle()}</h4>
+					<hr class="w3-clear">
+					<p>
+						Job Type : ${job.getJobType()}<br> Primary Location :
+						${job.getJobLocation()}<br> Required Skills :
+						${job.getRequiredSkills()} <br> Number Of Vacancies :
+						${job.getNumberOfVacancies()} <br> Salary :
+						${job.getSalary()} <br> Job Description :
+						${job.getJobDescription()}
+					</p>
+					<div class="w3-row-padding" style="margin: 0 -10px"></div>
+					<!-- <button type="button"
+						class="w3-button w3-theme-d1 w3-margin-bottom"
+						onclick="location.href=' https://mycareer.virtusa.com/jobs/job-detail/?jid=100681';">
+						<i class="fa fa-thumbs-up"></i>
+						Apply
+					</button>
+					&emsp;
+					<button type="button"
+						class="w3-button w3-theme-d2 w3-margin-bottom"
+						onclick="location.href=' https://mycareer.virtusa.com/jobs/job-detail/?jid=100681';">
+						<i class="fa fa-comment"></i>
+						Report
+					</button> -->
+				</div>
+
+				<!-- End Grid -->
+			</div> --%>
 			<!-- End Grid -->
 		</div>
 
@@ -181,7 +240,7 @@ html, body, h1, h2, h3, h4, h5 {
 	<br>
 
 	<!-- Footer -->
-	<footer class="w3-container w3-theme-d3 w3-padding-16 w3-bottom">
+	<footer class="w3-container w3-theme-d3 w3-padding-10 w3-bottom">
 		<h5 class="w3-center">&copy Sem;colon</h5>
 	</footer>
 

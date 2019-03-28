@@ -40,7 +40,11 @@ WebApplicationContext wac;
 		Registration reg = new Registration();
 		Authorities auth = new Authorities();
 		auth.setAuthorities("ROLE_JOBSEEKER");
+<<<<<<< HEAD
 		reg.setUserName("h");
+=======
+		reg.setUserName("sst@g.c.com");
+>>>>>>> 4d67dbb224521d2015897431b3421ef34e589a20
 		reg.setPassword("123");
 		auth.setUser(reg);
 		mockMvc.perform(MockMvcRequestBuilders.post("/api/registration").contentType(MediaType.APPLICATION_JSON)

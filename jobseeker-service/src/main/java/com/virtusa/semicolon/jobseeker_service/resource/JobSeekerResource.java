@@ -8,7 +8,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,18 +21,26 @@ import com.virtusa.semicolon.jobseeker_service.domain.FeedBack;
 import com.virtusa.semicolon.jobseeker_service.domain.PersonalDetails;
 import com.virtusa.semicolon.jobseeker_service.domain.PostedJobsList;
 import com.virtusa.semicolon.jobseeker_service.domain.WorkExperianceDetails;
+import com.virtusa.semicolon.jobseeker_service.service.EducationDetailsService;
 import com.virtusa.semicolon.jobseeker_service.service.FeedBackService;
 import com.virtusa.semicolon.jobseeker_service.service.JobApplyingService;
+import com.virtusa.semicolon.jobseeker_service.service.PersonalDetailsService;
+import com.virtusa.semicolon.jobseeker_service.service.PostedJobsService;
 import com.virtusa.semicolon.jobseeker_service.service.ProfileViewService;
-import com.virtusa.semicolon.jobseeker_service.service.SearchingService;
-import com.virtusa.semicolon.jobseeker_service.service.UpdationService;
+import com.virtusa.semicolon.jobseeker_service.service.WorkExperianceDetailsService;
 
 @RestController
 @RequestMapping("/api/jobseeker/")
 public class JobSeekerResource {
 
 	@Autowired
-	UpdationService updationService;
+	PersonalDetailsService personalDetailsService;
+	
+	@Autowired
+	EducationDetailsService educationDetailsService;
+	
+	@Autowired
+	WorkExperianceDetailsService workExperianceDetailsService;
 
 	@Autowired
 	JobApplyingService jobApplyingService;
@@ -45,55 +52,70 @@ public class JobSeekerResource {
 	ProfileViewService profileViewService;
 	
 	@Autowired
-	SearchingService searchingService;
+	PostedJobsService postedJobsService;
 
-	@RequestMapping(value = "/updatepersonaldetails", method = RequestMethod.PUT)
+	@RequestMapping(value = "/personaldetails", method = RequestMethod.PUT)
 	public PersonalDetails updatePersonalDetails(@RequestParam("userName") String userName,
 			@RequestBody PersonalDetails personalDetails) throws ParseException {
 
-		return updationService.updatePersonalDetails(userName, personalDetails);
+		return personalDetailsService.updatePersonalDetails(userName, personalDetails);
 	}
 
-	@RequestMapping(value = "/updateeducationdetails", method = RequestMethod.PUT)
-	public EducationDetails updateEducationDetails(@SessionAttribute("userName") String userName,
+	@RequestMapping(value = "/educationdetails", method = RequestMethod.PUT)
+	public EducationDetails updateEducationDetails(@RequestParam("userName") String userName,
 			@RequestBody EducationDetails educationDetails) {
-		return updationService.updateEducationDetails(userName, educationDetails);
+		return educationDetailsService.updateEducationDetails(userName, educationDetails);
 	}
 
-	@RequestMapping(value = "/updateworkexperiancedetails", method = RequestMethod.PUT)
-	public WorkExperianceDetails updateWorkExperianceDetails(@SessionAttribute("userName") String userName,
+	@RequestMapping(value = "/workexperiancedetails", method = RequestMethod.PUT)
+	public WorkExperianceDetails updateWorkExperianceDetails(@RequestParam("userName") String userName,
 			@RequestBody WorkExperianceDetails workExperianceDetails) {
-		return updationService.updateWorkExperianceDetails(userName, workExperianceDetails);
+		return workExperianceDetailsService.updateWorkExperianceDetails(userName, workExperianceDetails);
 
 	}
 
-	@RequestMapping(value = "/applyforjob", method = RequestMethod.POST)
-	public ResponseEntity<String> applyForJob(/*@SessionAttribute("userName") String userName,@RequestParam("jobId") Long jobId*/@RequestBody AppliedJobs appliedJobs) throws URISyntaxException {
-		return ResponseEntity.created(new URI("/api/jobseeker" + jobApplyingService.applyForJob(appliedJobs.getUserName(),appliedJobs.getJobId()).getId()))
+	@RequestMapping(value = "/job", method = RequestMethod.POST)
+	public ResponseEntity<String> applyForJob(@RequestParam("userName") String userName,@RequestParam("jobId") Long jobId) throws URISyntaxException {
+		return ResponseEntity.created(new URI("/api/jobseeker" + jobApplyingService.applyForJob(userName,jobId).getId()))
 				.build();
 	}
 	
-	@RequestMapping(value = "/givefeedback", method = RequestMethod.POST)
+	@RequestMapping(value = "/feedback", method = RequestMethod.POST)
 	public ResponseEntity<String> giveFeedBack(@SessionAttribute("userNAme") String userName,
 			@RequestParam("jobId") Long jobId, @RequestBody FeedBack feedBack) throws URISyntaxException{
 		return ResponseEntity.created(new URI("/api/jobseeker" + feedBackService.giveFeedBack(userName,jobId,feedBack).getId()))
 				.build();
 	}
 	
-	@RequestMapping(value = "/getprofiledetails", method = RequestMethod.GET)
-	public String getProfileDetails(@SessionAttribute("userName") String userName,Model model) {
-		PersonalDetails personalDetails = profileViewService.getPersonalDetails(userName);
-		EducationDetails educationDetails = profileViewService.getEducationDetails(userName);
-		Optional<WorkExperianceDetails> workExperianceDetails = profileViewService.getWorkExperianceDetails(userName);
-		model.addAttribute("personalDetails", personalDetails);
-		model.addAttribute("educationDetails", educationDetails);
-		model.addAttribute("workExperianceDetails", workExperianceDetails);
-		return null;
+	@RequestMapping(value = "/personaldetails", method = RequestMethod.GET)
+	public PersonalDetails getPersonalDetails(@RequestParam("userName") String userName){
+		return profileViewService.getPersonalDetails(userName);
 	}
 	
-	@RequestMapping(value = "/getsearchedjobs", method = RequestMethod.GET)
+	@RequestMapping(value = "/educationdetails", method = RequestMethod.GET)
+	public EducationDetails getEducationDetails(@RequestParam("userName") String userName){
+		return profileViewService.getEducationDetails(userName);
+	}
+	
+	@RequestMapping(value = "/workexperiancedetails", method = RequestMethod.GET)
+	public Optional<WorkExperianceDetails> getWorkExperianceDetails(@RequestParam("userName") String userName){
+		return profileViewService.getWorkExperianceDetails(userName);
+	}
+	
+	@RequestMapping(value = "/searchedjobs", method = RequestMethod.GET)
 	public List<PostedJobsList> getSearchedJobs(@RequestParam("jobTitle") String jobTitle) {
-		return searchingService.getSearchedJobs(jobTitle);
+		return postedJobsService.getSearchedJobs(jobTitle);
+	}
+	
+	@RequestMapping(value = "/alljobs", method = RequestMethod.GET)
+	public List<PostedJobsList> getAllJobs() {
+		return postedJobsService.getAllJobs();
+	}
+	
+	@RequestMapping(value = "/appliedjobs", method = RequestMethod.GET)
+	public List<PostedJobsList> getAppliedJobs(@RequestParam("userName") String userName){
+		return postedJobsService.getAppliedJobs(userName);
+		
 	}
 
 }

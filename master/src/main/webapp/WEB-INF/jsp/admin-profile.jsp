@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <title>Admin Profile</title>
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
@@ -125,17 +125,17 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container  w3-margin-top">
 						<!-- Change username -->
 						<h2 class="w3-black w3-container">Update Username</h2>
-						<form class="w3-container w3-card-4">
+						<form:form class="w3-container w3-card-4"  action="/admin/profile/username" modelAttribute="user" method="post">
 								
 							<p>
 								<label>New Username</label>
 							</p>
-							<input class="w3-input w3-border" type="text" style="width: 90%" required>
+							<input class="w3-input w3-border" name="newUserName" type="text" style="width: 90%" required>
 
 							<p>
 								<label>Password</label>
 							</p>
-							<input class="w3-input w3-border" type="password" style="width: 90%"
+							<input class="w3-input w3-border" type="password"  name="password" style="width: 90%"
 								required>
 
 							<p>
@@ -143,7 +143,7 @@ html, body, h1, h2, h3, h4, h5 {
 									Log in</button>
 							</p>
 
-						</form>
+						</form:form>
 						<hr class="w3-clear">
 							<!-- Change password -->
 						<h2 class="w3-teal w3-container">Change Password</h2>
