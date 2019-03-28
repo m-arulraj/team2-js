@@ -36,7 +36,7 @@ spring:
       - id: registration-service
         uri: lb://registration-service
         predicates:
-        - Path= /api/registration/employer/**
+        - Path= /api/registration/**
         
         
       

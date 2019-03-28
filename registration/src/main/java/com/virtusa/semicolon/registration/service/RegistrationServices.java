@@ -17,7 +17,7 @@ import com.virtusa.semicolon.registration.repository.EmployerRepository;
 import com.virtusa.semicolon.registration.repository.PersonalDetailsRepository;
 
 @Service
-public class EmployeeServices {
+public class RegistrationServices {
 	
 	@Autowired
 	EmployerRepository employerRepository;
@@ -53,11 +53,13 @@ public class EmployeeServices {
 	}*/
 	
 	public Authorities registerAuthorities(Authorities auth){
-		return authoritiesRepository.save(auth);
+		Authorities temp = authoritiesRepository.save(auth);
+		System.out.println(temp);
+		return temp;
 	}
 	
-	@Transactional
-	public Registration register(Authorities aut) {
+@Transactional
+	public Authorities register(Authorities aut) {
 		
 		Registration regstration = aut.getUser();
 		PersonalDetails personalDetails = new PersonalDetails();
@@ -66,20 +68,30 @@ public class EmployeeServices {
 	
 		if(aut.getAuthorities().equals("ROLE_EMPLOYER")){
 			regstration.setEnabled((long) 0);
+			companyDetails.setUserName(regstration.getUserName());
+
 		}else if(aut.getAuthorities().equals("ROLE_JOBSEEKER")){
 			regstration.setEnabled((long) 1);
+			personalDetails.setUserName(regstration.getUserName());
+			educationDetails.setUserName(regstration.getUserName());
 		}
-		personalDetails.setUserName(regstration.getUserName());
-		educationDetails.setUserName(regstration.getUserName());
-	
-		companyDetails.setUserName(regstration.getUserName());
 		
-		Registration reg =employerRepository.save(regstration);
-		registerAuthorities(aut);
+		
+	
+		System.out.println("regiastration" + regstration);
+		Authorities auth =registerAuthorities(aut);
+			//	employerRepository.save(regstration);
+		System.out.println(auth);
+		
+		System.out.println("back after saving auth");
 		personalDetailRepository.save(personalDetails);
+		
 		educationDetailsRepository.save(educationDetails);
+		
 		companyDetailsRepository.save(companyDetails);
-		return reg;	
+		
+		System.out.println(regstration);
+		return auth;	
 		
 	}
 

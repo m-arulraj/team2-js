@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Registration {
 	
 	@Id
-	@Column(name="USERNAME")
+	@Column(name="USERNAME",  unique = true, nullable = false)
 	private String userName;
 	
 	@Column(name="PASSWORD")

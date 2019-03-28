@@ -17,25 +17,26 @@ import org.springframework.web.bind.annotation.RestController;
 import com.virtusa.semicolon.registration.domain.Authorities;
 import com.virtusa.semicolon.registration.domain.PersonalDetails;
 import com.virtusa.semicolon.registration.domain.Registration;
-import com.virtusa.semicolon.registration.service.EmployeeServices;
+import com.virtusa.semicolon.registration.service.RegistrationServices;
 
 @RestController
 @RequestMapping("/api")
 public class RegistrationController {
 	@Autowired
-	EmployeeServices employerService;
+	RegistrationServices registrationService;
 	@Autowired
 	AdminServiceProxy adminproxy;
 	@Autowired
 	jobseekerServiceProxy jobproxy;
 	
-	@PostMapping(value="/registration/employer")
-	public ResponseEntity<Registration> registerEmployee(/*@ModelAttribute("auth")*/ @RequestBody Authorities reg) throws URISyntaxException{	
-		System.out.println(reg);
+	@PostMapping(value="/registration")
+	public ResponseEntity<Authorities> registerEmployee(@RequestBody Authorities reg) throws URISyntaxException{	
+		
 	/*	return ResponseEntity.created(new URI("/api/registration/employer/"+employerService.register(reg
 				userName,password,authorities))).build();*/
-		Registration emp= employerService.register(reg);		
-		return new ResponseEntity<Registration>(emp,HttpStatus.CREATED);
+		Authorities emp= registrationService.register(reg);		
+		System.out.println("registration" +emp);
+		return new ResponseEntity<Authorities>(emp,HttpStatus.CREATED);
 		
 	}
 	@RequestMapping("/admin/requests")

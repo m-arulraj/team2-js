@@ -212,8 +212,69 @@ html, body, h1, h2, h3, h4, h5 {
 								
 								&nbsp
 								<div class="w3-bar-item w3-right ">
-									 <a href="postjob" style="width: 90%"
-							class="w3-bar-item w3-button w3-green  w3-margin ">Edit</a> <br> 
+									 <a href="#" style="width: 90%"
+							class="w3-bar-item w3-button w3-green  w3-margin " class="expand">Edit</a> <br> 
+							<div class="content" >
+						<div id="postedJobsList" class="w3-container postjob">
+							<form:form action="postjob" method="post"
+								modelAttribute="postedjobs">
+								
+								<div class="container">
+								<div class="w3-row ">
+								
+									<label>Job Title:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="JobTitle"
+										type="text"  path="jobTitle"/>
+								</div>
+								<br>
+								<div class=" w3-row">
+									<label>Job Id:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="JobId"
+										type="text"  path="jobId"/>
+								</div>
+							<br>
+								<div class="w3-row ">
+								
+									<label>Job Type:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="JobType"
+										type="text"  path="jobType"/>
+								</div>
+								<br>
+								<div class=" w3-row">
+									<label>JobDescription:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="jobDescription"
+										type="text"  path="jobDescription"/>
+								</div>
+							<br>
+								<div class="w3-row ">
+								
+									<label>Required	Skills:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="requiredSkills"
+										type="text"  path="requiredSkills"/>
+								</div>
+								<br>
+								<div class=" w3-row">
+									<label>Number of
+											vacancies:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="numberOfVacancies"
+										type="text"  path="numberOfVacancies"/>
+								</div>
+								<br>
+									<div class="w3-row ">
+								
+									<label>Salary:</label> <form:input
+										class="w3-input w3-border w3-round-large" name="salary"
+										type="text"  path="salary"/>
+								</div>
+								<br>
+								<div class="w3-center">
+									<button type="submit" class="postjobbtn">Post Job</button>
+									</div>
+								</div>
+							</form:form>
+						</div>
+					</div>
+							
 								</div>
 								
 								</li>

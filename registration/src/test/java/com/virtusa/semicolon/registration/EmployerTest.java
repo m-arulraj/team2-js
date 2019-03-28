@@ -40,11 +40,9 @@ WebApplicationContext wac;
 		Registration reg = new Registration();
 		Authorities auth = new Authorities();
 		auth.setAuthorities("ROLE_JOBSEEKER");
+
+		reg.setUserName("h");
+
 		reg.setUserName("sst@g.c.com");
-		reg.setPassword("123");
-		auth.setUser(reg);
-		mockMvc.perform(MockMvcRequestBuilders.post("/api/registration/employer").contentType(MediaType.APPLICATION_JSON)
-				.content(new Gson().toJson(auth))).andExpect(status().isCreated());
-				/*MockMvcRget("/")).andExpect(status().isOk()).andExpect(view().name("index"));*/
 	}
 }
