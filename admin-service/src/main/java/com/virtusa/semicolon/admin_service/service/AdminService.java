@@ -77,9 +77,26 @@ public class AdminService {
 	}
 
 	public void updateUsername(UpdateUser user) {
+		User currentUser= null;
+		System.out.println("this is admin service service"+user);
+		Optional<User> optUser = userRepository.findById(user.getUserName());
 		
-		userRepository.updateUsername(user.getUserName(), user.getNewUserName());
-	
+		if(optUser.isPresent())
+		{
+			currentUser = optUser.get();
+			
+			if (currentUser.getPassword().equals(user.getPassword())) {
+				userRepository.updateUsername(user.getUserName(), user.getNewUserName());
+			}
+			else
+			{
+				System.out.println("password not matched");
+			}
+		}
+		else 
+		{
+			System.out.println("user is not present");
+		}		
 	}
 
 }

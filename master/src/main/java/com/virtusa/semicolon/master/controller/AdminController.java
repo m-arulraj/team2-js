@@ -103,9 +103,7 @@ public class AdminController {
 		ModelAndView model = new ModelAndView("admin-profile");
 		String uri="/profile/username";
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		System.out.println(user);
 		user.setUserName(auth.getName());
-		System.out.println(user.getUserName());
 		adminService.updateUserName(user,uri);
 		return model;
 	}
