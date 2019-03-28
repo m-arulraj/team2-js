@@ -36,7 +36,7 @@ html, body, h1, h2, h3, h4, h5 {
 				class="fa fa-bars"></i></a> <a href="/seeker"
 				class="w3-bar-item w3-button w3-hover-black w3-padding-large "><i
 				class="fa fa-home w3-margin-right"></i>Seeker Home</a> <a
-				href="seeker/profile"
+				href="profile"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-green"
 				title="Update profile"><i class="fa fa-arrow-up"></i>&nbsp;&nbsp;Update
 				Profile</a> <a href="seeker/jobs"
@@ -122,7 +122,7 @@ html, body, h1, h2, h3, h4, h5 {
 			<div class="w3-col m7">
 				<div class="w3-container  w3-round w3-margin">
 					<!-- <br> -->
-					<h3 class="w3-container w3-xxlarge "><form action="seeker/searchedjobs" method="get">
+					<h3 class="w3-container w3-xxlarge "><form action="/seeker/searchedjobs" method="get">
 						<input type="text" placeholder="Search By Job Title.." name="jobTitle">
 						<button type="submit">
 							<i class="fa fa-search"></i>
