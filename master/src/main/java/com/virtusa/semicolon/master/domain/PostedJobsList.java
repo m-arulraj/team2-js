@@ -30,7 +30,6 @@ public class PostedJobsList {
 	
 	private String jobDescription;
 	
-	@Column(name = "JOB_LOCATION")
 	private String jobLocation;
 
 	public Long getId() {

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,84 +23,141 @@ import com.virtusa.semicolon.master.service.JobSeekerService;
 @Controller
 @RequestMapping("/seeker")
 public class SeekerController {
-	
+
 	@Autowired
 	JobSeekerService jobSeekerService;
 
-	//seeker homepage
+	// seeker homepage
 	@GetMapping("")
-	public ModelAndView getDetails(HttpSession session,Principal principal) {
+	public ModelAndView getDetails(HttpSession session, Principal principal) {
 		String userName = principal.getName();
 		session.setAttribute("userName", userName);
 		ModelAndView model = new ModelAndView("seeker-home");
-		String uri="/personaldetails?userName="+userName;
-		PersonalDetails personalDetails =jobSeekerService.getPersonalDetails(uri);
-		String uri2="/alljobs";
-		List<PostedJobsList> requestList =jobSeekerService.getListOfAllJobs(uri2);
-		model.addObject("personalDetails",personalDetails);
-		model.addObject("postedJobsList",requestList);
+		String uri = "/personaldetails?userName=" + userName;
+		PersonalDetails personalDetails = jobSeekerService.getPersonalDetails(uri);
+		String uri2 = "/alljobs";
+		List<PostedJobsList> requestList = jobSeekerService.getListOfAllJobs(uri2);
+		model.addObject("personalDetails", personalDetails);
+		model.addObject("postedJobsList", requestList);
 		return model;
 	}
-	
-	//seeker profile
-		@GetMapping("/profile")
-		public ModelAndView updateProfile(HttpSession session,Principal principal) {
-			String userName = principal.getName();
-			session.setAttribute("userName", userName);
-			ModelAndView model = new ModelAndView("seeker-profile");
-			String uri="/personaldetails?userName="+userName;
-			PersonalDetails personalDetails =jobSeekerService.getPersonalDetails(uri);
-			String uri3="/educationdetails?userName="+userName;
-			EducationDetails educationDetails =jobSeekerService.getEducationDetails(uri3);
-			String uri4="/workexperiancedetails?userName="+userName;
-			WorkExperianceDetails workExperianceDetails =jobSeekerService.getWorkExperianceDetails(uri4);
-			model.addObject("personalDetails",personalDetails);
-			model.addObject("educationDetails",educationDetails);
-			model.addObject("workExperianceDetails",workExperianceDetails);
-			return model;
-		}
 
-		//seeker applied jobs
-		@GetMapping("/searchedjobs")
-		public ModelAndView searchedJobs(@RequestParam("jobTitle") String jobTitle,HttpSession session,Principal principal) {
-			String userName = principal.getName();
-			session.setAttribute("userName", userName);
-			System.out.println(jobTitle);
-			ModelAndView model = new ModelAndView("seeker-home");
-			String uri="/searchedjobs?jobTitle="+jobTitle;
-			List<PostedJobsList> requestList =jobSeekerService.getListOfJobs(uri);
-			String uri2="/personaldetails?userName="+userName;
-			PersonalDetails personalDetails =jobSeekerService.getPersonalDetails(uri2);
-			System.out.println(personalDetails);
-			model.addObject("personalDetails",personalDetails);
-			model.addObject("postedJobsList",requestList);
-			return model;
-		}
+	// seeker profile
+	@GetMapping("/profile")
+	public ModelAndView updateProfile(HttpSession session, Principal principal) {
+		String userName = principal.getName();
+		session.setAttribute("userName", userName);
+		ModelAndView model = new ModelAndView("seeker-profile");
+		String uri = "/personaldetails?userName=" + userName;
+		PersonalDetails personalDetails = jobSeekerService.getPersonalDetails(uri);
+		String uri3 = "/educationdetails?userName=" + userName;
+		EducationDetails educationDetails = jobSeekerService.getEducationDetails(uri3);
+		String uri4 = "/workexperiancedetails?userName=" + userName;
+		WorkExperianceDetails workExperianceDetails = jobSeekerService.getWorkExperianceDetails(uri4);
+		model.addObject("personalDetails", personalDetails==null?new PersonalDetails():personalDetails);
+		model.addObject("educationDetails", educationDetails==null?new EducationDetails():educationDetails);
+		model.addObject("workExperianceDetails", workExperianceDetails==null?new WorkExperianceDetails():workExperianceDetails);
+		return model;
+	}
+
+	// seeker applied jobs
+	@GetMapping("/searchedjobs")
+	public ModelAndView searchedJobs(@RequestParam("jobTitle") String jobTitle, HttpSession session,
+			Principal principal) {
+		String userName = principal.getName();
+		session.setAttribute("userName", userName);
+		System.out.println(jobTitle);
+		ModelAndView model = new ModelAndView("seeker-home");
+		String uri = "/searchedjobs?jobTitle=" + jobTitle;
+		List<PostedJobsList> requestList = jobSeekerService.getListOfJobs(uri);
+		String uri2 = "/personaldetails?userName=" + userName;
+		PersonalDetails personalDetails = jobSeekerService.getPersonalDetails(uri2);
+		System.out.println(personalDetails);
+		model.addObject("personalDetails", personalDetails);
+		model.addObject("postedJobsList", requestList);
+		return model;
+	}
+
+	// seeker report
+	@GetMapping("/report")
+	public ModelAndView report(HttpSession session, Principal principal) {
+		String userName = principal.getName();
+		session.setAttribute("userName", userName);
+		ModelAndView model = new ModelAndView("seeker-report-something");
+		String uri = "/personaldetails?userName=" + userName;
+		PersonalDetails personalDetails = jobSeekerService.getPersonalDetails(uri);
+		model.addObject("personalDetails", personalDetails);
+		return model;
+	}
+
+	@GetMapping("/jobs")
+	public ModelAndView appliedJobs(HttpSession session, Principal principal) {
+		String userName = principal.getName();
+		session.setAttribute("userName", userName);
+		ModelAndView model = new ModelAndView("seeker-applied-jobs");
+		String uri = "/personaldetails?userName=" + userName;
+		PersonalDetails personalDetails = jobSeekerService.getPersonalDetails(uri);
+		String uri2 = "/appliedjobs?userName=" + userName;
+		List<PostedJobsList> requestList = jobSeekerService.getAppliedJobs(uri2);
+		model.addObject("personalDetails", personalDetails);
+		model.addObject("postedJobsList", requestList);
+		return model;
+	}
+
+	@PostMapping("/workexperiancedetails")
+	public ModelAndView updateWorkExperianceDetails(
+			@ModelAttribute("workExperianceDetails") WorkExperianceDetails workExperianceDetails, HttpSession session) {
+		String uri = "/workexperiancedetails?userName=" + session.getAttribute("userName");
+		jobSeekerService.updateWorkExperianceDetails(uri,workExperianceDetails);
+		ModelAndView model = new ModelAndView("seeker-profile");
+		String uri2 = "/workexperiancedetails?userName=" + session.getAttribute("userName");
+		WorkExperianceDetails workExperianceDetails2 = jobSeekerService.getWorkExperianceDetails(uri2);
+		String uri3 = "/personaldetails?userName=" + session.getAttribute("userName");
+		PersonalDetails personalDetails2 = jobSeekerService.getPersonalDetails(uri3);
+		String uri4 = "/educationdetails?userName=" + session.getAttribute("userName");
+		EducationDetails educationDetails2 = jobSeekerService.getEducationDetails(uri4);
+		model.addObject("educationDetails", educationDetails2);
+		model.addObject("personalDetails", personalDetails2);
+		model.addObject("workExperianceDetails", workExperianceDetails2);
+		return model;
+
+	}
 	
-		//seeker report
-		@GetMapping("/report")
-		public ModelAndView report(HttpSession session,Principal principal) {
-			String userName = principal.getName();
-			session.setAttribute("userName", userName);
-			ModelAndView model = new ModelAndView("seeker-report-something");
-			String uri="/personaldetails?userName="+userName;
-			PersonalDetails personalDetails =jobSeekerService.getPersonalDetails(uri);
-			model.addObject("personalDetails",personalDetails);
-			return model;
-		}
-		
-		@GetMapping("/jobs")
-		public ModelAndView appliedJobs(HttpSession session,Principal principal){
-			String userName = principal.getName();
-			session.setAttribute("userName", userName);
-			ModelAndView model = new ModelAndView("seeker-applied-jobs");
-			String uri="/personaldetails?userName="+userName;
-			PersonalDetails personalDetails =jobSeekerService.getPersonalDetails(uri);
-			String uri2="/appliedjobs?userName="+userName;
-			List<PostedJobsList> requestList =jobSeekerService.getAppliedJobs(uri2);
-			model.addObject("personalDetails",personalDetails);
-			model.addObject("postedJobsList",requestList);
-			return model;
-		}
-		
+	@PostMapping("/personaldetails")
+	public ModelAndView updatePersonalDetails(
+			@ModelAttribute("personalDetails") PersonalDetails personalDetails, HttpSession session) {
+		String uri = "/personaldetails?userName=" + session.getAttribute("userName");
+		jobSeekerService.updatePersonalDetails(uri,personalDetails);
+		ModelAndView model = new ModelAndView("seeker-profile");
+		String uri2 = "/personaldetails?userName=" + session.getAttribute("userName");
+		PersonalDetails personalDetails2 = jobSeekerService.getPersonalDetails(uri2);
+		String uri3 = "/workexperiancedetails?userName=" + session.getAttribute("userName");
+		WorkExperianceDetails workExperianceDetails2 = jobSeekerService.getWorkExperianceDetails(uri3);
+		String uri4 = "/educationdetails?userName=" + session.getAttribute("userName");
+		EducationDetails educationDetails2 = jobSeekerService.getEducationDetails(uri4);
+		model.addObject("educationDetails", educationDetails2);
+		model.addObject("workExperianceDetails", workExperianceDetails2);
+		model.addObject("personalDetails", personalDetails2);
+		return model;
+
+	}
+	
+	@PostMapping("/educationdetails")
+	public ModelAndView updateEducationDetails(
+			@ModelAttribute("educationDetails") EducationDetails educationDetails, HttpSession session) {
+		String uri = "/educationdetails?userName=" + session.getAttribute("userName");
+		jobSeekerService.updateEducationDetails(uri,educationDetails);
+		ModelAndView model = new ModelAndView("seeker-profile");
+		String uri2 = "/educationdetails?userName=" + session.getAttribute("userName");
+		EducationDetails educationDetails2 = jobSeekerService.getEducationDetails(uri2);
+		String uri3 = "/workexperiancedetails?userName=" + session.getAttribute("userName");
+		WorkExperianceDetails workExperianceDetails2 = jobSeekerService.getWorkExperianceDetails(uri3);
+		String uri4 = "/personaldetails?userName=" + session.getAttribute("userName");
+		PersonalDetails personalDetails2 = jobSeekerService.getPersonalDetails(uri4);
+		model.addObject("personalDetails", personalDetails2);
+		model.addObject("workExperianceDetails", workExperianceDetails2);
+		model.addObject("educationDetails", educationDetails2);
+		return model;
+
+	}
 }

@@ -84,7 +84,8 @@ html, body, h1, h2, h3, h4, h5 {
 						<hr>
 						<p>
 							<i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i>
-							${personalDetails.getFirstName()} ${personalDetails.getLastName()}
+							${personalDetails.getFirstName()}
+							${personalDetails.getLastName()}
 						</p>
 						<p>
 							<i class="fa fa-phone fa-fw w3-margin-right w3-text-theme"></i>
@@ -116,7 +117,7 @@ html, body, h1, h2, h3, h4, h5 {
 			</div>
 
 			<!-- Middle Column -->
-			<div class="w3-col m9 ">
+			<div class="w3-col m9">
 				<div class="w3-container w3-card w3-white w3-round w3-margin">
 					<br>
 					<h3 class="w3-center w3-green w3-xxlarge ">Update Profile</h3>
@@ -134,100 +135,112 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 
 					<div id="personal" class="w3-container  w3-border tab">
-						<form action="#" method="post">
+						<form:form action="personaldetails" method="post"
+							modelAttribute="personalDetails">
 							<br>
 							<div class="w3-row ">
 								<div class=" w3-half">
-									<label>First Name</label> <input
-										class="w3-input w3-border w3-round-large" name="firstName"
-										type="text" placeholder="${personalDetails.getFirstName()}">
+									<label>First Name</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="firstName" path="firstName" type="text"
+										placeholder="${personalDetails.getFirstName()}"
+										value="${personalDetails.getFirstName()}" />
 
 								</div>
 
 								<div class="w3-container w3-half">
-									<label>Last Name</label> <input
-										class="w3-input w3-border w3-round-large" name="lastName"
-										type="text" placeholder="${personalDetails.getLastName()}">
+									<label>Last Name</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="lastName" path="lastName" type="text"
+										placeholder="${personalDetails.getLastName()}" />
 									<p>
 								</div>
 							</div>
 
 							<div class="w3-row ">
 								<div class=" w3-half ">
-									<label>Gender</label> <select
-										class="w3-select w3-border w3-round-large" name="gender">
-										<option value="Male">Male</option>
-										<option value="Female">Female</option>
-										<option value="Other">Other</option>
-									</select>
+									<label>Gender</label>
+									<form:select class="w3-select w3-border w3-round-large"
+										name="gender" path="gender">
+										<form:option value="Male">Male</form:option>
+										<form:option value="Female">Female</form:option>
+										<form:option value="Other">Other</form:option>
+									</form:select>
 
 								</div>
 
 								<div class="w3-container w3-half">
-									<label>Contact</label> <input
-										class="w3-input w3-border w3-round-large" name="contact"
-										type="text" placeholder="${personalDetails.getContactNumber()}">
+									<label>ContactNumber</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="contactNumber" path="contactNumber" type="text"
+										placeholder="${personalDetails.getContactNumber()}" />
 									<p>
 								</div>
 							</div>
 
 							<div class="w3-row ">
 								<div class=" w3-half ">
-									<label>Date of Birth</label> <input
-										class="w3-input w3-border w3-round-large" name="dateOfBirth"
-										type="date" placeholder = "${personalDetails.getDateOfBirth()}">
+									<label>Date of Birth</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="dateOfBirth" path="dateOfBirth" type="date"
+										placeholder="${personalDetails.getDateOfBirth()}" />
 
 
 								</div>
 
 								<div class="w3-container w3-half">
-									<label>Father Name</label> <input
-										class="w3-input w3-border w3-round-large" name="fatherName"
-										type="text" placeholder="${personalDetails.getFatherName()}">
+									<label>Father Name</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="fatherName" path="fatherName" type="text"
+										placeholder="${personalDetails.getFatherName()}" />
 									<p>
 								</div>
 							</div>
 
 							<div class="w3-row-padding">
 								<div class="w3-third">
-									<label>Country Name</label> <input class="w3-input w3-border"
-										name="countryName" type="text"
-										placeholder="${personalDetails.getCountry()}">
+									<label>Country Name</label>
+									<form:input class="w3-input w3-border" name="country"
+										path="country" type="text"
+										placeholder="${personalDetails.getCountry()}" />
 								</div>
 								<div class="w3-third">
-									<label>State</label> <input class="w3-input w3-border"
-										name="state" type="text"
-										placeholder="${personalDetails.getState()}">
+									<label>State</label>
+									<form:input class="w3-input w3-border" name="state"
+										path="state" type="text"
+										placeholder="${personalDetails.getState()}" />
 								</div>
 								<div class="w3-third">
-									<label>Pincode</label> <input class="w3-input w3-border"
-										name="pincode" type="text"
-										placeholder="${personalDetails.getPincode()}">
+									<label>Pin-Code</label>
+									<form:input class="w3-input w3-border" name="pincode"
+										path="pincode" type="text"
+										placeholder="${personalDetails.getPincode()}" />
 								</div>
 								<p>
 							</div>
 
 							<p>
 							<div class="w3-row">
-								<label>Adderss</label>
-								<textarea rows="" cols="100" name="adderss"
+								<label>Address</label>
+								<form:textarea rows="" cols="100" name="address" path="address"
 									class="w3-input w3-border w3-round" style="height: 100px;"
-									placeholder="${personalDetails.getAddress()}"></textarea>
+									placeholder="${personalDetails.getAddress()}"></form:textarea>
 							</div>
 							<p>
 							<div class="w3-center">
-								<button type="submit" style="width: 350px; font-size: 20px"
+								<form:button type="submit" style="width: 350px; font-size: 20px"
 									class="w3-button  w3-blue w3-margin-bottom w3-padding">
-									 Update Profile</button>
-								</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									 Update Profile</form:button>
+								<!-- </a> -->
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-								<button type="reset" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</button>
+								<form:button type="reset" style="width: 350px; font-size: 20px"
+									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</form:button>
 							</div>
 
 
 							<br>
-						</form>
+						</form:form>
 
 					</div>
 
@@ -237,36 +250,41 @@ html, body, h1, h2, h3, h4, h5 {
 
 					<div id="education" class="w3-container w3-border tab"
 						style="display: none">
-						<form action="#" method="post">
+						<form:form action="educationdetails" method="post"
+							modelAttribute="educationDetails">
 							<br>
 							<div class="w3-row ">
 								<div class=" w3-half">
-									<label>Highest Degree</label> <input
-										class="w3-input w3-border w3-round-large" name="highestDegree"
-										type="text" placeholder = "${educationDetails.getHighestDegree()}">
+									<label>Highest Degree</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="highestDegree" path="highestDegree" type="text"
+										placeholder="${educationDetails.getHighestDegree()}" />
 
 								</div>
 
 								<div class="w3-container w3-half">
-									<label>College Name</label> <input
-										class="w3-input w3-border w3-round-large" name="collegeName"
-										type="text" placeholder = "${educationDetails.getCollegeName()}">
+									<label>College Name</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="college" path="college" type="text"
+										placeholder="${educationDetails.getCollege()}" />
 									<p>
 								</div>
 							</div>
 
 							<div class="w3-row ">
 								<div class=" w3-half">
-									<label>Specialization</label> <input
-										class="w3-input w3-border w3-round-large"
-										name="specialization" type="text" placeholder = "${educationDetails.getSpecialization()}">
+									<label>Specialization</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="specialization" path="specialization" type="text"
+										placeholder="${educationDetails.getSpecialization()}" />
 
 								</div>
 
 								<div class="w3-container w3-half">
-									<label>Percentage</label> <input
-										class="w3-input w3-border w3-round-large" name="percent"
-										type="text" placeholder = "${educationDetails.getPercentage()}">
+									<label>Percentage</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="percentage" path="percentage" type="text"
+										placeholder="${educationDetails.getPercentage()}" />
 									<p>
 								</div>
 							</div>
@@ -276,17 +294,22 @@ html, body, h1, h2, h3, h4, h5 {
 
 							<div class="w3-row-padding">
 								<div class="w3-third">
-									<label>Year of Passout</label> <input
-										class="w3-input w3-border" name="yearOfPassout" type="text"
-										required="required" placeholder = "${educationDetails.getYearOfPassout()}">
+									<label>Year of Passout</label>
+									<form:input class="w3-input w3-border" name="yearOfPassout"
+										path="yearOfPassout" type="text" required="required"
+										placeholder="${educationDetails.getYearOfPassout()}" />
 								</div>
 								<div class="w3-third">
-									<label>Year Gap</label> <input class="w3-input w3-border"
-										name="yearGap" type="text" placeholder = "${educationDetails.getYearGap()}">
+									<label>Year Gap</label>
+									<form:input class="w3-input w3-border" name="yearGap"
+										path="yearGap" type="text"
+										placeholder="${educationDetails.getYearGap()}" />
 								</div>
 								<div class="w3-third">
-									<label>Backlogs</label> <input class="w3-input w3-border"
-										name="backlogs" type="text" placeholder = "${educationDetails.getBacklogs()}">
+									<label>Backlogs</label>
+									<form:input class="w3-input w3-border" name="numberOfBacklogs"
+										path="numberOfBacklogs" type="text"
+										placeholder="${educationDetails.getNumberOfBacklogs()}" />
 								</div>
 								<p>
 							</div>
@@ -294,69 +317,76 @@ html, body, h1, h2, h3, h4, h5 {
 							<p>
 							<div class="w3-row">
 								<label>Skills</label>
-								<textarea rows="" cols="100" name="adderss"
+								<form:textarea rows="" cols="100" name="skills" path="skills"
 									class="w3-input w3-border w3-round" style="height: 100px;"
-									placeholder = "${educationDetails.getSkills()}"></textarea>
+									placeholder="${educationDetails.getSkills()}"></form:textarea>
 								<p>
 							</div>
 
 							<div class="w3-row">
-								<label>Upload Resume</label> <input type="file" name="file"
-									class="w3-input w3-border">
+								<label>Upload Resume</label>
+								<form:input type="file" name="resume" path="resume"
+									class="w3-input w3-border" />
 							</div>
 
 
 							<p>
 							<div class="w3-center">
-								<button type="submit" style="width: 350px; font-size: 20px"
+								<form:button type="submit" style="width: 350px; font-size: 20px"
 									class="w3-button  w3-blue w3-margin-bottom w3-padding">
-									 Update Profile</button>
+									 Update Profile</form:button>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-								<button type="reset" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</button>
+								<form:button type="reset" style="width: 350px; font-size: 20px"
+									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</form:button>
 							</div>
 
 
 							<br>
-						</form>
+						</form:form>
 					</div>
-					
-					
+
+
 					<!-- work experience  -->
 
 					<div id="work" class="w3-container w3-border tab"
 						style="display: none">
-						<form action="#" method="post">
+						<form:form action="workexperiancedetails" method="post"
+							modelAttribute="workExperianceDetails">
 							<br>
 							<div class="w3-row ">
 								<div class=" w3-half">
-									<label>Company Name</label> <input
-										class="w3-input w3-border w3-round-large" name="companyName"
-										type="text" placeholder="${workExperianceDetails.getCompanyName()}">
+									<label>Company Name</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="companyName" path="companyName" type="text"
+										placeholder="${workExperianceDetails.getCompanyName()}" />
 
 								</div>
 
 								<div class="w3-container w3-half">
-									<label>Desigination</label> <input
-										class="w3-input w3-border w3-round-large" name="desigination"
-										type="text" placeholder="${workExperianceDetails.getDesignation()}">
+									<label>Designation</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="designation" path="designation" type="text"
+										placeholder="${workExperianceDetails.getDesignation()}" />
 									<p>
 								</div>
 							</div>
 
 							<div class="w3-row ">
 								<div class=" w3-half">
-									<label>Roles & Responsibility</label> <input
-										class="w3-input w3-border w3-round-large"
-										name="roles" type="text" placeholder="${workExperianceDetails.getRolesAndResponsibilities()}">
+									<label>Roles & Responsibility</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="rolesAndResponsibilities"
+										path="rolesAndResponsibilities" type="text"
+										placeholder="${workExperianceDetails.getRolesAndResponsibilities()}" />
 
 								</div>
 
 								<div class="w3-container w3-half">
-									<label>Current Salary</label> <input
-										class="w3-input w3-border w3-round-large" name="salary"
-										type="text" required>
+									<label>Current Salary</label>
+									<form:input class="w3-input w3-border w3-round-large"
+										name="currentSalary" path="currentSalary" type="text"
+										placeholder="${workExperianceDetails.getCurrentSalary()}" />
 									<p>
 								</div>
 							</div>
@@ -366,39 +396,42 @@ html, body, h1, h2, h3, h4, h5 {
 
 							<div class="w3-row-padding">
 								<div class="w3-third">
-									<label>Start Date</label> <input
-										class="w3-input w3-border" name="startDate" type="date"
-										required="required" placeholder = "YYYY-MM-DD">
+									<label>Start Date</label>
+									<form:input class="w3-input w3-border" name="startDate"
+										path="startDate" type="date" required="required"
+										placeholder="${workExperianceDetails.getStartDate()}" />
 								</div>
 								<div class="w3-third">
-									<label>End Date</label> 
-									<input
-										class="w3-input w3-border" name="endDate" type="date"
-										required="required" placeholder = "YYYY-MM-DD">
+									<label>End Date</label>
+									<form:input class="w3-input w3-border" name="endDate"
+										path="endDate" type="date" required="required"
+										placeholder="${workExperianceDetails.getEndDate()}" />
 								</div>
 								<div class="w3-third">
-									<label>Experience</label> <input class="w3-input w3-border"
-										name="experience" type="text" required="required">
+									<label>Experience</label>
+									<form:input class="w3-input w3-border" name="experience"
+										path="numberOfYears" type="text"
+										placeholder="${workExperianceDetails.getNumberOfYears()}" />
 								</div>
 								<p>
 							</div>
-								<br>
+							<br>
 
-							
+
 							<p>
 							<div class="w3-center">
-								<button type="submit" style="width: 350px; font-size: 20px"
+								<form:button type="submit" style="width: 350px; font-size: 20px"
 									class="w3-button  w3-blue w3-margin-bottom w3-padding">
-									 Update Profile</button>
+									 Update Profile</form:button>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-								<button type="reset" style="width: 350px; font-size: 20px"
-									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</button>
+								<form:button type="reset" style="width: 350px; font-size: 20px"
+									class="w3-button  w3-red w3-margin-bottom w3-padding ">Cancel</form:button>
 							</div>
 
 
 							<br>
-						</form>
+						</form:form>
 					</div>
 
 					<div id="account" class="w3-container w3-border tab"
@@ -475,6 +508,7 @@ html, body, h1, h2, h3, h4, h5 {
 			; // add zero in front of numbers < 10
 			return i;
 		}
+
 		function oepnForm(evt, formName) {
 			var i, x, tablinks;
 			x = document.getElementsByClassName("tab");
@@ -489,14 +523,21 @@ html, body, h1, h2, h3, h4, h5 {
 			document.getElementById(formName).style.display = "block";
 			evt.currentTarget.className += " w3-green";
 		}
-		$(function(){
-		    $("#from-datepicker").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change",function(){
-		    	var mindate = "1970-01-01";
-		        var minValue = $(this).val();
-		        minValue = $.datepicker.parseDate("yy-mm-dd", minValue);
-		        minValue.setDate(minValue.getDate()+1);
-		        $("#from-datepicker").datepicker( "option", "minDate", minValue );
-		    })
+		$(function() {
+			$("#from-datepicker").datepicker({
+				dateFormat : 'yy-mm-dd'
+			})
+					.bind(
+							"change",
+							function() {
+								var mindate = "1970-01-01";
+								var minValue = $(this).val();
+								minValue = $.datepicker.parseDate("yy-mm-dd",
+										minValue);
+								minValue.setDate(minValue.getDate() + 1);
+								$("#from-datepicker").datepicker("option",
+										"minDate", minValue);
+							})
 		});
 	</script>
 

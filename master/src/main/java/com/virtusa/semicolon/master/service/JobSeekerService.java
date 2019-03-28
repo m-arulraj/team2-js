@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -66,6 +67,24 @@ RestTemplate template = new RestTemplate();
 				});
 		return response.getBody();
 
+	}
+	
+	public HttpStatus updateWorkExperianceDetails(String uri, WorkExperianceDetails workExperianceDetails){
+		ResponseEntity<WorkExperianceDetails> response = template.postForEntity(EndPointConstant.JOBSEEKER_URI+uri, workExperianceDetails, 
+				WorkExperianceDetails.class );
+		return response.getStatusCode();
+	}
+	
+	public HttpStatus updatePersonalDetails(String uri, PersonalDetails personalDetails){
+		ResponseEntity<PersonalDetails> response = template.postForEntity(EndPointConstant.JOBSEEKER_URI+uri, personalDetails, 
+				PersonalDetails.class );
+		return response.getStatusCode();
+	}
+	
+	public HttpStatus updateEducationDetails(String uri, EducationDetails educationDetails){
+		ResponseEntity<EducationDetails> response = template.postForEntity(EndPointConstant.JOBSEEKER_URI+uri, educationDetails, 
+				EducationDetails.class );
+		return response.getStatusCode();
 	}
 
 

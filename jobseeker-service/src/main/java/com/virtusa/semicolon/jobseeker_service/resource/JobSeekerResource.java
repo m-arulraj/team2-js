@@ -54,20 +54,20 @@ public class JobSeekerResource {
 	@Autowired
 	PostedJobsService postedJobsService;
 
-	@RequestMapping(value = "/personaldetails", method = RequestMethod.PUT)
+	@RequestMapping(value = "/personaldetails", method = RequestMethod.POST)
 	public PersonalDetails updatePersonalDetails(@RequestParam("userName") String userName,
 			@RequestBody PersonalDetails personalDetails) throws ParseException {
 
 		return personalDetailsService.updatePersonalDetails(userName, personalDetails);
 	}
 
-	@RequestMapping(value = "/educationdetails", method = RequestMethod.PUT)
+	@RequestMapping(value = "/educationdetails", method = RequestMethod.POST)
 	public EducationDetails updateEducationDetails(@RequestParam("userName") String userName,
 			@RequestBody EducationDetails educationDetails) {
 		return educationDetailsService.updateEducationDetails(userName, educationDetails);
 	}
 
-	@RequestMapping(value = "/workexperiancedetails", method = RequestMethod.PUT)
+	@RequestMapping(value = "/workexperiancedetails", method = RequestMethod.POST)
 	public WorkExperianceDetails updateWorkExperianceDetails(@RequestParam("userName") String userName,
 			@RequestBody WorkExperianceDetails workExperianceDetails) {
 		return workExperianceDetailsService.updateWorkExperianceDetails(userName, workExperianceDetails);
