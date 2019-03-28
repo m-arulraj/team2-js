@@ -48,7 +48,7 @@
 				<div class="col-sm-12 ">
 					<div class="col-sm-10 col-sm-offset-1  text-center">
 						<div class="four_zero_four_bg">
-							<h1 class="text-center w3-center">404</h1>
+							<h1 class="text-center w3-center">403</h1>
 
 
 						</div>
