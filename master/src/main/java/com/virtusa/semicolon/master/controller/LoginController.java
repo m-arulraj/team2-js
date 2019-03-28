@@ -33,11 +33,8 @@ public class LoginController {
 	}
 @PostMapping("/register")
 public ModelAndView registerUser(@ModelAttribute("auth") Authorities authorities){
-	System.out.println("sign" +authorities);
 	ModelAndView model = new ModelAndView();
-	Authorities registration = registrationService.registerUser( authorities);
-	System.out.println("reg" +registration);
-	
+	Authorities registration = registrationService.registerUser( authorities);	
 	if(registration.getAuthorities().equals("ROLE_JOBSEEKER")){
 		model.setViewName("seeker-home");
 	}
@@ -47,8 +44,6 @@ public ModelAndView registerUser(@ModelAttribute("auth") Authorities authorities
 	return model;
 	
 }
-	
-
 	@RequestMapping("/about")
 	public String about() {
 		return "about";

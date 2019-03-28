@@ -42,7 +42,6 @@ EmployerService employerService;
 			ModelAndView model = new ModelAndView("employer-home");
 		model.addObject("postedjobList", postedjobList);
 		model.addObject("companyDetails",companyDetails);
-		//model.addObject("uname",uname);
 		return model;
 	
 	}

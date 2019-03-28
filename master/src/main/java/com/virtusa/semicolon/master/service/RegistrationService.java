@@ -15,11 +15,8 @@ public class RegistrationService {
 	
 	public Authorities registerUser(Authorities authorities){
 	
-		System.out.println("uri" +EndPointConstant.REGISTRATION_URI);
-		System.out.println(authorities);
 		ResponseEntity<Authorities> response = template.postForEntity(EndPointConstant.REGISTRATION_URI, authorities, 
 				Authorities.class );
-		System.out.println("master"+response.getBody());
 		return response.getBody();
 	}
 
