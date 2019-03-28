@@ -30,12 +30,12 @@ public class RegistrationController {
 	jobseekerServiceProxy jobproxy;
 	
 	@PostMapping(value="/registration")
-	public ResponseEntity<Registration> registerEmployee(@RequestBody Authorities reg) throws URISyntaxException{	
+	public ResponseEntity<Authorities> registerEmployee(@RequestBody Authorities reg) throws URISyntaxException{	
 		
 	/*	return ResponseEntity.created(new URI("/api/registration/employer/"+employerService.register(reg
 				userName,password,authorities))).build();*/
-		Registration emp= registrationService.register(reg);		
-		return new ResponseEntity<Registration>(emp,HttpStatus.CREATED);
+		Authorities emp= registrationService.register(reg);		
+		return new ResponseEntity<Authorities>(emp,HttpStatus.CREATED);
 		
 	}
 	@RequestMapping("/admin/requests")

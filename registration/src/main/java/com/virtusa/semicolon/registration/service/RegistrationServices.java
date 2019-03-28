@@ -59,7 +59,7 @@ public class RegistrationServices {
 	}
 	
 @Transactional
-	public Registration register(Authorities aut) {
+	public Authorities register(Authorities aut) {
 		
 		Registration regstration = aut.getUser();
 		PersonalDetails personalDetails = new PersonalDetails();
@@ -91,7 +91,7 @@ public class RegistrationServices {
 		companyDetailsRepository.save(companyDetails);
 		
 		System.out.println(regstration);
-		return regstration;	
+		return auth;	
 		
 	}
 

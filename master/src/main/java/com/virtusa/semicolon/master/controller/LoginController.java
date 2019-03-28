@@ -35,8 +35,9 @@ public class LoginController {
 public ModelAndView registerUser(@ModelAttribute("auth") Authorities authorities){
 	System.out.println("sign" +authorities);
 	ModelAndView model = new ModelAndView();
-	Registration registration = registrationService.registerUser( authorities);
+	Authorities registration = registrationService.registerUser( authorities);
 	System.out.println("reg" +registration);
+	
 	if(registration.getEnabled()==1){
 		model.setViewName("seeker-home");
 	}
