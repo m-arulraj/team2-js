@@ -35,6 +35,7 @@ public class RegistrationController {
 	/*	return ResponseEntity.created(new URI("/api/registration/employer/"+employerService.register(reg
 				userName,password,authorities))).build();*/
 		Authorities emp= registrationService.register(reg);		
+		System.out.println("registration" +emp);
 		return new ResponseEntity<Authorities>(emp,HttpStatus.CREATED);
 		
 	}

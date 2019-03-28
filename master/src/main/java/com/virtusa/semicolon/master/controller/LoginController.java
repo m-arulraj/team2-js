@@ -38,10 +38,10 @@ public ModelAndView registerUser(@ModelAttribute("auth") Authorities authorities
 	Authorities registration = registrationService.registerUser( authorities);
 	System.out.println("reg" +registration);
 	
-	if(registration.getEnabled()==1){
+	if(registration.getAuthorities().equals("ROLE_JOBSEEKER")){
 		model.setViewName("seeker-home");
 	}
-	else{
+	else if(registration.getAuthorities().equals("ROLE_EMPLOYER")){
 	model.setViewName("approval");
 	}
 	return model;

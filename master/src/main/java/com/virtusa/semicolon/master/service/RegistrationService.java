@@ -13,13 +13,13 @@ import com.virtusa.semicolon.master.util.EndPointConstant;
 public class RegistrationService {
 	RestTemplate template = new RestTemplate();
 	
-	public Registration registerUser(Authorities authorities){
+	public Authorities registerUser(Authorities authorities){
 	
 		System.out.println("uri" +EndPointConstant.REGISTRATION_URI);
 		System.out.println(authorities);
 		ResponseEntity<Authorities> response = template.postForEntity(EndPointConstant.REGISTRATION_URI, authorities, 
 				Authorities.class );
-		
+		System.out.println("master"+response.getBody());
 		return response.getBody();
 	}
 
