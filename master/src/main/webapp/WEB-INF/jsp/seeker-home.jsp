@@ -35,8 +35,7 @@ html, body, h1, h2, h3, h4, h5 {
 				href="javascript:void(0);" onclick="openNav()"><i
 				class="fa fa-bars"></i></a> <a href="/seeker"
 				class="w3-bar-item w3-button w3-hover-black w3-padding-large "><i
-				class="fa fa-home w3-margin-right"></i>Seeker Home</a> <a
-				href="seeker/profile"
+				class="fa fa-home w3-margin-right"></i>Seeker Home</a> <a href="/seeker/profile"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-green"
 				title="Update profile"><i class="fa fa-arrow-up"></i>&nbsp;&nbsp;Update
 				Profile</a> <a href="seeker/jobs"
@@ -122,15 +121,18 @@ html, body, h1, h2, h3, h4, h5 {
 			<div class="w3-col m7">
 				<div class="w3-container  w3-round w3-margin">
 					<!-- <br> -->
-					<h3 class="w3-container w3-xxlarge "><form action="seeker/searchedjobs" method="get">
-						<input type="text" placeholder="Search By Job Title.." name="jobTitle">
-						<button type="submit">
-							<i class="fa fa-search"></i>
-						</button>
-					</form></h3>
+					<h3 class="w3-container w3-xxlarge ">
+						<form action="/seeker/searchedjobs" method="get">
+							<input type="text" placeholder="Search By Job Title.."
+								name="jobTitle">
+							<button type="submit">
+								<i class="fa fa-search"></i>
+							</button>
+						</form>
+					</h3>
 					<hr class="w3-clear">
 					<!-- <br> <br> -->
-					
+
 				</div>
 
 
@@ -152,8 +154,8 @@ html, body, h1, h2, h3, h4, h5 {
 				<br>
 				<!-- End Right Column -->
 			</div>
-			
-				<div class="w3-col m7">
+
+			<div class="w3-col m7">
 				<c:forEach items="${postedJobsList}" var='job'>
 					<div class="w3-container w3-card w3-white w3-round w3-margin">
 						<br> <span class="w3-right w3-opacity">JobId:${job.getJobId()}</span>
@@ -175,6 +177,14 @@ html, body, h1, h2, h3, h4, h5 {
 							Apply
 						</button>
 						&emsp;
+						<%-- <form:form action="/seeker/report?jobId=${job.getJobId()}"
+							method="get">
+							<form:button type="submit"
+								class="w3-button w3-theme-d2 w3-margin-bottom">
+								<!-- <i class="fa fa-comment"></i> -->
+								Report
+							</form:button>
+						</form:form> --%>
 						<button type="button"
 							class="w3-button w3-theme-d2 w3-margin-bottom"
 							onclick="location.href=' seeker/report';">
@@ -184,9 +194,9 @@ html, body, h1, h2, h3, h4, h5 {
 					</div>
 
 					<!-- End Grid -->
-					</c:forEach>
-				</div>
-			
+				</c:forEach>
+			</div>
+
 			<%-- <div class="w3-col m7">
 				<div class="w3-container w3-card w3-white w3-round w3-margin">
 					<br> <span class="w3-right w3-opacity">JobId:${job.getJobId()}</span>

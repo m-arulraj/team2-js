@@ -144,7 +144,7 @@ html, body, h1, h2, h3, h4, h5 {
 							</p>
 
 						</form:form>
-						<hr class="w3-clear">
+						<%-- <hr class="w3-clear">
 							<!-- Change password -->
 						<h2 class="w3-teal w3-container">Change Password</h2>
 						<form class="w3-container w3-card-4" >
@@ -167,7 +167,7 @@ html, body, h1, h2, h3, h4, h5 {
 									Log in</button>
 							</p>
 
-						</form>
+						</form> --%>
 						<br><br>
 						
 					</div>

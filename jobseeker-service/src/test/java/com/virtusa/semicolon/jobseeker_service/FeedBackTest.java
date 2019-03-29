@@ -34,7 +34,7 @@ public class FeedBackTest {
 	public void feedBackTest() throws Exception {
 		FeedBack feedBack = new FeedBack();
 		feedBack.setUserName("srini@gmail.com");
-		feedBack.setJobId(2L);
+		feedBack.setJobId("2L");
 		feedBack.setMessage("FakeJob");
 		mock.perform(MockMvcRequestBuilders.post("/api/jobseeker/givefeedback").contentType(MediaType.APPLICATION_JSON)
 				.content(new Gson().toJson(feedBack))).andExpect(MockMvcResultMatchers.status().isCreated());

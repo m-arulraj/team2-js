@@ -4,7 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="PERSONAL_DETAILS")
@@ -47,7 +49,23 @@ public class PersonalDetails {
 	
 	@Column(name="PINCODE")
 	private Long pincode;
+	
+	@Lob
+	@Column(name = "PIC")
+	private byte[] profilePic;
 
+
+	public byte[] getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(byte[] profilePic) {
+		this.profilePic = profilePic;
+	}
+
+	@Transient
+	String base64imageFile;
+	
 	public String getUserName() {
 		return userName;
 	}

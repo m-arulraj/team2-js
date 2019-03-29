@@ -35,10 +35,10 @@ public class JobSeekerResource {
 
 	@Autowired
 	PersonalDetailsService personalDetailsService;
-	
+
 	@Autowired
 	EducationDetailsService educationDetailsService;
-	
+
 	@Autowired
 	WorkExperianceDetailsService workExperianceDetailsService;
 
@@ -47,10 +47,10 @@ public class JobSeekerResource {
 
 	@Autowired
 	FeedBackService feedBackService;
-	
+
 	@Autowired
 	ProfileViewService profileViewService;
-	
+
 	@Autowired
 	PostedJobsService postedJobsService;
 
@@ -75,47 +75,56 @@ public class JobSeekerResource {
 	}
 
 	@RequestMapping(value = "/job", method = RequestMethod.POST)
-	public ResponseEntity<String> applyForJob(@RequestParam("userName") String userName,@RequestParam("jobId") Long jobId) throws URISyntaxException {
-		return ResponseEntity.created(new URI("/api/jobseeker" + jobApplyingService.applyForJob(userName,jobId).getId()))
-				.build();
+	public ResponseEntity<String> applyForJob(@RequestParam("userName") String userName,
+			@RequestParam("jobId") Long jobId) throws URISyntaxException {
+		return ResponseEntity
+				.created(new URI("/api/jobseeker" + jobApplyingService.applyForJob(userName, jobId).getId())).build();
 	}
-	
+
 	@RequestMapping(value = "/feedback", method = RequestMethod.POST)
-	public ResponseEntity<String> giveFeedBack(@SessionAttribute("userNAme") String userName,
-			@RequestParam("jobId") Long jobId, @RequestBody FeedBack feedBack) throws URISyntaxException{
-		return ResponseEntity.created(new URI("/api/jobseeker" + feedBackService.giveFeedBack(userName,jobId,feedBack).getId()))
+	public ResponseEntity<String> giveFeedBack(@RequestParam("userName") String userName,
+			@RequestBody FeedBack feedBack) throws URISyntaxException {
+		String jobId = null;
+		FeedBack feedBack2 = feedBackService.getFeedBack(feedBack.getJobId());
+		if(feedBack2!=null){
+			jobId = feedBack2.getJobId();
+		}else{
+			jobId = feedBack.getJobId();
+		}
+		return ResponseEntity
+				.created(new URI("/api/jobseeker" + feedBackService.giveFeedBack(userName, jobId, feedBack).getId()))
 				.build();
 	}
-	
+
 	@RequestMapping(value = "/personaldetails", method = RequestMethod.GET)
-	public PersonalDetails getPersonalDetails(@RequestParam("userName") String userName){
+	public PersonalDetails getPersonalDetails(@RequestParam("userName") String userName) {
 		return profileViewService.getPersonalDetails(userName);
 	}
-	
+
 	@RequestMapping(value = "/educationdetails", method = RequestMethod.GET)
-	public EducationDetails getEducationDetails(@RequestParam("userName") String userName){
+	public EducationDetails getEducationDetails(@RequestParam("userName") String userName) {
 		return profileViewService.getEducationDetails(userName);
 	}
-	
+
 	@RequestMapping(value = "/workexperiancedetails", method = RequestMethod.GET)
-	public Optional<WorkExperianceDetails> getWorkExperianceDetails(@RequestParam("userName") String userName){
+	public Optional<WorkExperianceDetails> getWorkExperianceDetails(@RequestParam("userName") String userName) {
 		return profileViewService.getWorkExperianceDetails(userName);
 	}
-	
+
 	@RequestMapping(value = "/searchedjobs", method = RequestMethod.GET)
 	public List<PostedJobsList> getSearchedJobs(@RequestParam("jobTitle") String jobTitle) {
 		return postedJobsService.getSearchedJobs(jobTitle);
 	}
-	
+
 	@RequestMapping(value = "/alljobs", method = RequestMethod.GET)
 	public List<PostedJobsList> getAllJobs() {
 		return postedJobsService.getAllJobs();
 	}
-	
+
 	@RequestMapping(value = "/appliedjobs", method = RequestMethod.GET)
-	public List<PostedJobsList> getAppliedJobs(@RequestParam("userName") String userName){
+	public List<PostedJobsList> getAppliedJobs(@RequestParam("userName") String userName) {
 		return postedJobsService.getAppliedJobs(userName);
-		
+
 	}
 
 }

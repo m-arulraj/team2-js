@@ -32,6 +32,10 @@ public class RegistrationServices {
 	
 	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7b37e0191369a83733f4a913a761730f777207ba
 	@Autowired
 	CompanyDetailsRepository companyDetailsRepository;	
 	

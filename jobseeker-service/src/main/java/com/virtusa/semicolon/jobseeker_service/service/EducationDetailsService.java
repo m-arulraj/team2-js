@@ -37,9 +37,9 @@ public class EducationDetailsService {
 			if (educationDetails.getSkills() != null) {
 				educationDetails2.setSkills(educationDetails.getSkills());
 			}
-			if (educationDetails.getResume() != null) {
+			/*if (educationDetails.getResume() != null) {
 				educationDetails2.setResume(educationDetails.getResume());
-			}
+			}*/
 			if (educationDetails.getNumberOfBacklogs() != null) {
 				educationDetails2.setNumberOfBacklogs(educationDetails.getNumberOfBacklogs());
 			}

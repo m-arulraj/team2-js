@@ -11,5 +11,8 @@ import com.virtusa.semicolon.jobseeker_service.domain.FeedBack;
 public interface FeedBackRepository extends JpaRepository<FeedBack, Long>{
 
 	@Query("select f from FeedBack f where f.userName=:userName and f.jobId=:jobId")
-	FeedBack findByUserNameAndJobId(@Param("userName") String userName, @Param("jobId") Long jobId);
+	FeedBack findByUserNameAndJobId(@Param("userName") String userName, @Param("jobId") String jobId);
+
+	@Query("select f from FeedBack f where f.jobId=:jobId")
+	FeedBack findByJobId(@Param("jobId")String jobId);
 }

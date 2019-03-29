@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.virtusa.semicolon.master.domain.EducationDetails;
+import com.virtusa.semicolon.master.domain.FeedBack;
 import com.virtusa.semicolon.master.domain.PersonalDetails;
 import com.virtusa.semicolon.master.domain.PostedJobsList;
 import com.virtusa.semicolon.master.domain.WorkExperianceDetails;
@@ -87,5 +88,10 @@ RestTemplate template = new RestTemplate();
 		return response.getStatusCode();
 	}
 
+	public HttpStatus postFeedBack(String uri, FeedBack feedBack){
+		ResponseEntity<FeedBack> response = template.postForEntity(EndPointConstant.JOBSEEKER_URI+uri, feedBack, 
+				FeedBack.class );
+		return response.getStatusCode();
+	}
 
 }

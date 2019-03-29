@@ -1,42 +1,23 @@
 package com.virtusa.semicolon.master.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="WORK_EXPERIANCE_DETAILS")
 public class WorkExperianceDetails {
-	
-	@Id
-	@GeneratedValue
-	@Column(name="ID")
+
 	private Long id;
-	
-	@Column(name="USERNAME")
+
 	private String userName;
-	
-	@Column(name="COMPANY_NAME")
+
 	private String companyName;
-	
-	@Column(name="DESIGNATION")
+
 	private String designation;
-	
-	@Column(name="ROLES_AND_RESPONSIBILITIES")
+
 	private String rolesAndResponsibilities;
-	
-	@Column(name="START_DATE")
+
 	private String startDate;
-	
-	@Column(name="END_DATE")
+
 	private String endDate;
-	
-	@Column(name="NUMBER_OF_YEARS")
+
 	private Long numberOfYears;
-	
-	@Column(name="CURRENT_SALARY")
+
 	private Double currentSalary;
 
 	public String getUserName() {
@@ -101,6 +82,14 @@ public class WorkExperianceDetails {
 
 	public void setCurrentSalary(Double currentSalary) {
 		this.currentSalary = currentSalary;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }
