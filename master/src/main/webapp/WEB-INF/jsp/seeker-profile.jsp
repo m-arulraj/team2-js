@@ -136,7 +136,7 @@ html, body, h1, h2, h3, h4, h5 {
 
 					<div id="personal" class="w3-container  w3-border tab">
 						<form:form action="/seeker/personaldetails" method="post"
-							modelAttribute="personalDetails">
+							modelAttribute="personalDetails" enctype="multipart/form-data">
 							<br>
 							<div class="w3-row ">
 								<div class=" w3-half">
@@ -227,6 +227,11 @@ html, body, h1, h2, h3, h4, h5 {
 									placeholder="${personalDetails.getAddress()}"></form:textarea>
 							</div>
 							<p>
+							<div class="w3-row">
+								<label>Profile Picture</label>
+								<form:input type="file" path="profilePic" />
+							</div>
+							
 							<div class="w3-center">
 								<form:button type="submit" style="width: 350px; font-size: 20px"
 									class="w3-button  w3-blue w3-margin-bottom w3-padding">

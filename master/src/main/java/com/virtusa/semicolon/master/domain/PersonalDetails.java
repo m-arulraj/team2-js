@@ -1,5 +1,7 @@
 package com.virtusa.semicolon.master.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class PersonalDetails {
 
 	
@@ -37,6 +39,16 @@ public class PersonalDetails {
 	
 
 	private Long pincode;
+	
+	private Byte[] profilePic;
+
+	public Byte[] getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(Byte[] profilePic) {
+		this.profilePic = profilePic;
+	}
 
 	public String getUserName() {
 		return userName;
