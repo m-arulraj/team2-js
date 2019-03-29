@@ -123,7 +123,15 @@ html, body, h1, h2, h3, h4, h5 {
 					<hr class="w3-clear">
 					<br>
 						<div class="w3-container ">
-							<form action="#">
+							<%-- <form:form action="/seeker/feedback" method="post" modelAttribute="feedBack">
+							<h4 class="w3-pale-blue w3-center w3-bar">
+							write something</h4>
+							<form:input path="jobId" type="text" placeholder="${jobId}" value="${jobId}"/>		
+							<form:input type="text" class="w3-input w3-border" style="height: 200px;" path="message"/>
+							<br>
+							<center><form:button type="submit" class="w3-button w3-blue w3-center" value="Send Feedback"/></center>
+						</form:form> --%>
+						<form action="#">
 							<h4 class="w3-pale-blue w3-center w3-bar">
 							write something</h4>		
 							<input type="text" class="w3-input w3-border" style="height: 200px;" required>

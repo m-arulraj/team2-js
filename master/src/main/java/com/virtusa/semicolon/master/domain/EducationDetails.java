@@ -3,18 +3,9 @@ package com.virtusa.semicolon.master.domain;
 
 import java.sql.Blob;
 
-<<<<<<< HEAD
-public class EducationDetails {
-=======
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 public class EducationDetails {
-	
->>>>>>> cf259f7d83d9df9b2a63bf4bcb622994ae838004
+
 
 	private Long id;
 
@@ -36,7 +27,7 @@ public class EducationDetails {
 
 	private String skills;
 
-	private Blob resume;
+	/*private Blob resume;*/
 
 	public Long getId() {
 		return id;
@@ -118,14 +109,14 @@ public class EducationDetails {
 		this.skills = skills;
 	}
 
-	public Blob getResume() {
+	/*public Blob getResume() {
 		return resume;
 	}
 
 	public void setResume(Blob resume) {
 		this.resume = resume;
 	}
-	
+	*/
 	
 
 }

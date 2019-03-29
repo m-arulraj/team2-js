@@ -45,8 +45,8 @@ public class EducationDetails {
 	@Column(name="SKILLS")
 	private String skills;
 	
-	@Column(name="RESUME")
-	private Blob resume;
+	/*@Column(name="RESUME")
+	private Blob resume;*/
 
 	public Long getId() {
 		return id;
@@ -128,13 +128,13 @@ public class EducationDetails {
 		this.skills = skills;
 	}
 
-	public Blob getResume() {
+/*	public Blob getResume() {
 		return resume;
 	}
 
 	public void setResume(Blob resume) {
 		this.resume = resume;
-	}
+	}*/
 	
 	
 

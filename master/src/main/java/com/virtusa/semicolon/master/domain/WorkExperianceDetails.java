@@ -1,44 +1,18 @@
 package com.virtusa.semicolon.master.domain;
 
-<<<<<<< HEAD
-=======
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-
->>>>>>> cf259f7d83d9df9b2a63bf4bcb622994ae838004
 public class WorkExperianceDetails {
-	
 
 	private Long id;
-<<<<<<< HEAD
-=======
-	
->>>>>>> cf259f7d83d9df9b2a63bf4bcb622994ae838004
 
 	private String userName;
 
 	private String companyName;
-<<<<<<< HEAD
-	
-	private String designation;
-	
-	private String rolesAndResponsibilities;
-	
-	private String startDate;
-=======
 
 	private String designation;
-	
 
 	private String rolesAndResponsibilities;
 
 	private String startDate;
-	
->>>>>>> cf259f7d83d9df9b2a63bf4bcb622994ae838004
 
 	private String endDate;
 

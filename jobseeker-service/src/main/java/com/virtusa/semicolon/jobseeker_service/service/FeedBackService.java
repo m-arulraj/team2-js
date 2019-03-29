@@ -13,7 +13,7 @@ public class FeedBackService {
 	@Autowired
 	FeedBackRepository feedBackRepository;
 
-	public FeedBack giveFeedBack(String userName, Long jobId, FeedBack feedBack) {
+	public FeedBack giveFeedBack(String userName, String jobId, FeedBack feedBack) {
 		FeedBack feedBack2 = feedBackRepository.findByUserNameAndJobId(userName,jobId);
 		if (feedBack2 != null) {
 			return feedBackRepository.save(feedBack2);
@@ -25,6 +25,10 @@ public class FeedBackService {
 			return feedBackRepository.save(feedBack2);
 		}
 
+	}
+
+	public FeedBack getFeedBack(String jobId) {
+		return feedBackRepository.findByJobId(jobId);
 	}
 
 }

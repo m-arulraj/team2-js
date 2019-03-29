@@ -2,10 +2,6 @@ package com.virtusa.semicolon.master.domain;
 
 public class Authorities {
 
-<<<<<<< HEAD
-
-=======
->>>>>>> cf259f7d83d9df9b2a63bf4bcb622994ae838004
 	private Long id;
 
 	private Registration user;

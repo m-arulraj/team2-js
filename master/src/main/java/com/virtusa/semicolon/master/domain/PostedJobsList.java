@@ -30,10 +30,6 @@ public class PostedJobsList {
 	
 	private String jobDescription;
 	
-<<<<<<< HEAD
-=======
-
->>>>>>> cf259f7d83d9df9b2a63bf4bcb622994ae838004
 	private String jobLocation;
 
 	public Long getId() {

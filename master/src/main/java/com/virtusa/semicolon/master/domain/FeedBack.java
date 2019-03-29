@@ -9,7 +9,7 @@ public class FeedBack {
 	private String userName;
 
 
-	private Long jobId;
+	private String jobId;
 
 	
 	private String message;
@@ -22,11 +22,11 @@ public class FeedBack {
 		this.id = id;
 	}
 
-	public Long getJobId() {
+	public String getJobId() {
 		return jobId;
 	}
 
-	public void setJobId(Long jobId) {
+	public void setJobId(String jobId) {
 		this.jobId = jobId;
 	}
 

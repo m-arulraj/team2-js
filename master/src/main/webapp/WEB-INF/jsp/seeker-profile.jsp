@@ -130,8 +130,8 @@ html, body, h1, h2, h3, h4, h5 {
 							Details</button>
 						<button class="w3-bar-item w3-button tablink"
 							onclick="oepnForm(event,'work')">Work Experience</button>
-						<button class="w3-bar-item w3-button tablink"
-							onclick="oepnForm(event,'account')">Account</button>
+						<!-- <button class="w3-bar-item w3-button tablink"
+							onclick="oepnForm(event,'account')">Account</button> -->
 					</div>
 
 					<div id="personal" class="w3-container  w3-border tab">
@@ -263,18 +263,10 @@ html, body, h1, h2, h3, h4, h5 {
 								</div>
 
 								<div class="w3-container w3-half">
-<<<<<<< HEAD
-=======
-
->>>>>>> cf259f7d83d9df9b2a63bf4bcb622994ae838004
 									<label>College Name</label>
 									<form:input class="w3-input w3-border w3-round-large"
 										name="college" path="college" type="text"
 										placeholder="${educationDetails.getCollege()}" />
-<<<<<<< HEAD
-=======
-
->>>>>>> cf259f7d83d9df9b2a63bf4bcb622994ae838004
 								</div>
 							</div>
 
@@ -330,11 +322,11 @@ html, body, h1, h2, h3, h4, h5 {
 								<p>
 							</div>
 
-							<div class="w3-row">
+							<%-- <div class="w3-row">
 								<label>Upload Resume</label>
 								<form:input type="file" name="resume" path="resume"
 									class="w3-input w3-border" />
-							</div>
+							</div> --%>
 
 
 							<p>
@@ -441,11 +433,11 @@ html, body, h1, h2, h3, h4, h5 {
 						</form:form>
 					</div>
 
-					<div id="account" class="w3-container w3-border tab"
+					<!-- <div id="account" class="w3-container w3-border tab"
 						style="display: none">
 						<h2>Account</h2>
 						<p>Tokyo is the capital of Japan.</p>
-					</div>
+					</div> -->
 					<br>
 				</div>
 

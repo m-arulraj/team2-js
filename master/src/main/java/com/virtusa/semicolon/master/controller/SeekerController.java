@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.virtusa.semicolon.master.domain.EducationDetails;
+import com.virtusa.semicolon.master.domain.FeedBack;
 import com.virtusa.semicolon.master.domain.PersonalDetails;
 import com.virtusa.semicolon.master.domain.PostedJobsList;
 import com.virtusa.semicolon.master.domain.WorkExperianceDetails;
@@ -80,12 +81,29 @@ public class SeekerController {
 
 	// seeker report
 	@GetMapping("/report")
-	public ModelAndView report(HttpSession session, Principal principal) {
+	public ModelAndView getreport(HttpSession session, Principal principal,@RequestParam("jobId") String jobId) {
 		String userName = principal.getName();
 		session.setAttribute("userName", userName);
 		ModelAndView model = new ModelAndView("seeker-report-something");
 		String uri = "/personaldetails?userName=" + userName;
 		PersonalDetails personalDetails = jobSeekerService.getPersonalDetails(uri);
+		model.addObject("personalDetails", personalDetails);
+		model.addObject("jobId", jobId);
+		return model;
+	}
+	
+	@PostMapping("/feedback")
+	public ModelAndView postreport(@ModelAttribute("feedBack") FeedBack feedBack,HttpSession session, Principal principal) {
+		String userName = principal.getName();
+		session.setAttribute("userName", userName);
+		ModelAndView model = new ModelAndView("seeker-home");
+		String uri = "/feedback?userName=" + session.getAttribute("userName");
+		jobSeekerService.postFeedBack(uri,feedBack);
+		String uri2 = "/personaldetails?userName=" + userName;
+		PersonalDetails personalDetails = jobSeekerService.getPersonalDetails(uri2);
+		String uri3 = "/alljobs";
+		List<PostedJobsList> requestList = jobSeekerService.getListOfAllJobs(uri3);
+		model.addObject("postedJobsList", requestList);
 		model.addObject("personalDetails", personalDetails);
 		return model;
 	}
