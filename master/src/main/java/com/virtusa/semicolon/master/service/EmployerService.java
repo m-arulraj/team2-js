@@ -42,11 +42,24 @@ RestTemplate template = new RestTemplate();
 		template.delete(EndPointConstant.EMPLOYER_URI+uri);
 	}
 	
+	
 	public CompanyDetails getCompanyDetails(String uri) {
+	
 		ResponseEntity<CompanyDetails> response = template.exchange(EndPointConstant.EMPLOYER_URI+uri,
 				HttpMethod.GET, null, new ParameterizedTypeReference<CompanyDetails>() {
 				});
 		return response.getBody();
 
+	}
+	public PostedJobsList getpostedjob(String uri) {
+	
+		ResponseEntity<PostedJobsList> response = template.exchange(EndPointConstant.EMPLOYER_URI+uri,
+				HttpMethod.GET, null, new ParameterizedTypeReference<PostedJobsList>() {
+				});
+		return response.getBody();
+
+	}
+	public void updateJobs(String uri,PostedJobsList postedJobsList){
+		template.put(EndPointConstant.EMPLOYER_URI+uri,  postedJobsList);
 	}
 }

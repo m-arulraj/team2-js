@@ -37,14 +37,14 @@ html, body, h1, h2, h3, h4, h5 {
 				class="fa fa-bars"></i></a> <a href="/employer"
 				class="w3-bar-item w3-button w3-hover-black w3-padding-large "><i
 				class="fa fa-home w3-margin-right"></i>Employer Home</a> 
-				<a href="employer/profile"
+				<a href="/employer/profile"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-green"
 				title="Update profile"><i class="fa fa-arrow-up"></i>&nbsp;&nbsp;Update
 				Profile</a> 
-				<a href="employer/jobs"
+				<a href="/employer/jobs"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-indigo"
 				title="Posted jobs"><i class='fab fa-black-tie' style='font-size: 20px'></i>
-				&nbsp;&nbsp;Posted Jobs</a> 
+				&nbsp;&nbsp;Post A Job</a> 
 				<!-- <a href="employer/report"
 				class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-blue"
 				title="Report"><i class="	fas fa-thumbs-down"></i>&nbsp;&nbsp;Report
@@ -135,14 +135,16 @@ html, body, h1, h2, h3, h4, h5 {
 									<span class="w3-large">${postedjobs.jobTitle} </span><br> <span>${postedjobs.jobTitle}</span>
 								</div>&nbsp
 								<div class="w3-bar-item w3-right ">
-									 <a href="deletejob?id=${postedjobs.id}" style="width: 90%"
+									 <a href="/employer/deletejob?id=${postedjobs.id}" style="width: 90%"
 							class="w3-bar-item w3-button w3-red  w3-margin ">Delete</a> <br> 
 								</div>
 								
 								&nbsp
 								<div class="w3-bar-item w3-right ">
-									 <a href="postjob" style="width: 90%"
-							class="w3-bar-item w3-button w3-green  w3-margin ">Edit</a> <br> 
+									 <a href="/employer/editjob?id=${postedjobs.id}" style="width: 90%"
+							class="w3-bar-item w3-button w3-green  w3-margin " >Edit</a> <br> 
+							
+							
 								</div>
 								
 								</li>

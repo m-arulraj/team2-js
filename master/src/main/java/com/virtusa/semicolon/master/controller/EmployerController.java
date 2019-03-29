@@ -46,6 +46,7 @@ EmployerService employerService;
 	
 	}
 	
+	
 	//seeker profile
 		@GetMapping("/profile")
 		public String updateProfile(HttpSession session, Model model) {
@@ -75,13 +76,11 @@ EmployerService employerService;
 		//seeker applied jobs
 		@GetMapping("/jobs")
 		public ModelAndView postedJobs(HttpSession session) {
-			String uri="/getpostedjobs?userName="+session.getAttribute("username");
 			 String uri1 = "/getcompanydetails?userName="+session.getAttribute("username");
 			    CompanyDetails companyDetails =employerService.getCompanyDetails(uri1);
 			ModelAndView model = new ModelAndView("employer-posted-jobs");
-			List<PostedJobsList> postedjobList = employerService.getListOfjobs(uri);
-			model.addObject("postedjobList", postedjobList);
 			model.addObject("companyDetails",companyDetails);
+			//model.addObject("postedjobs", new PostedJobsList());
 
 			return model;
 		}
@@ -96,11 +95,16 @@ EmployerService employerService;
 		public ModelAndView postJobs(@ModelAttribute("postedjobs") PostedJobsList postedjoblist,HttpSession session) {
 			String uri="/postjobs?userName="+session.getAttribute("username");
 			System.out.println("uri" +uri);
-			ModelAndView model = new ModelAndView("employer-posted-jobs");
 			HttpStatus http = employerService.postJobs(uri, postedjoblist);
+			ModelAndView model = new ModelAndView("employer-home");
+
 			if(http.equals(http.CREATED)){
-				model=postedJobs(session);
-			
+			 String uri1 = "/getcompanydetails?userName="+session.getAttribute("username");
+			    CompanyDetails companyDetails =employerService.getCompanyDetails(uri1);
+			 String uri2="/getpostedjobs?userName="+session.getAttribute("username");
+			    List<PostedJobsList> postedjobList = employerService.getListOfjobs(uri2);
+			model.addObject("postedjobList", postedjobList);
+			model.addObject("companyDetails",companyDetails);			
 			}
 			return model;
 		}
@@ -108,9 +112,40 @@ EmployerService employerService;
 		public ModelAndView deleteJobs(@RequestParam("id") Long id,HttpSession session) {
 			String uri="/removejob?id="+id;
 				employerService.deleteJob(uri);
-				ModelAndView model = new ModelAndView("employer-posted-jobs");
+				ModelAndView model = new ModelAndView("employer-home");
+				 String uri1 = "/getcompanydetails?userName="+session.getAttribute("username");
+				    CompanyDetails companyDetails =employerService.getCompanyDetails(uri1);
+				 String uri2="/getpostedjobs?userName="+session.getAttribute("username");
+				    List<PostedJobsList> postedjobList = employerService.getListOfjobs(uri2);
+				model.addObject("postedjobList", postedjobList);
+				model.addObject("companyDetails",companyDetails);	
 				
-				model=postedJobs(session);
 				return model;
+}
+		@GetMapping("/editjob")
+		public ModelAndView updatejob(@RequestParam("id") Long id,HttpSession session) {
+			 String uri = "/getcompanydetails?userName="+session.getAttribute("username");
+			    CompanyDetails companyDetails =employerService.getCompanyDetails(uri);
+			    String uri1= "/getjob?id="+id;
+			    PostedJobsList postedJobList = employerService.getpostedjob(uri1);
+			    ModelAndView model = new ModelAndView("job-edit");
+			    model.addObject("companyDetails", companyDetails);
+			    model.addObject("postedJobList", postedJobList);			    
+			return model;
+		}
+		@PostMapping("/updatedjobs")
+		public ModelAndView updatedjobs(@ModelAttribute("postedjobs") PostedJobsList postedjoblist,HttpSession session) {
+			String uri="/updatejob?id="+postedjoblist.getId();
+			System.out.println("uri" +uri);
+			ModelAndView model = new ModelAndView("employer-home");
+			 String uri1 = "/getcompanydetails?userName="+session.getAttribute("username");
+			    CompanyDetails companyDetails =employerService.getCompanyDetails(uri1);
+			 String uri2="/getpostedjobs?userName="+session.getAttribute("username");
+			    List<PostedJobsList> postedjobList = employerService.getListOfjobs(uri2);
+			model.addObject("postedjobList", postedjobList);
+			model.addObject("companyDetails",companyDetails);	
+			 employerService.updateJobs(uri, postedjoblist);
+			
+			return model;
 }
 }

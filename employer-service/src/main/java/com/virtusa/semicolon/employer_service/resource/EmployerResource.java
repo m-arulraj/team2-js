@@ -65,5 +65,16 @@ public class EmployerResource {
 	public CompanyDetails getCompanyDetails(@RequestParam("userName") String userName){
 		return companyDetailsService.getComapnyDetails(userName);
 	}
+	@RequestMapping(value = "/updatejob", method = RequestMethod.PUT)
+	public PostedJobsList updatejobs(@RequestParam("id")Long id,
+			@RequestBody PostedJobsList jobsList) throws URISyntaxException {
+		return getPostedJobsService.updatePostedJobs(id, jobsList);
+		
+		
+	}
+	@RequestMapping(value = "/getjob", method = RequestMethod.GET)
+	public PostedJobsList getPostedJob(@RequestParam("id") Long id){
+		return getPostedJobsService.getJob(id);
+	}
 
 }

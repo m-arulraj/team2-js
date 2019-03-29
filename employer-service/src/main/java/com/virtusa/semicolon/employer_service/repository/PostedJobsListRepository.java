@@ -19,4 +19,7 @@ public interface PostedJobsListRepository extends JpaRepository<PostedJobsList, 
 
 	@Query("select p from PostedJobsList p where p.postedBy=:userName")
 	List<PostedJobsList> findByUserName(@Param("userName")String userName);
+	
+	@Query("select p from PostedJobsList p where p.id=:id")
+	PostedJobsList findjobsById( @Param("id") Long id);
 }

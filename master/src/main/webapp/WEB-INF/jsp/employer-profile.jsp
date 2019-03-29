@@ -127,27 +127,27 @@ html, body, h1, h2, h3, h4, h5 {
 								<div class="w3-row ">
 								
 									<label>CompanyName:</label> <form:input
-										class="w3-input w3-border w3-round-large" name="companyName"
+										class="w3-input w3-border w3-round-large" name="companyName" placeholder="${companyDetails.companyName}"
 										type="text"  path="companyName"/>
 								</div>
 								<br>
 								<div class=" w3-row">
 									<label>Address:</label> <form:input
-										class="w3-input w3-border w3-round-large" name="address"
+										class="w3-input w3-border w3-round-large" name="address" placeholder="${companyDetails.address}"
 										type="text"  path="address"/>
 								</div>
 							<br>
 								<div class="w3-row ">
 								
 									<label>EstablishedOn:</label> <form:input
-										class="w3-input w3-border w3-round-large" name="establishedOn"
+										class="w3-input w3-border w3-round-large" name="establishedOn" placeholder="${companyDetails.establishedOn}"
 										type="text"  path="establishedOn"/>
 								</div>
 								<br>
 								
 								<div class=" w3-row">
 									<label>contactNumber:</label> <form:input
-										class="w3-input w3-border w3-round-large" name="contactNumber"
+										class="w3-input w3-border w3-round-large" name="contactNumber" placeholder="${companyDetails.contactNumber}"
 										type="text"  path="contactNumber"/>
 								</div>
 								
